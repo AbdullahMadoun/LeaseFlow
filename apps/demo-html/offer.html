@@ -1,0 +1,76 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamFlow | Risk & Offer</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="site">
+    <nav class="topnav">
+      <a href="./index.html">Main</a>
+      <a href="./onboarding.html">Onboarding</a>
+      <a class="active" href="./offer.html">Risk & Offer</a>
+      <a href="./payout.html">Vendor Payout</a>
+      <a href="./repayment.html">Repayment</a>
+      <a href="./investors.html">Investors</a>
+      <a href="./dashboard.html">Dashboard</a>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow">Step 3-4</p>
+      <h1>Financial Connection, AI Risk, Instant Offer</h1>
+      <p>Includes your partial acceptance feature with owner top-up.</p>
+    </header>
+
+    <section class="card">
+      <h2>Financial Connection</h2>
+      <div class="grid three">
+        <label>Connection
+          <select id="connectionType">
+            <option value="pos">POS (Foodics)</option>
+            <option value="bank">Open Banking</option>
+          </select>
+        </label>
+        <label>3-Month Avg Sales (SAR)
+          <input id="avgSales" type="number" value="45000" min="1000" />
+        </label>
+        <label>Volatility (0-100)
+          <input id="volatility" type="number" value="35" min="0" max="100" />
+        </label>
+      </div>
+      <button id="score">Connect & Score</button>
+      <div id="scoreResult" class="result hidden"></div>
+    </section>
+
+    <section class="card">
+      <h2>Instant Offer + Partial Acceptance</h2>
+      <div class="grid two">
+        <label>Requested Amount (SAR)
+          <input id="requested" type="number" value="20000" min="1000" />
+        </label>
+        <label>Invoice Amount (SAR)
+          <input id="invoiceAmount" type="number" value="18000" min="1000" />
+        </label>
+      </div>
+      <button id="generate">Generate Offer</button>
+      <div id="offerResult" class="result hidden"></div>
+      <div class="grid two">
+        <label>Owner Pays Difference Now (SAR)
+          <input id="topup" type="number" value="0" min="0" />
+        </label>
+        <button id="accept">Accept Offer</button>
+      </div>
+      <p id="acceptStatus" class="result hidden"></p>
+    </section>
+
+    <div class="row">
+      <a href="./payout.html"><button>Continue To Vendor Payout</button></a>
+    </div>
+  </main>
+
+  <script src="./shared.js"></script>
+  <script src="./offer.js"></script>
+</body>
+</html>

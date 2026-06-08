@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamFlow | Investors</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="site">
+    <nav class="topnav">
+      <a href="./index.html">Main</a>
+      <a href="./onboarding.html">Onboarding</a>
+      <a href="./offer.html">Risk & Offer</a>
+      <a href="./payout.html">Vendor Payout</a>
+      <a href="./repayment.html">Repayment</a>
+      <a class="active" href="./investors.html">Investors</a>
+      <a href="./dashboard.html">Dashboard</a>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow">Step 7</p>
+      <h1>Investor Fund Pool (Demo)</h1>
+      <p>Simulate investor deposits used to scale financing capacity.</p>
+    </header>
+
+    <section class="card">
+      <h2>Add Investor Capital</h2>
+      <div class="grid two">
+        <label>Deposit Amount (SAR)
+          <input id="amount" type="number" value="50000" min="1000" />
+        </label>
+        <label>Simulated Annual Return (%)
+          <input id="rate" type="number" value="8" step="0.1" min="0" />
+        </label>
+      </div>
+      <button id="add">Add To Fund Pool</button>
+      <div id="result" class="result hidden"></div>
+    </section>
+
+    <div class="row">
+      <a href="./dashboard.html"><button>Open Live Dashboard</button></a>
+    </div>
+  </main>
+
+  <script src="./shared.js"></script>
+  <script src="./investors.js"></script>
+</body>
+</html>

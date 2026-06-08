@@ -1,0 +1,71 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamFlow | Main</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="site">
+    <nav class="topnav">
+      <a class="active" href="./index.html">Main</a>
+      <a href="./onboarding.html">Onboarding</a>
+      <a href="./offer.html">Risk & Offer</a>
+      <a href="./payout.html">Vendor Payout</a>
+      <a href="./repayment.html">Repayment</a>
+      <a href="./investors.html">Investors</a>
+      <a href="./dashboard.html">Dashboard</a>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow">Hackathon Product</p>
+      <h1>StreamFlow</h1>
+      <p>AI-powered invoice financing for Saudi micro-SMEs with real-time repayment streaming and investor-backed demo liquidity.</p>
+      <div class="row">
+        <a href="./onboarding.html"><button>Start Demo Flow</button></a>
+        <button id="resetDemo" class="ghost">Reset Demo State</button>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>What This Website Demonstrates</h2>
+      <div class="grid two">
+        <article>
+          <h3>Core Product Flow</h3>
+          <ul class="list">
+            <li>60-second onboarding with OTP</li>
+            <li>AI extraction from CR and invoice</li>
+            <li>Financial connection and risk score</li>
+            <li>Instant financing offer</li>
+            <li>Supplier payout simulation</li>
+            <li>Repayment stream simulation</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Added Flexibility Features</h3>
+          <ul class="list">
+            <li>Partial acceptance counter-offer</li>
+            <li>Hybrid repayments (monthly + sales stream)</li>
+            <li>Investor fund pool (demo simulation)</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Current Snapshot</h2>
+      <div class="kpis">
+        <article class="kpi"><span class="v" id="kApproved">0</span><small>Approved SAR</small></article>
+        <article class="kpi"><span class="v" id="kOutstanding">0</span><small>Outstanding SAR</small></article>
+        <article class="kpi"><span class="v" id="kDaily">0</span><small>Daily Stream SAR</small></article>
+        <article class="kpi"><span class="v" id="kMonthly">0</span><small>Monthly Plan SAR</small></article>
+        <article class="kpi"><span class="v" id="kPool">0</span><small>Investor Pool SAR</small></article>
+      </div>
+    </section>
+  </main>
+
+  <script src="./shared.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+{
+  "id": "13535ea2-47a2-46ba-90d7-b78377e73cf5",
+  "merchant_id": "6dae66f7-212a-4d8a-a903-fe14f4f94c14",
+  "amount_requested": 50000,
+  "item_description": "La Marzocco GB5 espresso machine",
+  "invoice_url": null,
+  "status": "approved",
+  "synthesis_status": "done",
+  "registered_dimensions": [
+    "financial_docs",
+    "industry",
+    "pos",
+    "sentiment",
+    "simah"
+  ],
+  "analyst_jobs": {
+    "single_business_fnb_analyst": {
+      "error": "ConnectError: [Errno 8] nodename nor servname provided, or not known",
+      "phase": "submit",
+      "job_id": null,
+      "status": "error",
+      "job_key": "single_business_fnb_analyst",
+      "eligible": true,
+      "file_names": [
+        "merchant_profile.csv",
+        "pos_summary.csv",
+        "bank_monthly.csv",
+        "bank_summary.csv",
+        "financial_statement.csv",
+        "invoice_lines.csv"
+      ],
+      "updated_at": "2026-04-16T14:20:07.749117+00:00",
+      "report_ready": false,
+      "submitted_at": null
+    }
+  },
+  "affordability": null,
+  "decision_payload": {
+    "generated_at": "2026-04-16T14:21:23.664856+00:00",
+    "llm_response": {
+      "decision": "approve",
+      "reasoning": "The deterministic proposal scores 76.3 overall with a comfortable DSCR of 6.61, well above risk thresholds, and SIMAH credit (787) shows zero defaults with excellent payment history. Financial docs confirm strong health with 27.5% net margin and current ratio 1.9, supporting the SAR 50,000 lease-to-own on a high-value La Marzocco GB5. The sentiment dimension errored, reducing confidence slightly, but all other dimensions are positive and the conservative market appetite is already factored into the proposal bounds.",
+      "confidence": 0.85,
+      "risk_flags": [
+        "sentiment_dimension_errored",
+        "conservative_market_appetite"
+      ],
+      "risk_level": "low",
+      "dimension_scores": {
+        "pos": 70.0,
+        "credit": 85.0,
+        "overall": 76.3,
+        "industry": 68.0,
+        "financial": 80.0,
+        "sentiment": null
+      },
+      "recommended_amount": 50000.0
+    },
+    "final_decision": {
+      "status": "approved",
+      "approved_amount": 50000.0,
+      "override_applied": "agreement"
+    },
+    "schema_version": "v1",
+    "dimension_scores": {
+      "pos": 70.0,
+      "simah": 85.0,
+      "industry": 68.0,
+      "financial_docs": 80.0
+    },
+    "risk_snapshot_id": "095243a2-b53b-414b-ab81-21a36833073a",
+    "hard_floors_check": {
+      "passed": true,
+      "violations": []
+    },
+    "synthesis_version": "expert@v1",
+    "registered_dimensions": [
+      "financial_docs",
+      "industry",
+      "pos",
+      "sentiment",
+      "simah"
+    ],
+    "deterministic_proposal": {
+      "per_dim": {
+        "pos": 70.0,
+        "simah": 85.0,
+        "industry": 68.0,
+        "financial_docs": 80.0
+      },
+      "decision": "approve",
+      "risk_level": "low",
+      "rules_fired": [
+        "overall_score>=70",
+        "dscr_comfortable"
+      ],
+      "amount_bounds": {
+        "max": 50000.0,
+        "min": 40000.0
+      },
+      "overall_score": 76.3
+    }
+  },
+  "approved_amount": 50000.0,
+  "profit_rate": 0.15,
+  "repayment_months": 12,
+  "monthly_payment": 4791.67,
+  "amount_paid": 0,
+  "created_at": "2026-04-16T14:19:14.313802+00:00",
+  "updated_at": "2026-04-16T14:21:34.700394+00:00",
+  "analysis_started_at": "2026-04-16T14:19:21.547564+00:00",
+  "analysis_completed_at": "2026-04-16T14:21:23.665007+00:00",
+  "repayment_frequency": "monthly",
+  "stream_product_id": "fd97f342-9b34-47a4-8787-c67e8a5c1262",
+  "stream_subscription_id": "e648e166-b1c6-4039-807c-dff75c8b8617",
+  "stream_subscription_status": "INACTIVE"
+}

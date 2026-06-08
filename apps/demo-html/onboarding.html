@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamFlow | Onboarding</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="site">
+    <nav class="topnav">
+      <a href="./index.html">Main</a>
+      <a class="active" href="./onboarding.html">Onboarding</a>
+      <a href="./offer.html">Risk & Offer</a>
+      <a href="./payout.html">Vendor Payout</a>
+      <a href="./repayment.html">Repayment</a>
+      <a href="./investors.html">Investors</a>
+      <a href="./dashboard.html">Dashboard</a>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow">Step 1-2</p>
+      <h1>Onboarding + AI Document Extraction</h1>
+      <p>Simulate OTP verification and OCR extraction from CR/invoice docs.</p>
+    </header>
+
+    <section class="card">
+      <h2>OTP Verification</h2>
+      <div class="grid two">
+        <label>Phone Number
+          <input id="phone" value="+966500000000" />
+        </label>
+        <label>OTP
+          <input id="otp" value="1234" />
+        </label>
+      </div>
+      <button id="verifyOtp">Verify OTP</button>
+      <p id="otpStatus" class="result hidden"></p>
+    </section>
+
+    <section class="card">
+      <h2>AI OCR Parsing</h2>
+      <p class="hint">Upload is optional in demo mode. Parsing output is simulated.</p>
+      <div class="grid two">
+        <label>Commercial Registration
+          <input type="file" id="cr" />
+        </label>
+        <label>Supplier Invoice
+          <input type="file" id="invoice" />
+        </label>
+      </div>
+      <button id="extract">Run AI Extraction</button>
+      <div id="ocrResult" class="result hidden"></div>
+    </section>
+
+    <div class="row">
+      <a href="./offer.html"><button>Continue To Risk & Offer</button></a>
+    </div>
+  </main>
+
+  <script src="./shared.js"></script>
+  <script src="./onboarding.js"></script>
+</body>
+</html>

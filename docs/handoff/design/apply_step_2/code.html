@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LeaseFlow - New Loan Wizard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f4f4f2",
+                    "on-surface-variant": "#4e4632",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#f3c000",
+                    "tertiary": "#525f74",
+                    "primary": "#755b00",
+                    "on-secondary-container": "#fffbff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#755b00",
+                    "on-primary-container": "#6d5500",
+                    "surface-container-high": "#e8e8e6",
+                    "surface-variant": "#e2e3e1",
+                    "on-tertiary-fixed": "#0e1c2e",
+                    "on-primary-fixed-variant": "#584400",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f9f9f7",
+                    "surface": "#f9f9f7",
+                    "secondary-fixed": "#e3dfff",
+                    "outline": "#80765f",
+                    "tertiary-container": "#c2cfe8",
+                    "surface-dim": "#dadad8",
+                    "inverse-primary": "#f3c000",
+                    "background": "#f9f9f7",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#695bfd",
+                    "on-tertiary-container": "#4b586d",
+                    "tertiary-fixed": "#d6e3fd",
+                    "secondary-fixed-dim": "#c5c0ff",
+                    "on-primary-fixed": "#241a00",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1a1c1b",
+                    "inverse-surface": "#2f3130",
+                    "on-error": "#ffffff",
+                    "secondary": "#503ee3",
+                    "on-secondary-fixed-variant": "#391dce",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#d2c5ab",
+                    "inverse-on-surface": "#f1f1ef",
+                    "on-tertiary-fixed-variant": "#3b475c",
+                    "surface-container": "#eeeeec",
+                    "on-surface": "#1a1c1b",
+                    "on-secondary-fixed": "#130067",
+                    "surface-container-highest": "#e2e3e1",
+                    "primary-container": "#fdc800",
+                    "primary-fixed": "#ffe08f",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#bac7e0"
+            },
+            "borderRadius": {
+                    "none": "0px",
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter", "sans-serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "mono": ["JetBrains Mono", "monospace"],
+                    "label": ["Space Grotesk", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f7; }
+        .mono-text { font-family: 'JetBrains Mono', monospace; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .scanline-texture {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            background-size: 100% 2px, 3px 100%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#FBFBF9] border-b-[3px] border-black flex justify-between items-center w-full px-6 h-16 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-black uppercase">LeaseFlow</span>
+<nav class="hidden md:flex gap-6 items-center h-full">
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all duration-100 px-2 py-1" href="#">Dashboard</a>
+<a class="text-black border-b-[3px] border-[#FDC800] pb-1 font-bold" href="#">Leases</a>
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all duration-100 px-2 py-1" href="#">Underwriting</a>
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all duration-100 px-2 py-1" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-600 p-2 border-[3px] border-transparent hover:border-black cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-gray-600 p-2 border-[3px] border-transparent hover:border-black cursor-pointer">settings</span>
+</div>
+<button class="bg-[#FDC800] text-black border-[3px] border-black px-4 py-1.5 font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                New Application
+            </button>
+</div>
+</header>
+<main class="pt-24 pb-12 px-6 max-w-6xl mx-auto flex flex-col md:flex-row gap-12">
+<!-- Left Side: Navigation/Status -->
+<aside class="w-full md:w-64 shrink-0">
+<div class="bg-surface border-[3px] border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+<div class="mono-text text-xs font-bold uppercase mb-4 text-on-surface-variant">Step Progress</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-black text-white flex items-center justify-center font-bold">01</div>
+<span class="font-bold text-gray-400">Basic Info</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-[#FDC800] border-[3px] border-black flex items-center justify-center font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">02</div>
+<span class="font-bold text-black">Documents</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container-high border-[3px] border-black flex items-center justify-center font-bold text-gray-400">03</div>
+<span class="font-bold text-gray-400">Review</span>
+</div>
+</div>
+</div>
+<div class="mt-8 bg-surface-container-low border-[3px] border-black p-4 scanline-texture">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="mono-text text-xs font-black uppercase">Live Feed</span>
+</div>
+<div class="mono-text text-[10px] leading-tight text-on-surface-variant space-y-1">
+<p>&gt; AI_AGENT: SCANNING UPLOADS...</p>
+<p>&gt; BANK_STMT.PDF: DETECTED</p>
+<p>&gt; INVOICE_MARZ.PDF: DETECTED</p>
+<p>&gt; STATUS: AWAITING_FILES</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<div class="flex-1">
+<div class="mb-8">
+<p class="mono-text text-sm font-bold text-primary tracking-widest mb-2 uppercase">STEP 2 OF 3 · Upload your documents</p>
+<h1 class="text-5xl font-black tracking-tighter uppercase leading-none border-l-[8px] border-[#FDC800] pl-6 py-2">Verification Desk</h1>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- File Selection Column -->
+<div class="lg:col-span-7 space-y-10">
+<!-- Required Section -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<h2 class="mono-text font-black text-lg shrink-0 uppercase">NEED FROM YOU</h2>
+<div class="h-[3px] bg-black w-full"></div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<label class="group cursor-pointer flex items-center gap-4 bg-white border-[3px] border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
+<input checked="" class="w-8 h-8 border-[3px] border-black rounded-none text-[#FDC800] focus:ring-0" type="checkbox"/>
+<span class="font-bold text-lg uppercase tracking-tight">Invoice</span>
+</label>
+<label class="group cursor-pointer flex items-center gap-4 bg-white border-[3px] border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
+<input checked="" class="w-8 h-8 border-[3px] border-black rounded-none text-[#FDC800] focus:ring-0" type="checkbox"/>
+<span class="font-bold text-lg uppercase tracking-tight">Bank statement</span>
+</label>
+</div>
+</section>
+<!-- Optional Section -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<h2 class="mono-text font-black text-lg shrink-0 uppercase">OPTIONAL</h2>
+<div class="h-[3px] bg-black w-full"></div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<label class="group cursor-pointer flex items-center gap-4 bg-surface-container border-[3px] border-black p-4 transition-all opacity-80 hover:opacity-100">
+<input class="w-8 h-8 border-[3px] border-black rounded-none text-[#FDC800] focus:ring-0" type="checkbox"/>
+<span class="font-bold uppercase tracking-tight">Financial statement</span>
+</label>
+<label class="group cursor-pointer flex items-center gap-4 bg-surface-container border-[3px] border-black p-4 transition-all opacity-80 hover:opacity-100">
+<input class="w-8 h-8 border-[3px] border-black rounded-none text-[#FDC800] focus:ring-0" type="checkbox"/>
+<span class="font-bold uppercase tracking-tight">POS export</span>
+</label>
+</div>
+</section>
+<!-- DropZone -->
+<div class="border-[3px] border-dashed border-black bg-surface-container-lowest p-12 flex flex-col items-center justify-center gap-4 group cursor-pointer hover:bg-[#FDC800]/5 transition-colors">
+<span class="material-symbols-outlined text-5xl" data-icon="cloud_upload">cloud_upload</span>
+<div class="text-center">
+<p class="font-black text-xl uppercase tracking-tighter">Click to choose files</p>
+<p class="mono-text text-xs text-on-surface-variant mt-1">SUPPORTED: PDF, PNG, JPG (MAX 25MB)</p>
+</div>
+</div>
+<!-- Navigation Actions -->
+<div class="flex flex-col sm:flex-row items-center gap-4 pt-6">
+<button class="w-full sm:w-auto px-10 py-4 bg-[#FDC800] text-black border-[3px] border-black font-black text-xl uppercase shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all flex items-center justify-center gap-3">
+                            Continue <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full sm:w-auto px-10 py-4 bg-transparent border-[3px] border-black font-bold text-xl uppercase hover:bg-black hover:text-white transition-all">
+                            Back
+                        </button>
+</div>
+</div>
+<!-- Uploaded Files Column -->
+<div class="lg:col-span-5">
+<div class="sticky top-24">
+<div class="flex items-center gap-4 mb-6">
+<h2 class="mono-text font-black text-lg shrink-0 uppercase">UPLOADED</h2>
+<div class="h-[3px] bg-black w-full"></div>
+</div>
+<div class="space-y-4">
+<!-- Document Card 1 -->
+<div class="bg-white border-[3px] border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+<div class="flex items-start justify-between relative z-10">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-secondary flex items-center justify-center border-[3px] border-black text-white shrink-0">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<p class="font-black text-sm uppercase leading-tight truncate max-w-[180px]">bank_statement.pdf</p>
+<p class="mono-text text-[10px] text-on-surface-variant mt-1">Bank statement · 95% sure</p>
+<div class="mt-2 flex gap-1">
+<div class="h-2 w-16 bg-[#FDC800] border border-black"></div>
+<div class="h-2 w-16 bg-[#FDC800] border border-black"></div>
+<div class="h-2 w-16 bg-[#FDC800] border border-black"></div>
+<div class="h-2 w-4 bg-gray-200 border border-black"></div>
+</div>
+</div>
+</div>
+<button class="text-black hover:text-error">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<!-- Background Texture -->
+<div class="absolute inset-0 scanline-texture pointer-events-none opacity-20"></div>
+</div>
+<!-- Document Card 2 -->
+<div class="bg-white border-[3px] border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+<div class="flex items-start justify-between relative z-10">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-secondary flex items-center justify-center border-[3px] border-black text-white shrink-0">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+</div>
+<div>
+<p class="font-black text-sm uppercase leading-tight truncate max-w-[180px]">invoice_marzocco.pdf</p>
+<p class="mono-text text-[10px] text-on-surface-variant mt-1">Invoice · 97% sure</p>
+<div class="mt-2 flex gap-1">
+<div class="h-2 w-16 bg-[#FDC800] border border-black"></div>
+<div class="h-2 w-16 bg-[#FDC800] border border-black"></div>
+<div class="h-2 w-16 bg-[#FDC800] border border-black"></div>
+<div class="h-2 w-8 bg-[#FDC800] border border-black"></div>
+</div>
+</div>
+</div>
+<button class="text-black hover:text-error">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="absolute inset-0 scanline-texture pointer-events-none opacity-20"></div>
+</div>
+<!-- System Status Block -->
+<div class="bg-black text-[#FDC800] p-4 mono-text text-xs">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 bg-[#FDC800] animate-pulse"></span>
+<p class="font-black">OCR ENGINE ACTIVE</p>
+</div>
+<p class="text-white/60">Verifying document integrity against architectural ledger protocols...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- SideNavBar - Only shown on large screens as a floating element or toggle-ready -->
+<div class="hidden lg:flex fixed left-0 top-16 bottom-0 w-16 bg-[#FBFBF9] border-r-[3px] border-black flex-col items-center py-6 gap-8 z-40">
+<div class="material-symbols-outlined text-black p-2 border-[3px] border-black bg-[#FDC800] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] cursor-pointer" data-icon="dashboard">dashboard</div>
+<div class="material-symbols-outlined text-black p-2 border-[3px] border-transparent hover:border-black cursor-pointer" data-icon="terminal">terminal</div>
+<div class="material-symbols-outlined text-black p-2 border-[3px] border-transparent hover:border-black cursor-pointer" data-icon="account_balance">account_balance</div>
+<div class="material-symbols-outlined text-black p-2 border-[3px] border-transparent hover:border-black cursor-pointer" data-icon="description">description</div>
+<div class="mt-auto material-symbols-outlined text-black p-2 border-[3px] border-transparent hover:border-black cursor-pointer" data-icon="help">help</div>
+</div>
+</body></html>

@@ -1,0 +1,2 @@
+merchant_id,archetype,scenario,base_daily_orders,base_ticket,digital_propensity,wallet_bias,delivery_share_target,quality_score,capacity_index,rent_monthly,payroll_monthly,utilities_monthly,cogs_ratio,opening_balance,loan_payment
+M0001,neighborhood_cafe,margin_squeezed_merchant,187.64,37.28,0.9216,0.2442,0.2876,0.9283,0.9337,22297.71,42011.27,5587.71,0.3693,140663.3,0.0

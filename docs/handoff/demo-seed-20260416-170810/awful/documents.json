@@ -1,0 +1,257 @@
+[
+  {
+    "id": "7498df31-b647-49bb-91dd-b6cc6169fbca",
+    "loan_id": "db71e453-d67b-4baf-9544-1fc0f74d883b",
+    "doc_type": "bank_statement",
+    "storage_path": "9cb4e1e8-049b-46e5-a624-ccc61a188d59/db71e453-d67b-4baf-9544-1fc0f74d883b/bank_statement/3ba188aed1a6.pdf",
+    "content_hash": null,
+    "extractor_version": null,
+    "analysis_status": "done",
+    "analysis_report": {
+      "meta": {
+        "confidence": 1.0,
+        "schema_version": "v1",
+        "source_filename": "3ba188aed1a6.pdf",
+        "extraction_notes": [
+          "All aggregate values and trend/analysis verified against computed values from monthly data",
+          "Closing balance SAR 77,374.09 noted in document but not mapped to output schema",
+          "Volatility computed: std(net) / |mean(net)| = 592.54 / 622.26 = 0.952",
+          "Trend analysis: First half avg (584.81+1672.44+307.09)/3=854.11 vs Second half avg (1068.62-105.64+206.23)/3=389.74, difference is -54.3% indicating downward trend"
+        ],
+        "extractor_version": "v1",
+        "low_confidence_fields": []
+      },
+      "flags": [],
+      "monthly": [
+        {
+          "month": "2025-10",
+          "net_sar": 584.81,
+          "txn_count": 319,
+          "revenue_sar": 21138.18,
+          "expenses_sar": 20553.37,
+          "source_pages": [
+            1
+          ]
+        },
+        {
+          "month": "2025-11",
+          "net_sar": 1672.44,
+          "txn_count": 245,
+          "revenue_sar": 24798.11,
+          "expenses_sar": 23125.67,
+          "source_pages": [
+            2
+          ]
+        },
+        {
+          "month": "2025-12",
+          "net_sar": 307.09,
+          "txn_count": 200,
+          "revenue_sar": 12901.81,
+          "expenses_sar": 12594.72,
+          "source_pages": [
+            3
+          ]
+        },
+        {
+          "month": "2026-01",
+          "net_sar": 1068.62,
+          "txn_count": 350,
+          "revenue_sar": 31794.03,
+          "expenses_sar": 30725.41,
+          "source_pages": [
+            4
+          ]
+        },
+        {
+          "month": "2026-02",
+          "net_sar": -105.64,
+          "txn_count": 193,
+          "revenue_sar": 16056.65,
+          "expenses_sar": 16162.29,
+          "source_pages": [
+            5
+          ]
+        },
+        {
+          "month": "2026-03",
+          "net_sar": 206.23,
+          "txn_count": 191,
+          "revenue_sar": 24948.32,
+          "expenses_sar": 24742.09,
+          "source_pages": [
+            6
+          ]
+        }
+      ],
+      "currency": "SAR",
+      "doc_type": "bank_statement",
+      "bank_name": "Alinma Bank",
+      "aggregates": {
+        "trend": "down",
+        "volatility": 0.952,
+        "bounced_count": 4,
+        "overdraft_events": 2,
+        "monthly_net_avg_sar": 622.26,
+        "monthly_revenue_avg_sar": 21939.52,
+        "monthly_expenses_avg_sar": 21317.26
+      },
+      "iban_last4": "5125",
+      "period_end": "2026-03",
+      "period_start": "2025-10",
+      "account_holder": "Awful Coffee Corner"
+    },
+    "created_at": "2026-04-16T14:21:36.844102+00:00",
+    "extractor_schema_version": "v1"
+  },
+  {
+    "id": "c4c5b6e1-4a43-43b1-8506-844e07f7bd49",
+    "loan_id": "db71e453-d67b-4baf-9544-1fc0f74d883b",
+    "doc_type": "pos_data",
+    "storage_path": "9cb4e1e8-049b-46e5-a624-ccc61a188d59/db71e453-d67b-4baf-9544-1fc0f74d883b/pos_data/f9a4ef01aa0d.csv",
+    "content_hash": null,
+    "extractor_version": null,
+    "analysis_status": "done",
+    "analysis_report": {
+      "meta": {
+        "confidence": 0.0,
+        "schema_version": "v1",
+        "source_filename": "f9a4ef01aa0d.csv",
+        "extraction_notes": [
+          "extractor_failed: 1 validation error for POSReport\ndaily\n  Input should be a valid list [type=list_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.10/v/list_"
+        ],
+        "extractor_version": "v1",
+        "low_confidence_fields": [
+          "all"
+        ]
+      },
+      "daily": [],
+      "flags": [],
+      "currency": "SAR",
+      "doc_type": "pos_data",
+      "aggregates": {
+        "trend_90d": null,
+        "void_rate": null,
+        "peak_hours": [],
+        "refund_rate": null,
+        "seasonality": null,
+        "cash_card_mix": null,
+        "avg_ticket_sar": null,
+        "daily_revenue_avg_sar": null,
+        "monthly_revenue_est_sar": null
+      },
+      "period_end": null,
+      "period_start": null,
+      "merchant_hint": null
+    },
+    "created_at": "2026-04-16T14:21:39.763733+00:00",
+    "extractor_schema_version": "v1"
+  },
+  {
+    "id": "16b1a927-993b-43f7-ba15-9a15a6050590",
+    "loan_id": "db71e453-d67b-4baf-9544-1fc0f74d883b",
+    "doc_type": "financial_statement",
+    "storage_path": "9cb4e1e8-049b-46e5-a624-ccc61a188d59/db71e453-d67b-4baf-9544-1fc0f74d883b/financial_statement/ef7c9d9c0d21.pdf",
+    "content_hash": null,
+    "extractor_version": null,
+    "analysis_status": "done",
+    "analysis_report": {
+      "meta": {
+        "confidence": 0.95,
+        "schema_version": "v1",
+        "source_filename": "ef7c9d9c0d21.pdf",
+        "extraction_notes": [],
+        "extractor_version": "v1",
+        "low_confidence_fields": []
+      },
+      "flags": [],
+      "ratios": {
+        "net_margin": -0.1083,
+        "gross_margin": 0.3591,
+        "current_ratio": 1.9779,
+        "debt_to_equity": 2.1001
+      },
+      "currency": "SAR",
+      "doc_type": "financial_statement",
+      "period_end": "2025-12-31",
+      "company_name": "Awful Coffee Corner",
+      "period_start": "2025-01-01",
+      "balance_sheet": {
+        "equity_sar": 38387.42,
+        "source_pages": [
+          1
+        ],
+        "total_assets_sar": 119001.01,
+        "current_assets_sar": 56507.36,
+        "total_liabilities_sar": 80613.58,
+        "current_liabilities_sar": 28571.88
+      },
+      "income_statement": {
+        "cogs_sar": 171181.65,
+        "opex_sar": 124887.45,
+        "revenue_sar": 267126.12,
+        "source_pages": [
+          2
+        ],
+        "net_profit_sar": -28942.98
+      }
+    },
+    "created_at": "2026-04-16T14:21:38.052745+00:00",
+    "extractor_schema_version": "v1"
+  },
+  {
+    "id": "190060a4-9149-484f-9df8-86f3bf8a4ce5",
+    "loan_id": "db71e453-d67b-4baf-9544-1fc0f74d883b",
+    "doc_type": "invoice",
+    "storage_path": "9cb4e1e8-049b-46e5-a624-ccc61a188d59/db71e453-d67b-4baf-9544-1fc0f74d883b/invoice/f7f2a0a97cfc.pdf",
+    "content_hash": null,
+    "extractor_version": null,
+    "analysis_status": "done",
+    "analysis_report": {
+      "meta": {
+        "confidence": 0.95,
+        "schema_version": "v1",
+        "source_filename": "f7f2a0a97cfc.pdf",
+        "extraction_notes": [
+          "Invoice date is in the future (2026-03-28) relative to current date. Invoice totals verify correctly: subtotal 63,371.37 + VAT 9,505.71 = total 72,877.08.",
+          "Invoice total 72,877.08 differs from requested amount 80,000.00 by 8.9%, which is within 10% threshold for matches_requested_amount."
+        ],
+        "extractor_version": "v1",
+        "low_confidence_fields": [
+          "issue_date"
+        ]
+      },
+      "flags": [],
+      "vat_sar": 9505.71,
+      "currency": "SAR",
+      "doc_type": "invoice",
+      "total_sar": 72877.08,
+      "issue_date": "2026-03-28",
+      "line_items": [
+        {
+          "quantity": 1.0,
+          "total_sar": 62327.89,
+          "description": "Industrial coffee roaster 20kg",
+          "unit_price_sar": 62327.89
+        },
+        {
+          "quantity": 1.0,
+          "total_sar": 1043.48,
+          "description": "Delivery",
+          "unit_price_sar": 1043.48
+        }
+      ],
+      "vendor_vat": "310987654300003",
+      "fraud_flags": [
+        "date_in_future"
+      ],
+      "vendor_name": "Gulf Commercial Kitchen",
+      "subtotal_sar": 63371.37,
+      "item_category": "coffee_equipment",
+      "invoice_number": "INV-202603-7453",
+      "matches_requested_amount": true
+    },
+    "created_at": "2026-04-16T14:21:40.552682+00:00",
+    "extractor_schema_version": "v1"
+  }
+]

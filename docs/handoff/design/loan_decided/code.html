@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f4f4f2",
+                    "on-surface-variant": "#4e4632",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#f3c000",
+                    "tertiary": "#525f74",
+                    "primary": "#755b00",
+                    "on-secondary-container": "#fffbff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#755b00",
+                    "on-primary-container": "#6d5500",
+                    "surface-container-high": "#e8e8e6",
+                    "surface-variant": "#e2e3e1",
+                    "on-tertiary-fixed": "#0e1c2e",
+                    "on-primary-fixed-variant": "#584400",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f9f9f7",
+                    "surface": "#f9f9f7",
+                    "secondary-fixed": "#e3dfff",
+                    "outline": "#80765f",
+                    "tertiary-container": "#c2cfe8",
+                    "surface-dim": "#dadad8",
+                    "inverse-primary": "#f3c000",
+                    "background": "#f9f9f7",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#695bfd",
+                    "on-tertiary-container": "#4b586d",
+                    "tertiary-fixed": "#d6e3fd",
+                    "secondary-fixed-dim": "#c5c0ff",
+                    "on-primary-fixed": "#241a00",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1a1c1b",
+                    "inverse-surface": "#2f3130",
+                    "on-error": "#ffffff",
+                    "secondary": "#503ee3",
+                    "on-secondary-fixed-variant": "#391dce",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#d2c5ab",
+                    "inverse-on-surface": "#f1f1ef",
+                    "on-tertiary-fixed-variant": "#3b475c",
+                    "surface-container": "#eeeeec",
+                    "on-surface": "#1a1c1b",
+                    "on-secondary-fixed": "#130067",
+                    "surface-container-highest": "#e2e3e1",
+                    "primary-container": "#fdc800",
+                    "primary-fixed": "#ffe08f",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#bac7e0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f7; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .border-3 { border-width: 3px; }
+        .scanline {
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 50%, rgba(0,0,0,0.02) 50%);
+            background-size: 100% 4px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Top Navigation -->
+<nav class="flex justify-between items-center w-full px-6 h-16 bg-[#FBFBF9] border-b-[3px] border-black sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-black uppercase">LeaseFlow</span>
+<div class="hidden md:flex gap-6">
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all px-2" href="#">Dashboard</a>
+<a class="text-black border-b-[3px] border-[#FDC800] pb-1 font-bold" href="#">Leases</a>
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all px-2" href="#">Underwriting</a>
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all px-2" href="#">Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 hover:bg-[#FDC800] border-3 border-transparent hover:border-black transition-all">notifications</button>
+<button class="material-symbols-outlined p-2 hover:bg-[#FDC800] border-3 border-transparent hover:border-black transition-all">settings</button>
+<div class="w-10 h-10 border-3 border-black">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a financial officer in a modern workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-IFnON9TegGXHVKG-L_dYereZg9TKOxOWO6wxd4Z8m9z8nqvZMGd2536dFhTSKP6pITH5YDaOatWqaquS67CfWJ3xm7vNkOVTZK7H0wsl6vmLmd8L0BHhX61oLfyyHLMXi-HjzGZiFRkaDs_vhrmY1vrl8cwIAyZH0o1aHYsoGHBlGQpIY3RnLlRTusZ5aDIvWz23gpZfzcWZhff9tAX-bggXc-YEkJsvA43w4r3Zt55m_lAXFbV2ChjXgz1lpssXxEdoypYNQoNZ"/>
+</div>
+</div>
+</nav>
+<div class="flex">
+<!-- Sidebar -->
+<aside class="hidden md:flex flex-col h-[calc(100vh-64px)] w-64 border-r-[3px] border-black bg-[#FBFBF9] p-4 sticky top-16">
+<div class="mb-8">
+<div class="mono text-[10px] font-bold text-gray-400 mb-1">SYSTEM_CONTEXT</div>
+<div class="text-lg font-black text-black">Architectural Ledger</div>
+<div class="mono text-xs text-gray-500">Merchant ID: 882-99</div>
+</div>
+<nav class="flex-1">
+<a class="text-black flex items-center p-3 mb-2 border-3 border-transparent hover:border-black hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="mono text-xs font-bold uppercase">Overview</span>
+</a>
+<a class="bg-[#FDC800] text-black border-3 border-black mb-2 flex items-center p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" href="#">
+<span class="material-symbols-outlined mr-3">terminal</span>
+<span class="mono text-xs font-bold uppercase">Live Feed</span>
+</a>
+<a class="text-black flex items-center p-3 mb-2 border-3 border-transparent hover:border-black hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all" href="#">
+<span class="material-symbols-outlined mr-3">account_balance</span>
+<span class="mono text-xs font-bold uppercase">Portfolio</span>
+</a>
+<a class="text-black flex items-center p-3 mb-2 border-3 border-transparent hover:border-black hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all" href="#">
+<span class="material-symbols-outlined mr-3">description</span>
+<span class="mono text-xs font-bold uppercase">Documents</span>
+</a>
+</nav>
+<div class="pt-4 border-t-3 border-black">
+<a class="text-black flex items-center p-3 mb-2 border-3 border-transparent hover:border-black transition-all" href="#">
+<span class="material-symbols-outlined mr-3">help</span>
+<span class="mono text-xs font-bold uppercase">Support</span>
+</a>
+<button class="w-full bg-black text-white p-3 border-3 border-black mono text-xs font-bold uppercase hover:bg-white hover:text-black transition-all active:translate-x-[2px] active:translate-y-[2px]">Quick Fund</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-8 lg:p-12 max-w-6xl mx-auto">
+<!-- Header Section -->
+<div class="mb-12">
+<div class="flex items-center gap-2 mb-2">
+<span class="mono text-xs bg-surface-container-high px-2 py-1 border-3 border-black font-bold uppercase">Decision Status: Final</span>
+<div class="h-[3px] flex-1 bg-black"></div>
+</div>
+<h1 class="text-5xl font-black tracking-tight text-black mb-2">La Marzocco GB5 · applied Apr 16</h1>
+<p class="text-xl text-on-surface-variant font-medium">Application ID: #APP-2024-0416-003</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Decision Card -->
+<div class="lg:col-span-7 bg-primary-container border-3 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex items-center gap-2 mb-10">
+<span class="material-symbols-outlined font-black text-3xl">check_circle</span>
+<span class="text-2xl font-black uppercase tracking-widest">✓ APPROVED</span>
+</div>
+<div class="grid grid-cols-2 gap-12">
+<div>
+<div class="mono text-[10px] font-bold text-on-primary-container uppercase mb-2 tracking-tighter">Approved Principal</div>
+<div class="mono text-4xl font-black text-black">SAR 48,000</div>
+</div>
+<div>
+<div class="mono text-[10px] font-bold text-on-primary-container uppercase mb-2 tracking-tighter">Term Length</div>
+<div class="mono text-4xl font-black text-black">12 <span class="text-lg">MO</span></div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t-3 border-black/20">
+<div class="flex justify-between items-end">
+<div>
+<div class="mono text-[10px] font-bold text-on-primary-container uppercase mb-2 tracking-tighter">Monthly Repayment</div>
+<div class="mono text-5xl font-black text-black">SAR 4,791.67</div>
+</div>
+<button class="bg-black text-white border-3 border-black px-6 py-4 font-bold flex items-center gap-3 hover:bg-white hover:text-black transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
+                                View repayment plan <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Live Data Panel (Right Side) -->
+<div class="lg:col-span-5 bg-black text-[#FDC800] border-3 border-black scanline overflow-hidden">
+<div class="bg-secondary p-2 border-b-3 border-black flex gap-1 items-center">
+<div class="w-2 h-2 bg-black"></div>
+<div class="w-2 h-2 bg-black"></div>
+<div class="w-2 h-2 bg-black"></div>
+<span class="mono text-[10px] font-bold text-white ml-2 uppercase">System_Verification_Live</span>
+</div>
+<div class="p-6">
+<div class="mono text-xs mb-4 text-[#FDC800]/60">&gt; ANALYZING REPAYMENT CAPACITY...</div>
+<div class="space-y-6">
+<!-- How We Checked Section -->
+<div class="mono text-[10px] font-bold text-white uppercase flex items-center gap-2">
+                                [ HOW WE CHECKED ] <div class="h-[1px] flex-1 bg-white/20"></div>
+</div>
+<div class="space-y-4">
+<div class="space-y-1">
+<div class="flex justify-between mono text-[10px] uppercase">
+<span>Can afford</span>
+<span class="font-bold">Strong</span>
+</div>
+<div class="h-4 border-3 border-white/20 flex p-0.5">
+<div class="h-full bg-[#FDC800] w-[95%]"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between mono text-[10px] uppercase">
+<span>Business trust</span>
+<span class="font-bold">Good</span>
+</div>
+<div class="h-4 border-3 border-white/20 flex p-0.5">
+<div class="h-full bg-[#FDC800] w-[75%]"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between mono text-[10px] uppercase">
+<span>Sales health</span>
+<span class="font-bold">Strong</span>
+</div>
+<div class="h-4 border-3 border-white/20 flex p-0.5">
+<div class="h-full bg-[#FDC800] w-[90%]"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between mono text-[10px] uppercase">
+<span>Customer reviews</span>
+<span class="font-bold">Strong</span>
+</div>
+<div class="h-4 border-3 border-white/20 flex p-0.5">
+<div class="h-full bg-[#FDC800] w-[88%]"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between mono text-[10px] uppercase">
+<span>Industry outlook</span>
+<span class="font-bold">Fair</span>
+</div>
+<div class="h-4 border-3 border-white/20 flex p-0.5">
+<div class="h-full bg-[#FDC800] w-[55%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Reasoning Section (Below Decision Card) -->
+<div class="lg:col-span-7 space-y-6">
+<div>
+<div class="mono text-[10px] font-bold text-black uppercase flex items-center gap-2 mb-4">
+                            WHY <div class="h-[3px] flex-1 bg-black"></div>
+</div>
+<div class="bg-surface-container-low border-3 border-black p-6">
+<p class="text-on-surface leading-relaxed font-medium">
+                                Your application was approved based on your consistent revenue growth over the last three quarters and a debt-to-income ratio that remains well within our safety margins. The high volume of positive customer feedback for your current coffee program gives us confidence in the successful deployment of the La Marzocco GB5. Our analysis confirms your current cash flow can easily absorb the monthly repayment of SAR 4,791.67 without impacting operational liquidity.
+                            </p>
+</div>
+</div>
+<!-- Asset Details -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white border-3 border-black p-4 flex gap-4 items-center">
+<div class="w-16 h-16 border-3 border-black bg-surface shrink-0">
+<img class="w-full h-full object-cover" data-alt="close-up of a high-end industrial espresso machine with steam and polished chrome details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg4yL89XoXjTeT1FJWQmTWn1B3J-Ga3iOrQanH7u06XqlVMtRIiXeVbHUAFislIjFp0va-J_PcJnlnJfWowWZAW3o-7Nkm6iZewAQilbZz-LkNvljp7qUU6_QNxc_BJQcszxiBb79r0ignteCQbveGLBfkgsTTdRLs4PSVOqFg7UVOD8LE1ov9BsZmHhmxuzBo-suVkWqtICIRnGBDK_jSg4LJZsSGTKiXnbD1v1q4FSRfXvpP-4AlYq7Bs2A8swpJ0U1La0fM89EV"/>
+</div>
+<div>
+<div class="mono text-[8px] font-bold text-gray-500 uppercase">Collateral_Asset</div>
+<div class="font-bold text-sm">La Marzocco GB5</div>
+</div>
+</div>
+<div class="bg-white border-3 border-black p-4 flex gap-4 items-center">
+<div class="w-16 h-16 border-3 border-black bg-surface shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">local_shipping</span>
+</div>
+<div>
+<div class="mono text-[8px] font-bold text-gray-500 uppercase">Estimated_Delivery</div>
+<div class="font-bold text-sm">Apr 24, 2024</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Admin Action Area -->
+<div class="lg:col-span-5 bg-white border-3 border-black p-6">
+<div class="mono text-[10px] font-bold text-black uppercase flex items-center gap-2 mb-6">
+                        ADMIN_CONTROLS <div class="h-[3px] flex-1 bg-black"></div>
+</div>
+<div class="space-y-4">
+<button class="w-full border-3 border-black p-4 text-left hover:bg-[#FDC800] transition-all flex justify-between items-center group">
+<div>
+<div class="mono text-[10px] font-bold uppercase text-gray-500 group-hover:text-black">Download</div>
+<div class="font-bold uppercase">Formal Approval PDF</div>
+</div>
+<span class="material-symbols-outlined">download</span>
+</button>
+<button class="w-full border-3 border-black p-4 text-left hover:bg-black hover:text-white transition-all flex justify-between items-center group">
+<div>
+<div class="mono text-[10px] font-bold uppercase text-gray-500 group-hover:text-gray-300">Message</div>
+<div class="font-bold uppercase">Lease Specialist</div>
+</div>
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+</div>
+<div class="mt-8 pt-8 border-t-3 border-black">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 border-3 border-black bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white">shield</span>
+</div>
+<div class="mono text-[10px] leading-tight">
+                                THIS OFFER IS SECURED BY THE ARCHITECTURAL LEDGER SYSTEM. VALID UNTIL MAY 01, 2024.
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

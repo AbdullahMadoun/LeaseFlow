@@ -1,0 +1,26 @@
+FROM python:3.12-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    MPLBACKEND=Agg
+
+# Build deps for scipy/statsmodels wheels are already prebuilt for python:3.12,
+# but keep tini for clean signal handling in case the agent spawns subprocesses.
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends tini \
+ && rm -rf /var/lib/apt/lists/*
+
+COPY sandbox_requirements.txt /tmp/sandbox_requirements.txt
+RUN pip install -r /tmp/sandbox_requirements.txt && rm /tmp/sandbox_requirements.txt
+
+# Sanity: precompile the heaviest imports so first-run cost is amortised at build time.
+RUN python -c "import pandas, numpy, scipy, statsmodels, sklearn, matplotlib"
+
+# We do NOT create users here — the runtime invocation pins --user 65534:65534
+# (nobody/nogroup) which already exists in debian-slim. Read-only root + tmpfs
+# /tmp + tmpfs /home/nobody is set by the runner.
+
+ENTRYPOINT ["/usr/bin/tini", "--"]
+CMD ["python", "-c", "print('pos-analyst-sandbox image OK')"]

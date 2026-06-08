@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LeaseFlow | Merchant Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f4f4f2",
+                        "on-surface-variant": "#4e4632",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#f3c000",
+                        "tertiary": "#525f74",
+                        "primary": "#755b00",
+                        "on-secondary-container": "#fffbff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#755b00",
+                        "on-primary-container": "#6d5500",
+                        "surface-container-high": "#e8e8e6",
+                        "surface-variant": "#e2e3e1",
+                        "on-tertiary-fixed": "#0e1c2e",
+                        "on-primary-fixed-variant": "#584400",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f9f9f7",
+                        "surface": "#f9f9f7",
+                        "secondary-fixed": "#e3dfff",
+                        "outline": "#80765f",
+                        "tertiary-container": "#c2cfe8",
+                        "surface-dim": "#dadad8",
+                        "inverse-primary": "#f3c000",
+                        "background": "#f9f9f7",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#695bfd",
+                        "on-tertiary-container": "#4b586d",
+                        "tertiary-fixed": "#d6e3fd",
+                        "secondary-fixed-dim": "#c5c0ff",
+                        "on-primary-fixed": "#241a00",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1a1c1b",
+                        "inverse-surface": "#2f3130",
+                        "on-error": "#ffffff",
+                        "secondary": "#503ee3",
+                        "on-secondary-fixed-variant": "#391dce",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#d2c5ab",
+                        "inverse-on-surface": "#f1f1ef",
+                        "on-tertiary-fixed-variant": "#3b475c",
+                        "surface-container": "#eeeeec",
+                        "on-surface": "#1a1c1b",
+                        "on-secondary-fixed": "#130067",
+                        "surface-container-highest": "#e2e3e1",
+                        "primary-container": "#fdc800",
+                        "primary-fixed": "#ffe08f",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#bac7e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-mono-ledger { font-family: 'JetBrains Mono', monospace; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container">
+<!-- TopNavBar -->
+<nav class="bg-[#FBFBF9] dark:bg-[#0F0F0F] border-b-[3px] border-black dark:border-white fixed top-0 w-full z-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center px-6 h-16">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-black dark:text-white uppercase">LeaseFlow</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-gray-600 dark:text-gray-400 font-medium hover:bg-[#FDC800] hover:text-black transition-all duration-100 px-2 py-1" href="#">Dashboard</a>
+<a class="text-gray-600 dark:text-gray-400 font-medium hover:bg-[#FDC800] hover:text-black transition-all duration-100 px-2 py-1" href="#">Leases</a>
+<a class="text-gray-600 dark:text-gray-400 font-medium hover:bg-[#FDC800] hover:text-black transition-all duration-100 px-2 py-1" href="#">Underwriting</a>
+<a class="text-gray-600 dark:text-gray-400 font-medium hover:bg-[#FDC800] hover:text-black transition-all duration-100 px-2 py-1" href="#">Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-black dark:text-white hover:bg-[#FDC800] p-1 transition-all">notifications</button>
+<button class="material-symbols-outlined text-black dark:text-white hover:bg-[#FDC800] p-1 transition-all border-[3px] border-black">settings</button>
+<div class="h-10 w-10 bg-primary-container border-[3px] border-black flex items-center justify-center">
+<img class="h-full w-full object-cover" data-alt="professional male executive portrait in a modern office environment with warm natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkLPQIuzoZJktXsyQvXo46zub0Ib5H1GqkB0tE12jSXjcZYryBk4_ohQ1WAfnyzGbSjQNN6vNTC5JUU5xo-19WpyBnJWvDGTespFFmvgdrjbkrl0ROL_RGjGotz2BaNgvkghWMEVcEK90Bxi4tikUHj1LV1eKybN6sF-AJFBWJMXwQte4EG9OzZSK5MxvHELwPkIFGtY7SIkUzVgOkiN5QyRi-Xx0jxeWJf1L-I35CoTP2jhbodq_4mguUi5UHyjCaW1azm4Av-bVs"/>
+</div>
+</div>
+</nav>
+<div class="flex pt-16 min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col w-64 bg-[#FBFBF9] dark:bg-[#0F0F0F] border-r-[3px] border-black dark:border-white p-4 h-[calc(100vh-64px)] sticky top-16">
+<div class="mb-8">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 bg-black flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container text-sm">terminal</span>
+</div>
+<span class="text-lg font-black text-black dark:text-[#FDC800]">Architectural Ledger</span>
+</div>
+<p class="font-mono-ledger text-[10px] uppercase text-gray-500">Merchant ID: 882-99</p>
+</div>
+<nav class="flex-grow">
+<a class="text-black dark:text-white flex items-center p-3 mb-2 border-[3px] border-transparent hover:border-black dark:hover:border-[#FDC800] transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-mono-ledger text-sm font-bold uppercase">Overview</span>
+</a>
+<a class="text-black dark:text-white flex items-center p-3 mb-2 border-[3px] border-transparent hover:border-black dark:hover:border-[#FDC800] transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" href="#">
+<span class="material-symbols-outlined mr-3">terminal</span>
+<span class="font-mono-ledger text-sm font-bold uppercase">Live Feed</span>
+</a>
+<a class="text-black dark:text-white flex items-center p-3 mb-2 border-[3px] border-transparent hover:border-black dark:hover:border-[#FDC800] transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" href="#">
+<span class="material-symbols-outlined mr-3">account_balance</span>
+<span class="font-mono-ledger text-sm font-bold uppercase">Portfolio</span>
+</a>
+<a class="text-black dark:text-white flex items-center p-3 mb-2 border-[3px] border-transparent hover:border-black dark:hover:border-[#FDC800] transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" href="#">
+<span class="material-symbols-outlined mr-3">description</span>
+<span class="font-mono-ledger text-sm font-bold uppercase">Documents</span>
+</a>
+<a class="bg-[#FDC800] text-black border-[3px] border-black mb-2 flex items-center p-3" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="font-mono-ledger text-sm font-bold uppercase">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t-[3px] border-black">
+<a class="text-black dark:text-white flex items-center p-2 mb-1 border-[3px] border-transparent hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined mr-3">help</span>
+<span class="font-mono-ledger text-xs uppercase">Support</span>
+</a>
+<a class="text-black dark:text-white flex items-center p-2 border-[3px] border-transparent hover:bg-error-container transition-all" href="#">
+<span class="material-symbols-outlined mr-3">logout</span>
+<span class="font-mono-ledger text-xs uppercase">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-grow p-8 md:p-12 max-w-5xl mx-auto">
+<header class="mb-12">
+<div class="flex items-center gap-4 mb-2">
+<span class="font-mono-ledger text-xs font-bold text-primary uppercase tracking-widest px-2 py-1 bg-primary-container border-[3px] border-black">Security Protocol 09</span>
+<div class="h-[3px] flex-grow bg-black"></div>
+</div>
+<h1 class="text-6xl font-black tracking-tightest uppercase leading-none">Merchant Profile</h1>
+</header>
+<!-- Profile Canvas -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Form -->
+<div class="lg:col-span-7 space-y-8">
+<!-- SIGN-IN Section -->
+<section class="bg-surface-container-low border-[3px] border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined font-bold">lock</span>
+<h2 class="font-mono-ledger font-black uppercase text-xl">SIGN-IN ----</h2>
+</div>
+<div class="relative pt-4">
+<label class="absolute -top-1 left-2 bg-surface-container-low px-2 font-mono-ledger text-[10px] font-bold uppercase tracking-tighter text-gray-500 z-10 border-[2px] border-black">Registered Email</label>
+<input class="w-full bg-surface-container-high border-[3px] border-black p-4 font-mono-ledger text-on-surface-variant focus:outline-none cursor-not-allowed" readonly="" type="email" value="executive.merchant@ledger.flow"/>
+<div class="mt-2 flex items-center gap-2 text-[10px] font-mono-ledger text-gray-400 uppercase">
+<span class="material-symbols-outlined text-[12px]">info</span>
+                                Contact system admin to change email
+                            </div>
+</div>
+</section>
+<!-- YOUR BUSINESS Section -->
+<section class="bg-white border-[3px] border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined font-bold">corporate_fare</span>
+<h2 class="font-mono-ledger font-black uppercase text-xl">YOUR BUSINESS ----</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Business Name -->
+<div class="relative">
+<label class="absolute -top-3 left-3 bg-white px-2 font-mono-ledger text-[10px] font-bold uppercase border-[2px] border-black">Business name</label>
+<input class="w-full border-[3px] border-black p-4 font-body focus:ring-0 focus:border-primary transition-all" type="text" value="Architectural Ledger Solutions LLC"/>
+</div>
+<!-- CR Number -->
+<div class="relative">
+<label class="absolute -top-3 left-3 bg-white px-2 font-mono-ledger text-[10px] font-bold uppercase border-[2px] border-black">CR number</label>
+<input class="w-full border-[3px] border-black p-4 font-mono-ledger focus:ring-0 focus:border-primary transition-all" type="text" value="882-991-004-X"/>
+</div>
+<!-- Phone -->
+<div class="relative md:col-span-2">
+<label class="absolute -top-3 left-3 bg-white px-2 font-mono-ledger text-[10px] font-bold uppercase border-[2px] border-black">Contact Phone</label>
+<div class="flex">
+<span class="border-y-[3px] border-l-[3px] border-black bg-surface-container-high px-4 flex items-center font-mono-ledger">+1</span>
+<input class="w-full border-[3px] border-black p-4 font-mono-ledger focus:ring-0 focus:border-primary transition-all" type="tel" value="800-445-9921"/>
+</div>
+</div>
+<!-- Google Maps Link -->
+<div class="relative md:col-span-2">
+<label class="absolute -top-3 left-3 bg-white px-2 font-mono-ledger text-[10px] font-bold uppercase border-[2px] border-black">Google Maps link</label>
+<div class="flex items-center border-[3px] border-black overflow-hidden">
+<span class="material-symbols-outlined px-3 text-gray-400">map</span>
+<input class="w-full border-none p-4 font-body focus:ring-0 focus:border-primary transition-all" type="url" value="https://maps.google.com/q=ledger-hq-chicago"/>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="mt-10 pt-8 border-t-[3px] border-black flex items-center justify-between">
+<a class="text-sm font-mono-ledger font-bold text-gray-400 uppercase hover:text-error transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+                                Log out session
+                            </a>
+<button class="bg-[#FDC800] text-black border-[3px] border-black px-10 py-4 font-mono-ledger font-black uppercase text-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                                Save changes
+                            </button>
+</div>
+</section>
+</div>
+<!-- Right Column: Context/Preview -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Business Map Preview -->
+<div class="bg-black border-[3px] border-black overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+<div class="bg-secondary-container p-2 flex items-center gap-1 border-b-[3px] border-black">
+<div class="w-3 h-3 bg-black"></div>
+<div class="w-3 h-3 bg-black"></div>
+<div class="w-3 h-3 bg-black"></div>
+<span class="ml-2 font-mono-ledger text-[10px] text-white font-bold uppercase">LOCATION_RENDERER.EXE</span>
+</div>
+<div class="h-64 relative">
+<img class="w-full h-full object-cover opacity-80 mix-blend-luminosity" data-alt="minimal grayscale map of an urban city center with high contrast streets and industrial zones" data-location="Chicago" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiJnyuZnX55PqHTj5UIeSAA1bDpGLCtGxqG_a_LBP7jY9Jx-CAQ2YXprRdXVbaEoN_PakPLvzeN_d3Dn3UxKBy77KF5rhJYQi3fnKF0z6lqb7USiovgqpo0opUjIyaDcm7OaqPBHaXGQ4oYoZzUKveewo91xPZ0u-m4TFsDnJlaliqG06-x3F6jLOw5osC_85rnZ-biO3J6JcJ8Hs3o_LZ19xGYiGQ6CfT6rz0cAPR5oc27QT5PZvBKdBN4MHQntrzuLIGixj-PKe9"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-12 h-12 border-[4px] border-primary bg-black/50 backdrop-blur-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Meta Panel -->
+<div class="bg-surface-container-high border-[3px] border-black p-4 font-mono-ledger">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-[10px] text-gray-500 uppercase">Last Integrity Check</p>
+<p class="font-bold">2023-11-24 14:22:01</p>
+</div>
+<span class="px-2 py-1 bg-black text-primary text-[10px] font-bold">VERIFIED</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[11px] border-b border-black/10 pb-1">
+<span class="text-gray-500 uppercase">Network Tier</span>
+<span>ENTERPRISE_L3</span>
+</div>
+<div class="flex justify-between text-[11px] border-b border-black/10 pb-1">
+<span class="text-gray-500 uppercase">Encryption</span>
+<span>AES-256-GCM</span>
+</div>
+<div class="flex justify-between text-[11px]">
+<span class="text-gray-500 uppercase">Compliance</span>
+<span>SOX-COMPLIANT</span>
+</div>
+</div>
+</div>
+<!-- Helpful Links Bento -->
+<div class="grid grid-cols-2 gap-4">
+<div class="border-[3px] border-black p-4 hover:bg-primary-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-black group-hover:scale-110 transition-transform">history</span>
+<p class="font-mono-ledger text-[10px] font-black uppercase mt-2">Audit Logs</p>
+</div>
+<div class="border-[3px] border-black p-4 hover:bg-primary-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-black group-hover:scale-110 transition-transform">verified_user</span>
+<p class="font-mono-ledger text-[10px] font-black uppercase mt-2">API Keys</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-[#FBFBF9] border-t-[3px] border-black flex justify-around items-center h-16 px-4 z-50">
+<button class="flex flex-col items-center justify-center text-gray-600">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-mono-ledger font-bold uppercase">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-gray-600">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px] font-mono-ledger font-bold uppercase">Leases</span>
+</button>
+<button class="flex flex-col items-center justify-center text-black border-t-[3px] border-[#FDC800] pt-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="text-[10px] font-mono-ledger font-bold uppercase">Profile</span>
+</button>
+<button class="flex flex-col items-center justify-center text-gray-600">
+<span class="material-symbols-outlined">help</span>
+<span class="text-[10px] font-mono-ledger font-bold uppercase">Help</span>
+</button>
+</nav>
+</body></html>

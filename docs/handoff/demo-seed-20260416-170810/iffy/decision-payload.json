@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-04-16T14:29:20.226392+00:00",
+  "llm_response": {
+    "decision": "manual_review",
+    "reasoning": "Iffy Burger presents a medium-risk profile with solid financial metrics (DSR 1.99, 10% net margin) that comfortably support the lease payment, but multiple flags warrant deeper scrutiny: SIMAH recommendation is 'caution' with 4 recent inquiries and 1 bounced payment, POS data is limited to a single report preventing operational validation, and the sentiment dimension errored leaving a data gap. The conservative market appetite and rising input costs in the QSR segment further support a cautious amount rather than the full SAR 60,000 request. Manual review should verify the recent credit activity and request additional POS documentation to confirm operational consistency with financials.",
+    "confidence": 0.58,
+    "risk_flags": [
+      "sentiment_dimension_errored",
+      "simah_high_recent_inquiries",
+      "financial_bounced_payments_1",
+      "pos_limited_data_1_report",
+      "rising_input_costs"
+    ],
+    "risk_level": "medium",
+    "dimension_scores": {
+      "pos": 65.0,
+      "credit": 50.0,
+      "overall": 64.7,
+      "industry": 63.0,
+      "financial": 75.0,
+      "sentiment": null
+    },
+    "recommended_amount": 48000.0
+  },
+  "final_decision": {
+    "status": "manual_review",
+    "approved_amount": null,
+    "override_applied": "agreement"
+  },
+  "schema_version": "v1",
+  "dimension_scores": {
+    "pos": 65.0,
+    "simah": 50.0,
+    "industry": 63.0,
+    "financial_docs": 75.0
+  },
+  "risk_snapshot_id": "095243a2-b53b-414b-ab81-21a36833073a",
+  "hard_floors_check": {
+    "passed": true,
+    "violations": []
+  },
+  "synthesis_version": "expert@v1",
+  "registered_dimensions": [
+    "financial_docs",
+    "industry",
+    "pos",
+    "sentiment",
+    "simah"
+  ],
+  "deterministic_proposal": {
+    "per_dim": {
+      "pos": 65.0,
+      "simah": 50.0,
+      "industry": 63.0,
+      "financial_docs": 75.0
+    },
+    "decision": "manual_review",
+    "risk_level": "medium",
+    "rules_fired": [
+      "overall_score_in_review_band",
+      "dscr_comfortable"
+    ],
+    "amount_bounds": {
+      "max": 60000.0,
+      "min": 48000.0
+    },
+    "overall_score": 64.7
+  }
+}

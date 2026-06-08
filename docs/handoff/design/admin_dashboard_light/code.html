@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LeaseFlow Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#ffffff",
+                        "secondary-fixed-dim": "#9facc4",
+                        "outline-variant": "#c6c6c6",
+                        "on-tertiary-fixed": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#68758b",
+                        "primary-container": "#2f3c50",
+                        "secondary": "#525f74",
+                        "surface-bright": "#f9f9f7",
+                        "surface-dim": "#dadad8",
+                        "on-tertiary-fixed-variant": "#d6e3fd",
+                        "secondary-container": "#c8d5ee",
+                        "on-primary-fixed-variant": "#d6e3fd",
+                        "tertiary-fixed-dim": "#3b475c",
+                        "surface-tint": "#525f74",
+                        "on-background": "#1a1c1b",
+                        "on-secondary-container": "#0e1c2e",
+                        "surface": "#f9f9f7",
+                        "outline": "#777777",
+                        "primary": "#000000",
+                        "on-surface-variant": "#474747",
+                        "secondary-fixed": "#bac7e0",
+                        "on-error-container": "#410002",
+                        "on-primary-fixed": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f4f4f2",
+                        "on-tertiary-container": "#ffffff",
+                        "inverse-primary": "#bac7e0",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e2e3e1",
+                        "background": "#f9f9f7",
+                        "on-secondary-fixed": "#0e1c2e",
+                        "error": "#ba1a1a",
+                        "tertiary": "#2f3c50",
+                        "primary-fixed": "#525f74",
+                        "surface-variant": "#e2e3e1",
+                        "surface-container": "#eeeeec",
+                        "primary-fixed-dim": "#3b475c",
+                        "inverse-surface": "#2f3130",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1a1c1b",
+                        "on-secondary-fixed-variant": "#2f3c50",
+                        "on-primary": "#d6e3fd",
+                        "on-tertiary": "#d6e3fd",
+                        "inverse-on-surface": "#f1f1ef",
+                        "tertiary-fixed": "#525f74",
+                        "surface-container-high": "#e8e8e6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #F9F9F7; font-family: 'Inter', sans-serif; }
+        .brutalist-shadow { box-shadow: 4px 4px 0px 0px #000000; }
+        .brutalist-shadow-sm { box-shadow: 2px 2px 0px 0px #000000; }
+        .brutalist-button:active { transform: translate(2px, 2px); box-shadow: 0px 0px 0px 0px #000000; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        .mono-number { font-family: 'JetBrains Mono', monospace; }
+        .border-3 { border-width: 3px; }
+    </style>
+</head>
+<body class="text-on-surface antialiased">
+<!-- TopNavBar -->
+<header class="bg-[#F9F9F7] text-[#000000] font-['Space_Grotesk'] tracking-tight docked full-width top-0 border-b-[3px] border-[#000000] sticky z-50">
+<div class="flex justify-between items-center w-full px-6 h-16">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black uppercase tracking-tighter text-[#000000]">LeaseFlow</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-[#000000] font-bold border-b-[3px] border-[#000000] pb-1" href="#">Dashboard</a>
+<a class="text-[#525F74] font-medium hover:bg-[#E8E8E6] transition-colors duration-100 px-2 py-1" href="#">Ledger</a>
+<a class="text-[#525F74] font-medium hover:bg-[#E8E8E6] transition-colors duration-100 px-2 py-1" href="#">Entities</a>
+<a class="text-[#525F74] font-medium hover:bg-[#E8E8E6] transition-colors duration-100 px-2 py-1" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary font-bold px-4 py-2 border-3 border-black brutalist-button brutalist-shadow-sm uppercase text-xs tracking-widest">
+                    Create Entry
+                </button>
+<div class="flex gap-2">
+<span class="material-symbols-outlined p-2 hover:bg-[#E8E8E6] cursor-pointer">notifications</span>
+<span class="material-symbols-outlined p-2 hover:bg-[#E8E8E6] cursor-pointer">settings</span>
+</div>
+<div class="w-8 h-8 border-2 border-black">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Close up portrait of a professional male executive in a neutral studio setting with clean lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf1_E8GIfeqm3VQXQoCfqR3S-SjirZe8SUI8AF31i-NAgzyYsMbKIGRx5pdQgFxFj2yYjwVczWzaYrkeUkvtqfaVIvfPzumRF2TZfCotBkyN93T75_6yz2KnMWSVBmr1K_g6xcOORR2jtf4sSL0PXAl7gHutpsAHfzlnrPLpqupdQqxtRo2ozRa9wDKyPeH5d1TPmczJXaIbSkhB5W0dN9uA5tEmLFmubJg9FjBjKLZs4oPTL8R6v1PYc3OJZxBBn1zV5lnGWCGkjw"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-[calc(100vh-4rem)] w-64 border-r-[3px] border-[#000000] bg-[#E8E8E6] sticky top-16">
+<div class="flex flex-col h-full pt-4">
+<div class="px-6 mb-6">
+<h2 class="font-['Space_Grotesk'] text-xs uppercase font-black tracking-widest text-secondary opacity-60">Management</h2>
+<p class="font-['Space_Grotesk'] text-[10px] uppercase font-bold text-secondary">System Admin v1.0</p>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="bg-[#000000] text-[#F9F9F7] flex items-center gap-3 px-4 py-3 border-[3px] border-[#000000] font-['Space_Grotesk'] text-sm uppercase font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+                        Merchant Overview
+                    </a>
+<a class="text-[#2F3C50] flex items-center gap-3 px-4 py-3 border-b-[2px] border-transparent hover:border-[#000000] hover:bg-[#F4F4F2] font-['Space_Grotesk'] text-sm uppercase font-bold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                        Risk Assessment
+                    </a>
+<a class="text-[#2F3C50] flex items-center gap-3 px-4 py-3 border-b-[2px] border-transparent hover:border-[#000000] hover:bg-[#F4F4F2] font-['Space_Grotesk'] text-sm uppercase font-bold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                        Fund Flows
+                    </a>
+<a class="text-[#2F3C50] flex items-center gap-3 px-4 py-3 border-b-[2px] border-transparent hover:border-[#000000] hover:bg-[#F4F4F2] font-['Space_Grotesk'] text-sm uppercase font-bold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+                        Compliance
+                    </a>
+<a class="text-[#2F3C50] flex items-center gap-3 px-4 py-3 border-b-[2px] border-transparent hover:border-[#000000] hover:bg-[#F4F4F2] font-['Space_Grotesk'] text-sm uppercase font-bold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+                        Audit Logs
+                    </a>
+</nav>
+<div class="p-4 mt-auto border-t-[3px] border-black bg-surface">
+<button class="w-full bg-transparent border-3 border-black py-2 font-['Space_Grotesk'] font-bold text-xs uppercase brutalist-button brutalist-shadow-sm mb-4">
+                        Export Ledger
+                    </button>
+<div class="space-y-1">
+<a class="flex items-center gap-2 text-[10px] font-bold uppercase text-secondary hover:text-primary" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help_outline">help_outline</span> Support
+                        </a>
+<a class="flex items-center gap-2 text-[10px] font-bold uppercase text-error hover:opacity-80" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span> Sign Out
+                        </a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-6 overflow-x-hidden">
+<!-- Hero Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
+<!-- Risk Appetite Banner -->
+<div class="md:col-span-8 bg-[#F4F4F2] border-3 border-black p-6 relative overflow-hidden flex flex-col justify-between brutalist-shadow">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-9xl" style="font-size: 120px;">shield_with_heart</span>
+</div>
+<div>
+<div class="inline-block bg-primary text-on-primary px-3 py-1 font-headline font-bold text-xs uppercase tracking-tighter mb-4 border-2 border-black">
+                            Current Configuration
+                        </div>
+<h1 class="font-headline text-5xl font-black uppercase tracking-tighter leading-none mb-2">Risk Appetite: <span class="text-secondary">Cautious</span></h1>
+<p class="font-body text-secondary max-w-lg">System-wide strictness is currently active. Manual review thresholds are lowered by 15% to mitigate volatile market signals.</p>
+</div>
+<div class="mt-8 flex gap-4">
+<button class="bg-black text-white px-6 py-3 font-headline font-bold uppercase text-sm brutalist-button brutalist-shadow-sm">Modify Policy</button>
+<button class="bg-white border-3 border-black px-6 py-3 font-headline font-bold uppercase text-sm brutalist-button brutalist-shadow-sm">View Analytics</button>
+</div>
+</div>
+<!-- Decision Mix Donut Chart Simulation -->
+<div class="md:col-span-4 bg-white border-3 border-black p-6 brutalist-shadow flex flex-col items-center justify-center text-center">
+<h3 class="font-headline font-bold uppercase text-xs tracking-widest mb-6 self-start">Decision Mix</h3>
+<div class="relative w-48 h-48 mb-6">
+<!-- Custom CSS SVG Donut -->
+<svg class="w-full h-full" viewbox="0 0 36 36">
+<path class="text-[#000000]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="55, 100" stroke-width="6"></path>
+<path class="text-[#525F74]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="30, 100" stroke-dashoffset="-55" stroke-width="6"></path>
+<path class="text-[#E2E3E1]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="15, 100" stroke-dashoffset="-85" stroke-width="6"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="mono-number text-3xl font-black">100%</span>
+<span class="text-[10px] font-headline font-bold uppercase">Total Volume</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 w-full text-[10px] font-headline font-bold uppercase">
+<div class="flex flex-col items-center">
+<span class="w-3 h-3 bg-black mb-1"></span>
+<span>Approved 55%</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="w-3 h-3 bg-[#525F74] mb-1"></span>
+<span>Denied 30%</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="w-3 h-3 bg-[#E2E3E1] border border-black mb-1"></span>
+<span>Manual 15%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main High-Density Feed -->
+<div class="grid grid-cols-1 xl:grid-cols-4 gap-6">
+<!-- Loan Feed Table -->
+<div class="xl:col-span-3 bg-white border-3 border-black brutalist-shadow overflow-hidden">
+<div class="p-4 border-b-3 border-black flex justify-between items-center bg-[#E8E8E6]">
+<h2 class="font-headline font-black uppercase text-lg tracking-tighter">High-Density Loan Feed</h2>
+<div class="flex gap-2">
+<div class="relative">
+<input class="bg-white border-3 border-black px-3 py-1 text-xs font-headline focus:ring-0 focus:outline-none w-48" placeholder="Filter merchants..." type="text"/>
+</div>
+<button class="bg-white border-3 border-black p-1">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-[#F4F4F2] border-b-3 border-black">
+<tr class="font-headline text-[10px] uppercase font-black tracking-widest text-secondary">
+<th class="px-4 py-3 border-r-3 border-black">Merchant</th>
+<th class="px-4 py-3 border-r-3 border-black">Amount</th>
+<th class="px-4 py-3 border-r-3 border-black">Status</th>
+<th class="px-4 py-3 border-r-3 border-black">Score</th>
+<th class="px-4 py-3">Decided In</th>
+</tr>
+</thead>
+<tbody class="divide-y-2 divide-black">
+<tr class="hover:bg-[#E2E3E1] transition-colors group">
+<td class="px-4 py-3 border-r-3 border-black font-body font-bold text-sm">
+                                        Nordic Furnishings <span class="block text-[10px] font-normal text-secondary uppercase">ID: 99421-B</span>
+</td>
+<td class="px-4 py-3 border-r-3 border-black mono-number font-bold">$12,450.00</td>
+<td class="px-4 py-3 border-r-3 border-black">
+<span class="bg-black text-white px-2 py-1 text-[10px] font-headline font-bold uppercase">Approved</span>
+</td>
+<td class="px-4 py-3 border-r-3 border-black mono-number">842</td>
+<td class="px-4 py-3 mono-number">1.2s</td>
+</tr>
+<tr class="hover:bg-[#E2E3E1] transition-colors">
+<td class="px-4 py-3 border-r-3 border-black font-body font-bold text-sm">
+                                        Vertex Solutions <span class="block text-[10px] font-normal text-secondary uppercase">ID: 88320-X</span>
+</td>
+<td class="px-4 py-3 border-r-3 border-black mono-number font-bold">$4,200.00</td>
+<td class="px-4 py-3 border-r-3 border-black">
+<span class="border-2 border-black px-2 py-1 text-[10px] font-headline font-bold uppercase">Manual</span>
+</td>
+<td class="px-4 py-3 border-r-3 border-black mono-number">615</td>
+<td class="px-4 py-3 mono-number">0.4s</td>
+</tr>
+<tr class="hover:bg-[#E2E3E1] transition-colors">
+<td class="px-4 py-3 border-r-3 border-black font-body font-bold text-sm">
+                                        Aether Logistics <span class="block text-[10px] font-normal text-secondary uppercase">ID: 77211-A</span>
+</td>
+<td class="px-4 py-3 border-r-3 border-black mono-number font-bold">$45,000.00</td>
+<td class="px-4 py-3 border-r-3 border-black">
+<span class="bg-[#525F74] text-white px-2 py-1 text-[10px] font-headline font-bold uppercase">Denied</span>
+</td>
+<td class="px-4 py-3 border-r-3 border-black mono-number">422</td>
+<td class="px-4 py-3 mono-number">2.1s</td>
+</tr>
+<tr class="hover:bg-[#E2E3E1] transition-colors">
+<td class="px-4 py-3 border-r-3 border-black font-body font-bold text-sm">
+                                        Oasis Co-working <span class="block text-[10px] font-normal text-secondary uppercase">ID: 66102-C</span>
+</td>
+<td class="px-4 py-3 border-r-3 border-black mono-number font-bold">$1,800.00</td>
+<td class="px-4 py-3 border-r-3 border-black">
+<span class="bg-black text-white px-2 py-1 text-[10px] font-headline font-bold uppercase">Approved</span>
+</td>
+<td class="px-4 py-3 border-r-3 border-black mono-number">910</td>
+<td class="px-4 py-3 mono-number">0.8s</td>
+</tr>
+<tr class="hover:bg-[#E2E3E1] transition-colors">
+<td class="px-4 py-3 border-r-3 border-black font-body font-bold text-sm">
+                                        Pulse Media <span class="block text-[10px] font-normal text-secondary uppercase">ID: 55099-M</span>
+</td>
+<td class="px-4 py-3 border-r-3 border-black mono-number font-bold">$8,900.00</td>
+<td class="px-4 py-3 border-r-3 border-black">
+<span class="bg-black text-white px-2 py-1 text-[10px] font-headline font-bold uppercase">Approved</span>
+</td>
+<td class="px-4 py-3 border-r-3 border-black mono-number">780</td>
+<td class="px-4 py-3 mono-number">1.5s</td>
+</tr>
+<tr class="hover:bg-[#E2E3E1] transition-colors">
+<td class="px-4 py-3 border-r-3 border-black font-body font-bold text-sm">
+                                        Ironbound Group <span class="block text-[10px] font-normal text-secondary uppercase">ID: 44088-K</span>
+</td>
+<td class="px-4 py-3 border-r-3 border-black mono-number font-bold">$15,500.00</td>
+<td class="px-4 py-3 border-r-3 border-black">
+<span class="bg-[#525F74] text-white px-2 py-1 text-[10px] font-headline font-bold uppercase">Denied</span>
+</td>
+<td class="px-4 py-3 border-r-3 border-black mono-number">380</td>
+<td class="px-4 py-3 mono-number">0.3s</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-3 bg-[#F4F4F2] flex justify-center border-t-3 border-black">
+<button class="font-headline font-bold uppercase text-[10px] tracking-widest hover:underline">Load More Transactions</button>
+</div>
+</div>
+<!-- Live Feed Log -->
+<div class="xl:col-span-1 flex flex-col gap-6">
+<div class="bg-white border-3 border-black brutalist-shadow flex-1">
+<div class="p-4 border-b-3 border-black flex items-center justify-between">
+<h3 class="font-headline font-black uppercase text-xs tracking-widest">Live Feed</h3>
+<span class="flex h-2 w-2 rounded-full bg-error animate-pulse"></span>
+</div>
+<div class="p-4 space-y-4 max-h-[500px] overflow-y-auto">
+<!-- Log Entry -->
+<div class="border-l-3 border-black pl-3 py-1">
+<p class="text-[10px] mono-number text-secondary">14:22:01</p>
+<p class="text-xs font-bold font-headline uppercase">Application Started</p>
+<p class="text-[10px] font-body text-secondary">Merchant: Nova Retail LLC</p>
+</div>
+<!-- Log Entry -->
+<div class="border-l-3 border-black pl-3 py-1">
+<p class="text-[10px] mono-number text-secondary">14:21:45</p>
+<p class="text-xs font-bold font-headline uppercase text-error">Risk Triggered</p>
+<p class="text-[10px] font-body text-secondary">Aether Logistics: High Exposure Flag</p>
+</div>
+<!-- Log Entry -->
+<div class="border-l-3 border-black pl-3 py-1">
+<p class="text-[10px] mono-number text-secondary">14:20:12</p>
+<p class="text-xs font-bold font-headline uppercase">Decision Finalized</p>
+<p class="text-[10px] font-body text-secondary">Nordic Furnishings: Approved $12.4k</p>
+</div>
+<!-- Log Entry -->
+<div class="border-l-3 border-black pl-3 py-1">
+<p class="text-[10px] mono-number text-secondary">14:19:33</p>
+<p class="text-xs font-bold font-headline uppercase">Identity Verified</p>
+<p class="text-[10px] font-body text-secondary">Oasis Co-working: KYC Pass</p>
+</div>
+<!-- Log Entry -->
+<div class="border-l-3 border-black pl-3 py-1">
+<p class="text-[10px] mono-number text-secondary">14:18:05</p>
+<p class="text-xs font-bold font-headline uppercase">Bank Connect</p>
+<p class="text-[10px] font-body text-secondary">Ironbound Group: Syncing Ledger...</p>
+</div>
+</div>
+</div>
+<!-- Quick Action Card -->
+<div class="bg-black text-on-primary border-3 border-black p-6 brutalist-shadow">
+<h4 class="font-headline font-black uppercase text-xs tracking-widest mb-4">Urgent Review</h4>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 border-2 border-white flex items-center justify-center">
+<span class="material-symbols-outlined text-white">priority_high</span>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-tighter opacity-70">Awaiting Decision</p>
+<p class="font-headline font-black text-xl uppercase">12 Pending</p>
+</div>
+</div>
+<button class="w-full bg-[#D6E3FD] text-black font-headline font-black uppercase py-3 border-3 border-black brutalist-button brutalist-shadow-sm text-sm">
+                            Open Queue
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

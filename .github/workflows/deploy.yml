@@ -1,0 +1,116 @@
+name: pos-analyst deploy
+
+# Manual deploy to an existing Vast.ai VM. The VM must already have Docker
+# installed (the initial `deploy_vast.py up` does this). After first rent,
+# every redeploy goes through this workflow: it SSHes in, git-pulls, and
+# brings the compose stack back up.
+#
+# Required repo secrets:
+#   SSH_PRIVATE_KEY       — private key matching the Vast VM's authorized_keys
+#   MINIMAX_API_KEY       — MiniMax API key (placed into remote .env)
+#   POS_API_KEY           — shared secret clients send as X-API-Key
+# Required repo variables:
+#   VM_HOST               — public IP or hostname of the VM
+#   VM_PORT               — SSH port (usually 22 for VMs, sometimes direct-mapped)
+#   VM_USER               — SSH user (usually "root" on Vast VMs)
+#   VM_REMOTE_DIR         — path on the VM, e.g. /opt/pos-analyst
+#   VM_GIT_REPO           — git URL to pull from (can equal this repo)
+#   VM_GIT_REF            — branch or tag to deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      git_ref:
+        description: "Branch, tag, or SHA to deploy (overrides VM_GIT_REF if set)"
+        required: false
+        default: ""
+      rebuild:
+        description: "Force docker rebuild (no cache)"
+        type: boolean
+        default: false
+  push:
+    tags:
+      - "pos-analyst-v*"
+
+concurrency:
+  group: pos-analyst-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Resolve git ref
+        id: ref
+        run: |
+          ref="${{ github.event.inputs.git_ref }}"
+          if [ -z "$ref" ]; then ref="${{ vars.VM_GIT_REF }}"; fi
+          if [ -z "$ref" ]; then ref="${GITHUB_REF_NAME}"; fi
+          echo "git_ref=$ref" >> "$GITHUB_OUTPUT"
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -p "${{ vars.VM_PORT }}" -H "${{ vars.VM_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Deploy (git pull + compose up)
+        env:
+          REBUILD: ${{ github.event.inputs.rebuild }}
+          GIT_REF: ${{ steps.ref.outputs.git_ref }}
+          REMOTE: ${{ vars.VM_USER }}@${{ vars.VM_HOST }}
+          PORT:   ${{ vars.VM_PORT }}
+          DIR:    ${{ vars.VM_REMOTE_DIR }}
+          REPO:   ${{ vars.VM_GIT_REPO }}
+          MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
+          POS_API_KEY:     ${{ secrets.POS_API_KEY }}
+        run: |
+          BUILD_FLAG="--build"
+          if [ "$REBUILD" = "true" ]; then BUILD_FLAG="--build --no-cache-build"; fi
+
+          ssh -o BatchMode=yes -i ~/.ssh/id_deploy -p "$PORT" "$REMOTE" bash -se <<REMOTE_EOF
+          set -eu
+          mkdir -p "$DIR"
+          if [ ! -d "$DIR/.git" ]; then
+              git clone --depth 1 --branch "$GIT_REF" "$REPO" "$DIR"
+          else
+              cd "$DIR"
+              git fetch --depth 1 origin "$GIT_REF"
+              git checkout -q "$GIT_REF" 2>/dev/null || git checkout -qB "$GIT_REF" "origin/$GIT_REF"
+              git reset --hard "origin/$GIT_REF" 2>/dev/null || git reset --hard "$GIT_REF"
+          fi
+
+          cd "$DIR/pos-analyst/scripts"
+
+          cat > .env <<ENV_EOF
+          MINIMAX_API_KEY=$MINIMAX_API_KEY
+          POS_API_KEY=$POS_API_KEY
+          POS_HOST_WORK_DIR=/var/pos-analyst
+          POS_BIND_PORT=8080
+          POS_WORKER_CONCURRENCY=2
+          ENV_EOF
+          chmod 600 .env
+
+          # Build sandbox image first so the api preflight passes.
+          docker build -f Dockerfile.sandbox -t pos-analyst-sandbox:latest .
+
+          docker compose --env-file .env up -d $BUILD_FLAG
+          REMOTE_EOF
+
+      - name: Health check
+        run: |
+          for i in 1 2 3 4 5 6; do
+            if ssh -o BatchMode=yes -i ~/.ssh/id_deploy -p "${{ vars.VM_PORT }}" \
+                 "${{ vars.VM_USER }}@${{ vars.VM_HOST }}" \
+                 "curl -fsS http://127.0.0.1:8080/health"; then
+              echo
+              echo "healthy"
+              exit 0
+            fi
+            echo "health attempt $i/6 failed; retrying in 10s"
+            sleep 10
+          done
+          echo "api never became healthy after deploy"
+          exit 1

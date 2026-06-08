@@ -1,0 +1,104 @@
+{
+  "id": "db71e453-d67b-4baf-9544-1fc0f74d883b",
+  "merchant_id": "9cb4e1e8-049b-46e5-a624-ccc61a188d59",
+  "amount_requested": 80000,
+  "item_description": "Industrial coffee roaster 20kg capacity",
+  "invoice_url": null,
+  "status": "denied",
+  "synthesis_status": "done",
+  "registered_dimensions": [
+    "financial_docs",
+    "industry",
+    "pos",
+    "sentiment",
+    "simah"
+  ],
+  "analyst_jobs": {
+    "single_business_fnb_analyst": {
+      "error": "ConnectError: [Errno 8] nodename nor servname provided, or not known",
+      "phase": "submit",
+      "job_id": null,
+      "status": "error",
+      "job_key": "single_business_fnb_analyst",
+      "eligible": true,
+      "file_names": [
+        "merchant_profile.csv",
+        "pos_summary.csv",
+        "bank_monthly.csv",
+        "bank_summary.csv",
+        "financial_statement.csv",
+        "invoice_lines.csv"
+      ],
+      "updated_at": "2026-04-16T14:25:54.110568+00:00",
+      "report_ready": false,
+      "submitted_at": null
+    }
+  },
+  "affordability": null,
+  "decision_payload": {
+    "generated_at": "2026-04-16T14:26:24.672389+00:00",
+    "llm_response": null,
+    "final_decision": {
+      "reason": "Hard floor violation: dscr_below_1.0(0.08), simah_defaults>0(1)",
+      "status": "denied",
+      "approved_amount": null,
+      "override_applied": "hard_floor"
+    },
+    "schema_version": "v1",
+    "dimension_scores": {
+      "pos": 65.0,
+      "simah": 25.0,
+      "industry": 53.0,
+      "financial_docs": 10.0
+    },
+    "risk_snapshot_id": "095243a2-b53b-414b-ab81-21a36833073a",
+    "hard_floors_check": {
+      "passed": false,
+      "violations": [
+        "dscr_below_1.0(0.08)",
+        "simah_defaults>0(1)"
+      ]
+    },
+    "synthesis_version": "expert@v1",
+    "registered_dimensions": [
+      "financial_docs",
+      "industry",
+      "pos",
+      "sentiment",
+      "simah"
+    ],
+    "deterministic_proposal": {
+      "per_dim": {
+        "pos": 65.0,
+        "simah": 25.0,
+        "industry": 53.0,
+        "financial_docs": 10.0
+      },
+      "decision": "deny",
+      "risk_level": "high",
+      "rules_fired": [
+        "overall_score<=40",
+        "dscr_tight",
+        "simah_defaults_present"
+      ],
+      "amount_bounds": {
+        "max": 48000.0,
+        "min": 32000.0
+      },
+      "overall_score": 35.8
+    }
+  },
+  "approved_amount": null,
+  "profit_rate": 0.15,
+  "repayment_months": 12,
+  "monthly_payment": null,
+  "amount_paid": 0,
+  "created_at": "2026-04-16T14:21:34.900182+00:00",
+  "updated_at": "2026-04-16T14:26:24.984486+00:00",
+  "analysis_started_at": "2026-04-16T14:21:42.307752+00:00",
+  "analysis_completed_at": "2026-04-16T14:26:24.672608+00:00",
+  "repayment_frequency": "monthly",
+  "stream_product_id": null,
+  "stream_subscription_id": null,
+  "stream_subscription_status": null
+}

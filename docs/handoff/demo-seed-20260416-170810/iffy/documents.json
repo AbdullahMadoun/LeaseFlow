@@ -1,0 +1,255 @@
+[
+  {
+    "id": "1b802315-fc49-4828-bbd8-27e3ce4ce7c6",
+    "loan_id": "490e4f40-5446-48c4-b8a5-f4c36d655c03",
+    "doc_type": "bank_statement",
+    "storage_path": "110d6922-dd31-4d38-8cbc-ae4727b41a9b/490e4f40-5446-48c4-b8a5-f4c36d655c03/bank_statement/4f775aeb185d.pdf",
+    "content_hash": null,
+    "extractor_version": null,
+    "analysis_status": "done",
+    "analysis_report": {
+      "meta": {
+        "confidence": 0.95,
+        "schema_version": "v1",
+        "source_filename": "4f775aeb185d.pdf",
+        "extraction_notes": [],
+        "extractor_version": "v1",
+        "low_confidence_fields": []
+      },
+      "flags": [],
+      "monthly": [
+        {
+          "month": "2025-10",
+          "net_sar": 12479.95,
+          "txn_count": 421,
+          "revenue_sar": 64284.31,
+          "expenses_sar": 51804.36,
+          "source_pages": [
+            1
+          ]
+        },
+        {
+          "month": "2025-11",
+          "net_sar": 13893.24,
+          "txn_count": 398,
+          "revenue_sar": 72095.45,
+          "expenses_sar": 58202.21,
+          "source_pages": [
+            2
+          ]
+        },
+        {
+          "month": "2025-12",
+          "net_sar": 8856.34,
+          "txn_count": 247,
+          "revenue_sar": 43847.52,
+          "expenses_sar": 34991.18,
+          "source_pages": [
+            3
+          ]
+        },
+        {
+          "month": "2026-01",
+          "net_sar": 10343.04,
+          "txn_count": 217,
+          "revenue_sar": 46787.38,
+          "expenses_sar": 36444.33,
+          "source_pages": [
+            4
+          ]
+        },
+        {
+          "month": "2026-02",
+          "net_sar": 12761.61,
+          "txn_count": 220,
+          "revenue_sar": 67656.29,
+          "expenses_sar": 54894.68,
+          "source_pages": [
+            5
+          ]
+        },
+        {
+          "month": "2026-03",
+          "net_sar": 10461.86,
+          "txn_count": 422,
+          "revenue_sar": 51181.31,
+          "expenses_sar": 40719.44,
+          "source_pages": [
+            6
+          ]
+        }
+      ],
+      "currency": "SAR",
+      "doc_type": "bank_statement",
+      "bank_name": "Arab National Bank",
+      "aggregates": {
+        "trend": "stable",
+        "volatility": 0.15,
+        "bounced_count": 1,
+        "overdraft_events": 0,
+        "monthly_net_avg_sar": 11466.01,
+        "monthly_revenue_avg_sar": 57642.04,
+        "monthly_expenses_avg_sar": 46176.03
+      },
+      "iban_last4": "6921",
+      "period_end": "2026-03",
+      "period_start": "2025-10",
+      "account_holder": "Iffy Burger"
+    },
+    "created_at": "2026-04-16T14:26:39.045024+00:00",
+    "extractor_schema_version": "v1"
+  },
+  {
+    "id": "8e704708-63ca-4c3d-9f61-753809bc23e3",
+    "loan_id": "490e4f40-5446-48c4-b8a5-f4c36d655c03",
+    "doc_type": "pos_data",
+    "storage_path": "110d6922-dd31-4d38-8cbc-ae4727b41a9b/490e4f40-5446-48c4-b8a5-f4c36d655c03/pos_data/48f19c98e2d9.csv",
+    "content_hash": null,
+    "extractor_version": null,
+    "analysis_status": "done",
+    "analysis_report": {
+      "meta": {
+        "confidence": 0.0,
+        "schema_version": "v1",
+        "source_filename": "48f19c98e2d9.csv",
+        "extraction_notes": [
+          "extractor_failed: 1 validation error for POSReport\ndaily\n  Input should be a valid list [type=list_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.10/v/list_"
+        ],
+        "extractor_version": "v1",
+        "low_confidence_fields": [
+          "all"
+        ]
+      },
+      "daily": [],
+      "flags": [],
+      "currency": "SAR",
+      "doc_type": "pos_data",
+      "aggregates": {
+        "trend_90d": null,
+        "void_rate": null,
+        "peak_hours": [],
+        "refund_rate": null,
+        "seasonality": null,
+        "cash_card_mix": null,
+        "avg_ticket_sar": null,
+        "daily_revenue_avg_sar": null,
+        "monthly_revenue_est_sar": null
+      },
+      "period_end": null,
+      "period_start": null,
+      "merchant_hint": null
+    },
+    "created_at": "2026-04-16T14:26:43.759811+00:00",
+    "extractor_schema_version": "v1"
+  },
+  {
+    "id": "5ff7f53f-7d13-471b-91a6-9a070b90d4b5",
+    "loan_id": "490e4f40-5446-48c4-b8a5-f4c36d655c03",
+    "doc_type": "financial_statement",
+    "storage_path": "110d6922-dd31-4d38-8cbc-ae4727b41a9b/490e4f40-5446-48c4-b8a5-f4c36d655c03/financial_statement/7aa82750c37d.pdf",
+    "content_hash": null,
+    "extractor_version": null,
+    "analysis_status": "done",
+    "analysis_report": {
+      "meta": {
+        "confidence": 1.0,
+        "schema_version": "v1",
+        "source_filename": "7aa82750c37d.pdf",
+        "extraction_notes": [],
+        "extractor_version": "v1",
+        "low_confidence_fields": []
+      },
+      "flags": [],
+      "ratios": {
+        "net_margin": 0.1,
+        "gross_margin": 0.481,
+        "current_ratio": 1.43,
+        "debt_to_equity": 1.25
+      },
+      "currency": "SAR",
+      "doc_type": "financial_statement",
+      "period_end": "2025-12-31",
+      "company_name": "Iffy Burger",
+      "period_start": "2025-01-01",
+      "balance_sheet": {
+        "equity_sar": 184600.58,
+        "source_pages": [
+          1
+        ],
+        "total_assets_sar": 415351.29,
+        "current_assets_sar": 184632.09,
+        "total_liabilities_sar": 230750.72,
+        "current_liabilities_sar": 129451.72
+      },
+      "income_statement": {
+        "cogs_sar": 338177.27,
+        "opex_sar": 248553.21,
+        "revenue_sar": 652062.52,
+        "source_pages": [
+          2
+        ],
+        "net_profit_sar": 65332.04
+      }
+    },
+    "created_at": "2026-04-16T14:26:40.163199+00:00",
+    "extractor_schema_version": "v1"
+  },
+  {
+    "id": "8efc49b4-2b29-497c-beaf-534b51c083f6",
+    "loan_id": "490e4f40-5446-48c4-b8a5-f4c36d655c03",
+    "doc_type": "invoice",
+    "storage_path": "110d6922-dd31-4d38-8cbc-ae4727b41a9b/490e4f40-5446-48c4-b8a5-f4c36d655c03/invoice/34c736840e3f.pdf",
+    "content_hash": null,
+    "extractor_version": null,
+    "analysis_status": "done",
+    "analysis_report": {
+      "meta": {
+        "confidence": 0.95,
+        "schema_version": "v1",
+        "source_filename": null,
+        "extraction_notes": [
+          "Invoice date is 2026-04-08 which appears to be in the future relative to current date",
+          "Invoice total SAR 59,279.88 is within 10% threshold of requested amount SAR 60,000.00",
+          "Subtotal + VAT correctly calculates to total (51,547.72 + 7,732.16 = 59,279.88)",
+          "VAT number is present on invoice (300123456700003)",
+          "Commercial griddle classified as commercial cooking equipment"
+        ],
+        "extractor_version": "v1",
+        "low_confidence_fields": [
+          "issue_date"
+        ]
+      },
+      "flags": [],
+      "vat_sar": 7732.16,
+      "currency": "SAR",
+      "doc_type": "invoice",
+      "total_sar": 59279.88,
+      "issue_date": "2026-04-08",
+      "line_items": [
+        {
+          "quantity": 1.0,
+          "total_sar": 49982.5,
+          "description": "Commercial griddle + hood",
+          "unit_price_sar": 49982.5
+        },
+        {
+          "quantity": 1.0,
+          "total_sar": 1565.22,
+          "description": "Installation & commissioning",
+          "unit_price_sar": 1565.22
+        }
+      ],
+      "vendor_vat": "300123456700003",
+      "fraud_flags": [
+        "date_in_future"
+      ],
+      "vendor_name": "Arabian Espresso Co.",
+      "subtotal_sar": 51547.72,
+      "item_category": "commercial_cooking",
+      "invoice_number": "INV-202604-4171",
+      "matches_requested_amount": true
+    },
+    "created_at": "2026-04-16T14:26:44.793891+00:00",
+    "extractor_schema_version": "v1"
+  }
+]

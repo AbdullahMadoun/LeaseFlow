@@ -1,0 +1,141 @@
+# LeaseFlow full stack — analyst + orchestrator.
+#
+# Run on a Vast.ai VM (or any Linux host with a real Docker daemon).
+# The analyst mounts /var/run/docker.sock so it can spawn sibling
+# sandbox containers per code-execution step.
+#
+# Usage:
+#   1. SSH into the VM, cd into repo root (this dir)
+#   2. Build the sandbox image once:
+#        docker build -f pos-analyst/scripts/Dockerfile.sandbox \
+#                     -t pos-analyst-sandbox:latest pos-analyst/scripts/
+#   3. set -a && . .env && set +a
+#   4. docker compose up -d --build
+#
+# Required env: SUPABASE_URL, SUPABASE_SERVICE_KEY, SUPABASE_ANON_KEY, MINIMAX_API_KEY
+# Optional:     RESEND_API_KEY, POS_HOST_WORK_DIR, CORS_ORIGINS
+
+services:
+  # ========================================================
+  # Analyst — the existing POS / Financial agent engine.
+  # ========================================================
+  analyst:
+    build:
+      context: ./agents/pos-analyst/scripts
+      dockerfile: Dockerfile
+    image: pos-analyst-api:latest
+    container_name: leaseflow-analyst
+    restart: unless-stopped
+    environment:
+      MINIMAX_API_KEY: "${MINIMAX_API_KEY:?MINIMAX_API_KEY is required}"
+      POS_LLM_BASE_URL: "${POS_LLM_BASE_URL:-https://api.minimax.io/v1}"
+      POS_MODEL_ID: "${POS_MODEL_ID:-MiniMax-M2.7}"
+      POS_REPORT_MODEL_ID: "${POS_REPORT_MODEL_ID:-MiniMax-M2.7}"
+      POS_LLM_TIMEOUT: "${POS_LLM_TIMEOUT:-180}"
+      POS_LLM_RETRIES: "${POS_LLM_RETRIES:-4}"
+      POS_LLM_TEMP: "${POS_LLM_TEMP:-0.2}"
+      POS_MAX_CODE_STEPS: "${POS_MAX_CODE_STEPS:-80}"
+      POS_MAX_VALIDATION_ROUNDS: "${POS_MAX_VALIDATION_ROUNDS:-2}"
+      POS_FINDINGS_WINDOW: "${POS_FINDINGS_WINDOW:-20}"
+      POS_TRACE_WINDOW: "${POS_TRACE_WINDOW:-10}"
+      POS_SANDBOX_IMAGE: "${POS_SANDBOX_IMAGE:-pos-analyst-sandbox:latest}"
+      POS_SANDBOX_CPUS: "${POS_SANDBOX_CPUS:-2.0}"
+      POS_SANDBOX_MEM: "${POS_SANDBOX_MEM:-2g}"
+      POS_SANDBOX_PIDS: "${POS_SANDBOX_PIDS:-256}"
+      POS_SANDBOX_TIMEOUT: "${POS_SANDBOX_TIMEOUT:-90}"
+      POS_SANDBOX_OUTPUT_LIMIT_KB: "${POS_SANDBOX_OUTPUT_LIMIT_KB:-256}"
+      POS_SANDBOX_OUTPUT_HEAD_KB: "${POS_SANDBOX_OUTPUT_HEAD_KB:-8}"
+      POS_SANDBOX_OUTPUT_TAIL_KB: "${POS_SANDBOX_OUTPUT_TAIL_KB:-8}"
+      POS_SANDBOX_TMPFS_MB: "${POS_SANDBOX_TMPFS_MB:-256}"
+      POS_API_KEY: "${ANALYST_API_KEY:-}"
+      POS_BIND_HOST: "0.0.0.0"
+      POS_BIND_PORT: "8080"
+      POS_WORKER_CONCURRENCY: "${POS_WORKER_CONCURRENCY:-2}"
+      POS_LOG_LEVEL: "${POS_LOG_LEVEL:-INFO}"
+      POS_WEB_SEARCH_ENABLED: "${POS_WEB_SEARCH_ENABLED:-false}"
+      POS_WEB_SEARCH_PROVIDER: "${POS_WEB_SEARCH_PROVIDER:-tavily}"
+      TAVILY_API_KEY: "${TAVILY_API_KEY:-}"
+      POS_WEB_SEARCH_MAX_PER_JOB: "${POS_WEB_SEARCH_MAX_PER_JOB:-6}"
+      POS_WORK_DIR: "/var/pos-analyst"
+      POS_HOST_WORK_DIR: "${POS_HOST_WORK_DIR:-/var/pos-analyst}"
+    volumes:
+      - "${POS_HOST_WORK_DIR:-/var/pos-analyst}:/var/pos-analyst"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - "${ANALYST_BIND_PORT:-8080}:8080"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8080/health',timeout=3).status==200 else 1)",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  # ========================================================
+  # Orchestrator — LeaseFlow FastAPI. 5-dim pipeline + expert
+  # synthesis + Supabase + email notifications.
+  # ========================================================
+  orchestrator:
+    build:
+      context: ./services/backend
+      dockerfile: Dockerfile
+    image: leaseflow-orchestrator:latest
+    container_name: leaseflow-orchestrator
+    restart: unless-stopped
+    depends_on:
+      analyst:
+        condition: service_healthy
+    environment:
+      SUPABASE_URL: "${SUPABASE_URL:?SUPABASE_URL is required}"
+      SUPABASE_SERVICE_KEY: "${SUPABASE_SERVICE_KEY:?SUPABASE_SERVICE_KEY is required}"
+      SUPABASE_ANON_KEY: "${SUPABASE_ANON_KEY:-}"
+      LEASEFLOW_BUCKET: "${LEASEFLOW_BUCKET:-loan-documents}"
+      SIGNED_URL_TTL_S: "${SIGNED_URL_TTL_S:-300}"
+      MINIMAX_API_KEY: "${MINIMAX_API_KEY:?MINIMAX_API_KEY is required}"
+      LLM_BASE_URL: "${LLM_BASE_URL:-https://api.minimax.io/v1}"
+      LLM_MODEL: "${LLM_MODEL:-MiniMax-M2.7}"
+      LLM_TIMEOUT_S: "${LLM_TIMEOUT_S:-120}"
+      LLM_MAX_RETRIES: "${LLM_MAX_RETRIES:-3}"
+      LLM_TEMPERATURE: "${LLM_TEMPERATURE:-0.2}"
+      ANALYST_API_URL: "http://analyst:8080"
+      ANALYST_API_KEY: "${ANALYST_API_KEY:-}"
+      ANALYST_POLL_INTERVAL_S: "${ANALYST_POLL_INTERVAL_S:-5}"
+      ANALYST_TIMEOUT_S: "${ANALYST_TIMEOUT_S:-1800}"
+      LEASEFLOW_DEV_FIXTURES: "${LEASEFLOW_DEV_FIXTURES:-false}"
+      DEMO_MODE: "${DEMO_MODE:-false}"
+      DECISION_MODE: "${DECISION_MODE:-guardrail}"
+      PIPELINE_CONCURRENCY: "${PIPELINE_CONCURRENCY:-4}"
+      DIM_TASK_TIMEOUT_S: "${DIM_TASK_TIMEOUT_S:-1800}"
+      RISK_SNAPSHOT_INTERVAL_S: "${RISK_SNAPSHOT_INTERVAL_S:-1800}"
+      RISK_SNAPSHOT_ON_STARTUP: "${RISK_SNAPSHOT_ON_STARTUP:-true}"
+      RESEND_API_KEY: "${RESEND_API_KEY:-}"
+      NOTIFICATIONS_FROM: "${NOTIFICATIONS_FROM:-LeaseFlow <no-reply@leaseflow.demo>}"
+      NOTIFICATIONS_ENABLED: "${NOTIFICATIONS_ENABLED:-true}"
+      # Apify — Google Maps reviews + places scraping (sentiment dim)
+      APIFY_TOKEN: "${APIFY_TOKEN:-}"
+      APIFY_BASE_URL: "${APIFY_BASE_URL:-https://api.apify.com/v2}"
+      APIFY_TIMEOUT_S: "${APIFY_TIMEOUT_S:-180}"
+      APIFY_PLACES_ACTOR_ID: "${APIFY_PLACES_ACTOR_ID:-compass/crawler-google-places}"
+      APIFY_REVIEWS_ACTOR_ID: "${APIFY_REVIEWS_ACTOR_ID:-compass/google-maps-reviews-scraper}"
+      # Stream (Saudi payments provider) — needed for subscriptions + webhooks
+      STREAM_API_KEY: "${STREAM_API_KEY:-}"
+      STREAM_API_SECRET: "${STREAM_API_SECRET:-}"
+      STREAM_X_API_KEY: "${STREAM_X_API_KEY:-}"
+      STREAM_BASE_URL: "${STREAM_BASE_URL:-https://stream-app-service.streampay.sa}"
+      STREAM_WEBHOOK_SECRET: "${STREAM_WEBHOOK_SECRET:-}"
+      STREAM_CONSUMER_TYPE: "${STREAM_CONSUMER_TYPE:-INDIVIDUAL}"
+      CORS_ORIGINS: "${CORS_ORIGINS:-*}"
+      LOG_LEVEL: "${LOG_LEVEL:-INFO}"
+      ENV: "${ENV:-production}"
+      BIND_HOST: "0.0.0.0"
+      BIND_PORT: "8000"
+    volumes:
+      # Expose pos-analyst references so LeaseFlow can load methodology docs.
+      - "./agents/pos-analyst/references:/srv/references:ro"
+    ports:
+      - "${ORCHESTRATOR_BIND_PORT:-8000}:8000"

@@ -1,0 +1,33 @@
+interface:
+  display_name: "POS Financial Analyst"
+  short_description: "Autonomous analyst for restaurant/café POS data — ReAct loop, sandboxed code exec, persistent memory, non-technical report."
+  default_prompt: |
+    Use $pos-financial-analyst to deploy and operate the POS analyst service.
+    Inputs are POS transaction CSVs plus a free-text business context. The agent
+    profiles the data, plans, executes an analysis loop with Python in an isolated
+    Docker sandbox, validates findings for internal consistency, and returns a
+    non-technical business report. Deploy the service on a Vast.ai VM (not a
+    standard container) because the host runs Docker directly.
+
+model:
+  provider: minimax
+  api_base: "https://api.minimax.io/v1"
+  api_key_env: MINIMAX_API_KEY
+  id: "MiniMax-M2.7"
+  highspeed_id: "MiniMax-M2.7-highspeed"
+  client: openai          # OpenAI-compatible API surface
+  reasoning_notes: |
+    M2.7 is purpose-built for agentic harnesses with native tool calling,
+    SOTA on programming + tool calling, 200K context, $0.30 / $1.20 per M
+    tokens. Highspeed variant (~3x throughput, identical results) is the
+    drop-in replacement when latency matters more than headroom; switch via
+    POS_MODEL_ID=MiniMax-M2.7-highspeed.
+  multi_turn_tool_use_note: |
+    For multi-turn tool calls, the FULL assistant message (including the
+    tool_calls field) must be appended to message history before the
+    matching tool result. analyst_agent.py honors this contract.
+
+system_prompt_source: scripts/prompts.py  # SYSTEM_PROMPT constant
+tool_schemas_source:  scripts/prompts.py  # TOOLS constant
+methodology_reference: references/analysis-methodology.md
+report_structure_reference: references/report-structure.md

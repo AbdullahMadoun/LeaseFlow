@@ -1,0 +1,83 @@
+# POS Financial Analyst — full stack.
+#
+# Designed to run on a Vast.ai *VM* (or any Linux host with a real Docker
+# daemon). The api service mounts /var/run/docker.sock so it can spawn
+# sibling sandbox containers per code-execution step.
+#
+# Usage on a VM:
+#   1. SSH into the VM
+#   2. cd into the directory containing this file (push of the scripts/ dir)
+#   3. Build sandbox image first:
+#        docker build -f Dockerfile.sandbox -t pos-analyst-sandbox:latest .
+#   4. Bring the API up:
+#        MINIMAX_API_KEY=... POS_API_KEY=... docker compose up -d --build
+#
+# Several other APIs can run alongside on the same host — this stack only
+# claims the api port and the named workdir volume.
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: pos-analyst-api:latest
+    container_name: pos-analyst-api
+    restart: unless-stopped
+    environment:
+      # ---- model ----
+      MINIMAX_API_KEY: "${MINIMAX_API_KEY:?MINIMAX_API_KEY is required}"
+      POS_LLM_BASE_URL: "${POS_LLM_BASE_URL:-https://api.minimax.io/v1}"
+      POS_MODEL_ID: "${POS_MODEL_ID:-MiniMax-M2.7}"
+      POS_REPORT_MODEL_ID: "${POS_REPORT_MODEL_ID:-MiniMax-M2.7}"
+      POS_LLM_TIMEOUT: "${POS_LLM_TIMEOUT:-180}"
+      POS_LLM_RETRIES: "${POS_LLM_RETRIES:-4}"
+      POS_LLM_TEMP: "${POS_LLM_TEMP:-0.2}"
+      # ---- agent loop ----
+      POS_MAX_CODE_STEPS: "${POS_MAX_CODE_STEPS:-80}"
+      POS_MAX_VALIDATION_ROUNDS: "${POS_MAX_VALIDATION_ROUNDS:-2}"
+      POS_FINDINGS_WINDOW: "${POS_FINDINGS_WINDOW:-20}"
+      POS_TRACE_WINDOW: "${POS_TRACE_WINDOW:-10}"
+      POS_DEFAULT_TARGET_MINUTES: "${POS_DEFAULT_TARGET_MINUTES:-5}"
+      POS_DEFAULT_HARD_CAP_MINUTES: "${POS_DEFAULT_HARD_CAP_MINUTES:-30}"
+      # ---- sandbox ----
+      POS_SANDBOX_IMAGE: "${POS_SANDBOX_IMAGE:-pos-analyst-sandbox:latest}"
+      POS_SANDBOX_CPUS: "${POS_SANDBOX_CPUS:-2.0}"
+      POS_SANDBOX_MEM: "${POS_SANDBOX_MEM:-2g}"
+      POS_SANDBOX_PIDS: "${POS_SANDBOX_PIDS:-256}"
+      POS_SANDBOX_TIMEOUT: "${POS_SANDBOX_TIMEOUT:-90}"
+      POS_SANDBOX_OUTPUT_LIMIT_KB: "${POS_SANDBOX_OUTPUT_LIMIT_KB:-256}"
+      POS_SANDBOX_OUTPUT_HEAD_KB: "${POS_SANDBOX_OUTPUT_HEAD_KB:-8}"
+      POS_SANDBOX_OUTPUT_TAIL_KB: "${POS_SANDBOX_OUTPUT_TAIL_KB:-8}"
+      POS_SANDBOX_TMPFS_MB: "${POS_SANDBOX_TMPFS_MB:-256}"
+      # ---- service ----
+      POS_API_KEY: "${POS_API_KEY:-}"
+      POS_BIND_HOST: "0.0.0.0"
+      POS_BIND_PORT: "8080"
+      POS_WORKER_CONCURRENCY: "${POS_WORKER_CONCURRENCY:-2}"
+      POS_LOG_LEVEL: "${POS_LOG_LEVEL:-INFO}"
+      # ---- web search (off by default) ----
+      POS_WEB_SEARCH_ENABLED: "${POS_WEB_SEARCH_ENABLED:-false}"
+      POS_WEB_SEARCH_PROVIDER: "${POS_WEB_SEARCH_PROVIDER:-tavily}"
+      TAVILY_API_KEY: "${TAVILY_API_KEY:-}"
+      POS_WEB_SEARCH_MAX_PER_JOB: "${POS_WEB_SEARCH_MAX_PER_JOB:-6}"
+      # ---- paths ----
+      POS_WORK_DIR: "/var/pos-analyst"
+      # POS_HOST_WORK_DIR is the host-side path of the same volume, used so
+      # `docker run -v <host-path>:/in:ro` resolves correctly when issued by
+      # this container against the host docker daemon.
+      POS_HOST_WORK_DIR: "${POS_HOST_WORK_DIR:-/var/pos-analyst}"
+    volumes:
+      # Persistent workdir. Bind-mount the SAME absolute path on the host so
+      # the docker socket sees identical paths from inside and outside the
+      # api container — required for the sibling-mount pattern.
+      - "${POS_HOST_WORK_DIR:-/var/pos-analyst}:/var/pos-analyst"
+      # Docker socket so the api can spawn sibling sandbox containers.
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - "${POS_BIND_PORT:-8080}:8080"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8080/health',timeout=3).status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 20s

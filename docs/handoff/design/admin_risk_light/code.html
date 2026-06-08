@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#ffffff",
+                        "secondary-fixed-dim": "#9facc4",
+                        "outline-variant": "#c6c6c6",
+                        "on-tertiary-fixed": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#68758b",
+                        "primary-container": "#2f3c50",
+                        "secondary": "#525f74",
+                        "surface-bright": "#f9f9f7",
+                        "surface-dim": "#dadad8",
+                        "on-tertiary-fixed-variant": "#d6e3fd",
+                        "secondary-container": "#c8d5ee",
+                        "on-primary-fixed-variant": "#d6e3fd",
+                        "tertiary-fixed-dim": "#3b475c",
+                        "surface-tint": "#525f74",
+                        "on-background": "#1a1c1b",
+                        "on-secondary-container": "#0e1c2e",
+                        "surface": "#f9f9f7",
+                        "outline": "#777777",
+                        "primary": "#000000",
+                        "on-surface-variant": "#474747",
+                        "secondary-fixed": "#bac7e0",
+                        "on-error-container": "#410002",
+                        "on-primary-fixed": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f4f4f2",
+                        "on-tertiary-container": "#ffffff",
+                        "inverse-primary": "#bac7e0",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e2e3e1",
+                        "background": "#f9f9f7",
+                        "on-secondary-fixed": "#0e1c2e",
+                        "error": "#ba1a1a",
+                        "tertiary": "#2f3c50",
+                        "primary-fixed": "#525f74",
+                        "surface-variant": "#e2e3e1",
+                        "surface-container": "#eeeeec",
+                        "primary-fixed-dim": "#3b475c",
+                        "inverse-surface": "#2f3130",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1a1c1b",
+                        "on-secondary-fixed-variant": "#2f3c50",
+                        "on-primary": "#d6e3fd",
+                        "on-tertiary": "#d6e3fd",
+                        "inverse-on-surface": "#f1f1ef",
+                        "tertiary-fixed": "#525f74",
+                        "surface-container-high": "#e8e8e6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .brutalist-shadow {
+            box-shadow: 4px 4px 0px 0px #000000;
+        }
+        .brutalist-shadow-lg {
+            box-shadow: 8px 8px 0px 0px #000000;
+        }
+        .press-interaction:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px #000000;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="bg-[#F9F9F7] text-[#000000] font-['Space_Grotesk'] tracking-tight flex justify-between items-center w-full px-6 h-16 fixed top-0 z-50 border-b-[3px] border-[#000000]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black uppercase tracking-tighter text-[#000000]">LeaseFlow</span>
+<div class="hidden md:flex gap-6">
+<a class="text-[#525F74] font-medium hover:bg-[#E8E8E6] transition-colors duration-100 px-2 py-1" href="#">Dashboard</a>
+<a class="text-[#525F74] font-medium hover:bg-[#E8E8E6] transition-colors duration-100 px-2 py-1" href="#">Ledger</a>
+<a class="text-[#525F74] font-medium hover:bg-[#E8E8E6] transition-colors duration-100 px-2 py-1" href="#">Entities</a>
+<a class="text-[#525F74] font-medium hover:bg-[#E8E8E6] transition-colors duration-100 px-2 py-1" href="#">Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-[#000000] text-[#D6E3FD] px-4 py-1 font-bold border-[3px] border-[#000000] press-interaction">Create Entry</button>
+<div class="flex gap-2">
+<span class="material-symbols-outlined p-2 hover:bg-[#E8E8E6] cursor-pointer">notifications</span>
+<span class="material-symbols-outlined p-2 hover:bg-[#E8E8E6] cursor-pointer">settings</span>
+</div>
+<div class="w-8 h-8 bg-surface-container-highest border-[2px] border-primary overflow-hidden">
+<img alt="User profile" data-alt="minimalist professional corporate headshot avatar of a male executive in dark attire on bone white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqvyyvHxRaXjcEzxJUmowHcg405vXo-8z5BZPhTQJs2tn7gII3dJHCr0jPvRlFT0x6K17jzYopgOYqhKA1k1bUYwRSGLiHcTk1wOg95oupIKBa6WwVmLLFWfmbtvCb7n7JiFKyOsR1lr-9FC5rcrMuWQfltPC0k9iAtlxY12va0si0DJCaCWGu_PZM36zQpQmEvfwqgP4FTXV5gep0wKwWqlKFrnzLgpeg1YPFIQQgXsZWOtch68wOxRh30gsVSdd7AQT_vuBKCr_D"/>
+</div>
+</div>
+</nav>
+<div class="flex pt-16 min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-[calc(100vh-64px)] w-64 bg-[#E8E8E6] border-r-[3px] border-[#000000] fixed left-0">
+<div class="p-6">
+<h2 class="font-['Space_Grotesk'] text-sm uppercase font-bold text-[#000000] tracking-widest mb-1">Management</h2>
+<p class="font-['Space_Grotesk'] text-[10px] text-secondary font-medium">System Admin v1.0</p>
+</div>
+<nav class="flex flex-col gap-0">
+<a class="text-[#2F3C50] flex items-center gap-3 px-6 py-4 border-b-[2px] border-transparent hover:border-[#000000] hover:bg-[#F4F4F2] font-['Space_Grotesk'] text-sm uppercase font-bold" href="#">
+<span class="material-symbols-outlined">storefront</span> Merchant Overview
+                </a>
+<a class="bg-[#000000] text-[#F9F9F7] flex items-center gap-3 px-6 py-4 border-[3px] border-[#000000] font-['Space_Grotesk'] text-sm uppercase font-bold translate-x-[2px] translate-y-[2px]" href="#">
+<span class="material-symbols-outlined">analytics</span> Risk Assessment
+                </a>
+<a class="text-[#2F3C50] flex items-center gap-3 px-6 py-4 border-b-[2px] border-transparent hover:border-[#000000] hover:bg-[#F4F4F2] font-['Space_Grotesk'] text-sm uppercase font-bold" href="#">
+<span class="material-symbols-outlined">payments</span> Fund Flows
+                </a>
+<a class="text-[#2F3C50] flex items-center gap-3 px-6 py-4 border-b-[2px] border-transparent hover:border-[#000000] hover:bg-[#F4F4F2] font-['Space_Grotesk'] text-sm uppercase font-bold" href="#">
+<span class="material-symbols-outlined">verified_user</span> Compliance
+                </a>
+<a class="text-[#2F3C50] flex items-center gap-3 px-6 py-4 border-b-[2px] border-transparent hover:border-[#000000] hover:bg-[#F4F4F2] font-['Space_Grotesk'] text-sm uppercase font-bold" href="#">
+<span class="material-symbols-outlined">history</span> Audit Logs
+                </a>
+</nav>
+<div class="mt-auto p-6 border-t-[3px] border-primary">
+<button class="w-full bg-surface text-primary border-[3px] border-primary p-3 font-['Space_Grotesk'] text-sm uppercase font-bold hover:bg-primary-container hover:text-on-primary-container transition-all mb-4 press-interaction">
+                    Export Ledger
+                </button>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-2 text-xs font-bold uppercase font-['Space_Grotesk'] text-secondary hover:text-primary" href="#"><span class="material-symbols-outlined text-sm">help_outline</span> Support</a>
+<a class="flex items-center gap-2 text-xs font-bold uppercase font-['Space_Grotesk'] text-error hover:opacity-80" href="#"><span class="material-symbols-outlined text-sm">logout</span> Sign Out</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 p-8 bg-surface">
+<!-- Header Section -->
+<header class="mb-12">
+<div class="flex items-baseline gap-4 mb-2">
+<h1 class="font-headline text-5xl font-black uppercase tracking-tighter text-primary">Risk Management</h1>
+<div class="h-[4px] flex-1 bg-primary"></div>
+</div>
+<p class="font-label text-sm font-bold uppercase tracking-widest text-secondary">Global Exposure &amp; Portfolio Controls</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Risk Appetite Control -->
+<div class="lg:col-span-5 flex flex-col gap-8">
+<section class="bg-surface-container-high border-[3px] border-primary p-8 brutalist-shadow">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-label text-lg font-bold uppercase tracking-tight flex items-center gap-2">
+<span class="material-symbols-outlined">tune</span> Current Appetite
+                            </h3>
+<button class="bg-primary text-on-primary px-4 py-1 text-xs font-bold uppercase font-label press-interaction">Edit Controls</button>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex items-end justify-between border-b-[3px] border-primary pb-4">
+<div>
+<span class="font-label text-xs font-bold uppercase text-secondary">Status</span>
+<p class="font-headline text-4xl font-black text-primary uppercase">Cautious</p>
+</div>
+<div class="bg-[#F8E12E] border-[3px] border-primary px-3 py-1 font-label text-xs font-black uppercase">Active</div>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between font-label text-[10px] font-bold uppercase mb-1">
+<span>Approval Rate Limit</span>
+<span>45%</span>
+</div>
+<div class="w-full h-4 bg-surface border-[2px] border-primary">
+<div class="h-full bg-primary" style="width: 45%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label text-[10px] font-bold uppercase mb-1">
+<span>Entity Leverage Cap</span>
+<span>1.2x</span>
+</div>
+<div class="w-full h-4 bg-surface border-[2px] border-primary">
+<div class="h-full bg-primary" style="width: 28%;"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface border-[3px] border-primary p-6">
+<h4 class="font-label text-xs font-black uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">security</span> Guardrails
+                        </h4>
+<ul class="space-y-3">
+<li class="flex items-center justify-between border-b-[2px] border-surface-container-highest pb-2">
+<span class="text-sm font-medium">Automatic KYC Re-check</span>
+<span class="font-label text-[10px] font-bold bg-primary text-on-primary px-2">ENABLED</span>
+</li>
+<li class="flex items-center justify-between border-b-[2px] border-surface-container-highest pb-2">
+<span class="text-sm font-medium">Flash Liquidity Threshold</span>
+<span class="font-label text-[10px] font-bold bg-primary text-on-primary px-2">SAR 500K</span>
+</li>
+<li class="flex items-center justify-between">
+<span class="text-sm font-medium">Cross-Border Verification</span>
+<span class="font-label text-[10px] font-bold bg-surface-container-highest px-2">STRICT</span>
+</li>
+</ul>
+</section>
+</div>
+<!-- Exposure Chart Section -->
+<div class="lg:col-span-7">
+<section class="bg-surface border-[3px] border-primary p-8 h-full">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+<div>
+<h3 class="font-label text-sm font-black uppercase tracking-[0.2em] flex items-center gap-2 mb-2">
+                                    Exposure Analysis <span class="h-[2px] w-12 bg-primary"></span>
+</h3>
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-6xl font-black text-primary tracking-tighter">SAR 1.24M</span>
+<span class="font-label text-sm font-bold text-secondary uppercase">Outstanding</span>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="border-[2px] border-primary px-3 py-1 font-label text-[10px] font-bold uppercase hover:bg-surface-container-low">1M</button>
+<button class="border-[2px] border-primary px-3 py-1 font-label text-[10px] font-bold uppercase bg-primary text-on-primary">3M</button>
+<button class="border-[2px] border-primary px-3 py-1 font-label text-[10px] font-bold uppercase hover:bg-surface-container-low">YTD</button>
+</div>
+</div>
+<!-- Brutalist Chart Mock -->
+<div class="relative h-64 w-full border-l-[3px] border-b-[3px] border-primary mb-6">
+<!-- Grid Lines -->
+<div class="absolute inset-0 grid grid-cols-6 grid-rows-4 pointer-events-none">
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-r border-t border-surface-container-highest opacity-50"></div>
+<div class="border-t border-surface-container-highest opacity-50"></div>
+</div>
+<!-- Yellow Line Chart Path -->
+<svg class="absolute inset-0 w-full h-full" overflow="visible">
+<polyline class="drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]" fill="none" points="0,180 80,150 160,190 240,110 320,130 400,60 480,90 560,40" stroke="#F8E12E" stroke-linejoin="miter" stroke-width="4"></polyline>
+<!-- Points -->
+<rect fill="black" height="8" width="8" x="76" y="146"></rect>
+<rect fill="black" height="8" width="8" x="156" y="186"></rect>
+<rect fill="black" height="8" width="8" x="236" y="106"></rect>
+<rect fill="black" height="8" width="8" x="316" y="126"></rect>
+<rect fill="black" height="8" width="8" x="396" y="56"></rect>
+<rect fill="black" height="8" width="8" x="476" y="86"></rect>
+<rect fill="black" height="8" width="8" x="556" y="36"></rect>
+</svg>
+<div class="absolute bottom-[-24px] w-full flex justify-between font-label text-[10px] font-bold uppercase text-secondary">
+<span>May 01</span>
+<span>Jun 01</span>
+<span>Jul 01</span>
+<span>Aug 01</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 mt-12">
+<div class="border-l-[3px] border-primary pl-4">
+<span class="block font-label text-[10px] font-bold uppercase text-secondary">Peak Exposure</span>
+<span class="block font-headline text-xl font-black">SAR 1.42M</span>
+</div>
+<div class="border-l-[3px] border-primary pl-4">
+<span class="block font-label text-[10px] font-bold uppercase text-secondary">Growth Rate</span>
+<span class="block font-headline text-xl font-black text-error">+12.4%</span>
+</div>
+<div class="border-l-[3px] border-primary pl-4">
+<span class="block font-label text-[10px] font-bold uppercase text-secondary">Recovery Vel.</span>
+<span class="block font-headline text-xl font-black">0.82x</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Entities Ledger Section -->
+<section class="mt-12">
+<div class="flex items-center gap-4 mb-6">
+<h3 class="font-label text-sm font-black uppercase tracking-[0.2em]">Priority Entities</h3>
+<div class="h-[2px] flex-1 bg-surface-container-highest"></div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-primary text-on-primary">
+<th class="p-4 text-left font-label text-xs uppercase border-r-[3px] border-surface">Entity Name</th>
+<th class="p-4 text-left font-label text-xs uppercase border-r-[3px] border-surface">Risk Score</th>
+<th class="p-4 text-left font-label text-xs uppercase border-r-[3px] border-surface">Exposure</th>
+<th class="p-4 text-left font-label text-xs uppercase border-r-[3px] border-surface">Limit</th>
+<th class="p-4 text-right font-label text-xs uppercase">Action</th>
+</tr>
+</thead>
+<tbody class="border-[3px] border-primary">
+<tr class="bg-surface hover:bg-surface-container-highest transition-colors border-b-[2px] border-primary">
+<td class="p-4 font-bold border-r-[3px] border-primary">Al-Hokair Group</td>
+<td class="p-4 border-r-[3px] border-primary">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-primary"></div>
+<span class="font-label text-xs font-black">2.4 / 10.0</span>
+</div>
+</td>
+<td class="p-4 font-headline border-r-[3px] border-primary">SAR 420,000</td>
+<td class="p-4 border-r-[3px] border-primary">
+<span class="bg-surface-container-high border-[2px] border-primary px-2 py-0.5 font-label text-[10px] font-bold">STRICT</span>
+</td>
+<td class="p-4 text-right">
+<button class="bg-primary text-on-primary px-3 py-1 text-[10px] font-bold uppercase press-interaction">Review</button>
+</td>
+</tr>
+<tr class="bg-surface hover:bg-surface-container-highest transition-colors border-b-[2px] border-primary">
+<td class="p-4 font-bold border-r-[3px] border-primary">Jareer Investment</td>
+<td class="p-4 border-r-[3px] border-primary">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-primary"></div>
+<span class="font-label text-xs font-black">1.1 / 10.0</span>
+</div>
+</td>
+<td class="p-4 font-headline border-r-[3px] border-primary">SAR 155,000</td>
+<td class="p-4 border-r-[3px] border-primary">
+<span class="bg-surface-container-high border-[2px] border-primary px-2 py-0.5 font-label text-[10px] font-bold">NORMAL</span>
+</td>
+<td class="p-4 text-right">
+<button class="bg-primary text-on-primary px-3 py-1 text-[10px] font-bold uppercase press-interaction">Review</button>
+</td>
+</tr>
+<tr class="bg-surface hover:bg-surface-container-highest transition-colors">
+<td class="p-4 font-bold border-r-[3px] border-primary">Savola Food Services</td>
+<td class="p-4 border-r-[3px] border-primary">
+<div class="flex items-center gap-2 text-error">
+<div class="w-3 h-3 bg-error"></div>
+<span class="font-label text-xs font-black">8.9 / 10.0</span>
+</div>
+</td>
+<td class="p-4 font-headline border-r-[3px] border-primary text-error">SAR 665,000</td>
+<td class="p-4 border-r-[3px] border-primary">
+<span class="bg-error text-white border-[2px] border-primary px-2 py-0.5 font-label text-[10px] font-bold">FROZEN</span>
+</td>
+<td class="p-4 text-right">
+<button class="bg-primary text-on-primary px-3 py-1 text-[10px] font-bold uppercase press-interaction">Review</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+<!-- Mobile Bottom NavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#F9F9F7] border-t-[3px] border-primary flex justify-around items-center h-16 z-50">
+<button class="flex flex-col items-center justify-center gap-1 text-primary">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold uppercase font-label">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-primary bg-[#000000] text-[#F9F9F7] p-2 h-full w-1/4">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-bold uppercase font-label">Risk</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-secondary">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] font-bold uppercase font-label">Flows</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-secondary">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold uppercase font-label">Admin</span>
+</button>
+</nav>
+</body></html>

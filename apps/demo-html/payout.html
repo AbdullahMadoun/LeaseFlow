@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamFlow | Vendor Payout</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="site">
+    <nav class="topnav">
+      <a href="./index.html">Main</a>
+      <a href="./onboarding.html">Onboarding</a>
+      <a href="./offer.html">Risk & Offer</a>
+      <a class="active" href="./payout.html">Vendor Payout</a>
+      <a href="./repayment.html">Repayment</a>
+      <a href="./investors.html">Investors</a>
+      <a href="./dashboard.html">Dashboard</a>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow">Step 5</p>
+      <h1>StreamPay Outflow Simulation</h1>
+      <p>Pay supplier using approved amount and optionally merchant top-up.</p>
+    </header>
+
+    <section class="card">
+      <h2>Supplier Payment</h2>
+      <div class="grid two">
+        <label>Supplier Name
+          <input id="supplier" value="Arabica Supplies Co." />
+        </label>
+        <label>Supplier IBAN
+          <input id="iban" value="SA03 8000 0000 6080 1016 7519" />
+        </label>
+      </div>
+      <button id="pay">Finance & Pay Vendor</button>
+      <div id="payResult" class="result hidden"></div>
+    </section>
+
+    <div class="row">
+      <a href="./repayment.html"><button>Continue To Repayment</button></a>
+    </div>
+  </main>
+
+  <script src="./shared.js"></script>
+  <script src="./payout.js"></script>
+</body>
+</html>

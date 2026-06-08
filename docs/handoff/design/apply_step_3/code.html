@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LeaseFlow - New Application Step 3</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f4f4f2",
+                        "on-surface-variant": "#4e4632",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#f3c000",
+                        "tertiary": "#525f74",
+                        "primary": "#755b00",
+                        "on-secondary-container": "#fffbff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#755b00",
+                        "on-primary-container": "#6d5500",
+                        "surface-container-high": "#e8e8e6",
+                        "surface-variant": "#e2e3e1",
+                        "on-tertiary-fixed": "#0e1c2e",
+                        "on-primary-fixed-variant": "#584400",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f9f9f7",
+                        "surface": "#f9f9f7",
+                        "secondary-fixed": "#e3dfff",
+                        "outline": "#80765f",
+                        "tertiary-container": "#c2cfe8",
+                        "surface-dim": "#dadad8",
+                        "inverse-primary": "#f3c000",
+                        "background": "#f9f9f7",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#695bfd",
+                        "on-tertiary-container": "#4b586d",
+                        "tertiary-fixed": "#d6e3fd",
+                        "secondary-fixed-dim": "#c5c0ff",
+                        "on-primary-fixed": "#241a00",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1a1c1b",
+                        "inverse-surface": "#2f3130",
+                        "on-error": "#ffffff",
+                        "secondary": "#503ee3",
+                        "on-secondary-fixed-variant": "#391dce",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#d2c5ab",
+                        "inverse-on-surface": "#f1f1ef",
+                        "on-tertiary-fixed-variant": "#3b475c",
+                        "surface-container": "#eeeeec",
+                        "on-surface": "#1a1c1b",
+                        "on-secondary-fixed": "#130067",
+                        "surface-container-highest": "#e2e3e1",
+                        "primary-container": "#fdc800",
+                        "primary-fixed": "#ffe08f",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#bac7e0"
+                    },
+                    "borderRadius": {
+                        "none": "0px",
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                        "label": ["Space Grotesk", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.02) 50%);
+            background-size: 100% 4px;
+        }
+    </style>
+</head>
+<body class="bg-[#FBFBF9] text-[#1a1c1b] font-body selection:bg-primary-container">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center w-full px-6 h-16 sticky top-0 bg-[#FBFBF9] border-b-[3px] border-black z-50">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-black uppercase">LeaseFlow</span>
+<div class="hidden md:flex gap-6">
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all px-2 py-1" href="#">Dashboard</a>
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all px-2 py-1" href="#">Leases</a>
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all px-2 py-1" href="#">Underwriting</a>
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all px-2 py-1" href="#">Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-gray-600 hover:text-black">notifications</button>
+<button class="material-symbols-outlined text-gray-600 hover:text-black">settings</button>
+<div class="h-8 w-8 bg-black border-2 border-black">
+<img alt="User Profile" data-alt="close-up portrait of a professional businessman in a sleek charcoal suit against a minimal architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdmG_kAXiT72WDu2Wlb0o_r_W9cIe2JCxz_KCb7GYLO_TD2aa89LM01VaEXKsPw4guK35fQ6hqvx-rRvISBBL6FGMj2NV68OmuKsOz7FYZehGM0FX19zIjs08QTMlN3DkLAdR7MwwBXhhVg7gSbhSbJTzIdNwGsgVJB4TNcMamNURuhTo18g8-PwrZ0CKXC2JNIszzNWjRYzSUL0N86ALtT4-mivA8NVUn2l17nas1neTX60ptsz-rxarN402J_Me2hSCt0mdgN07E"/>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-6 py-12">
+<!-- Step Indicator -->
+<div class="mb-12 flex items-center gap-4">
+<span class="font-mono text-sm font-bold bg-black text-white px-3 py-1">STEP 3 OF 3</span>
+<div class="h-[3px] flex-grow bg-black"></div>
+<span class="font-mono text-sm font-bold uppercase tracking-widest text-black">Review</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<!-- Main Content: Bento Grid Layout -->
+<div class="md:col-span-8 flex flex-col gap-8">
+<!-- Section: YOU'RE ASKING FOR -->
+<section class="border-[3px] border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-8">
+<div class="flex items-center gap-3 mb-6">
+<h2 class="font-mono text-xs font-black uppercase tracking-[0.2em] text-gray-500">YOU'RE ASKING FOR</h2>
+<div class="h-[3px] flex-grow bg-black"></div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-baseline gap-4">
+<span class="font-mono text-4xl font-bold text-black">SAR 50,000</span>
+<span class="font-mono text-lg text-gray-400">/ 12 MONTHS</span>
+</div>
+<div class="mt-4 p-4 bg-surface-container-low border-[3px] border-black flex items-center gap-4">
+<div class="w-16 h-16 bg-white border-[3px] border-black flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">coffee_maker</span>
+</div>
+<div>
+<h3 class="font-headline font-extrabold text-xl leading-none">La Marzocco GB5</h3>
+<p class="font-mono text-xs text-gray-500 mt-1 uppercase">Serial: LM-GB5-X2449</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: DOCUMENTS -->
+<section class="border-[3px] border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-8">
+<div class="flex items-center gap-3 mb-6">
+<h2 class="font-mono text-xs font-black uppercase tracking-[0.2em] text-gray-500">DOCUMENTS</h2>
+<div class="h-[3px] flex-grow bg-black"></div>
+</div>
+<ul class="flex flex-col gap-3">
+<li class="flex items-center justify-between p-3 border-[3px] border-black bg-[#FBFBF9] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-black">description</span>
+<span class="font-mono text-sm font-bold">COMMERCIAL_REGISTRATION.PDF</span>
+</div>
+<span class="font-mono text-[10px] text-gray-400">2.4 MB</span>
+</li>
+<li class="flex items-center justify-between p-3 border-[3px] border-black bg-[#FBFBF9] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-black">receipt_long</span>
+<span class="font-mono text-sm font-bold">VAT_CERTIFICATE_2024.PDF</span>
+</div>
+<span class="font-mono text-[10px] text-gray-400">1.1 MB</span>
+</li>
+<li class="flex items-center justify-between p-3 border-[3px] border-black bg-[#FBFBF9] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-black">account_balance_wallet</span>
+<span class="font-mono text-sm font-bold">BANK_STATEMENT_6M.XLSX</span>
+</div>
+<span class="font-mono text-[10px] text-gray-400">4.8 MB</span>
+</li>
+</ul>
+</section>
+</div>
+<!-- Sidebar Content: Reassurance & Actions -->
+<div class="md:col-span-4 flex flex-col gap-6 sticky top-24">
+<!-- Section: WHAT HAPPENS NEXT -->
+<section class="border-[3px] border-black bg-[#1a1c1b] text-white p-6 relative overflow-hidden">
+<div class="scanline absolute inset-0 pointer-events-none opacity-20"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary-container">speed</span>
+<h2 class="font-mono text-xs font-bold uppercase tracking-wider">What happens next</h2>
+</div>
+<p class="font-body text-sm leading-relaxed text-gray-300">
+                            Our underwriting engine will perform a preliminary check on your documents (~1 min). Once verified, you will receive an <span class="text-primary-container font-bold">email confirmation</span> with your application ID.
+                        </p>
+<div class="mt-6 flex items-center gap-2">
+<div class="w-2 h-2 bg-primary-container animate-pulse"></div>
+<span class="font-mono text-[10px] uppercase text-gray-400">System Ready for Submission</span>
+</div>
+</div>
+</section>
+<!-- Actions -->
+<div class="flex flex-col gap-4">
+<button class="w-full bg-primary-container text-black border-[3px] border-black font-headline font-black py-4 px-6 flex items-center justify-center gap-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 active:translate-x-0 active:translate-y-0 active:shadow-none transition-all">
+<span>Submit application</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full bg-white text-black border-[3px] border-black font-mono text-xs font-bold py-3 px-6 uppercase hover:bg-surface-container-low transition-colors">
+                        Back to Documents
+                    </button>
+</div>
+<!-- Footer Meta -->
+<div class="mt-4 p-4 border-l-[3px] border-black">
+<p class="font-mono text-[10px] text-gray-500 leading-tight uppercase">
+                        By submitting, you agree to the Architectural Ledger's strict auditing standards and data processing terms.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Side Decoration (Brutalist Anchor) -->
+<div class="fixed bottom-0 left-0 p-6 hidden lg:block">
+<div class="bg-black text-white p-4 border-[3px] border-black font-mono text-[10px] vertical-text transform -rotate-180" style="writing-mode: vertical-rl;">
+            LF_APP_REF: 882-99-REV
+        </div>
+</div>
+</body></html>

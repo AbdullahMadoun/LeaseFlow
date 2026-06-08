@@ -1,0 +1,269 @@
+[
+  {
+    "id": "7ce22c01-e906-495d-b003-92f4230c1636",
+    "loan_id": "490e4f40-5446-48c4-b8a5-f4c36d655c03",
+    "dimension": "pos",
+    "status": "done",
+    "score": 65.0,
+    "confidence": 0.85,
+    "dimension_version": "pos@agg-v1",
+    "narrative": "Only 1 POS report with 1 source document; revenue, average ticket, void and refund rates are unavailable, preventing a data\u2011driven operational health assessment for lease\u2011to\u2011own.",
+    "result": {
+      "flags": [],
+      "score": 65.0,
+      "features": {
+        "trend_90d": null,
+        "void_rate": null,
+        "aggregates": {
+          "trend": null,
+          "present": true,
+          "void_rate": null,
+          "peak_hours": [],
+          "refund_rate": null,
+          "seasonality": null,
+          "report_count": 1,
+          "avg_ticket_sar": null,
+          "daily_revenue_avg_sar": null
+        },
+        "peak_hours": [],
+        "refund_rate": null,
+        "seasonality": null,
+        "cash_card_mix": null,
+        "avg_ticket_sar": null,
+        "daily_revenue_avg_sar": null,
+        "source_document_count": 1,
+        "monthly_revenue_est_sar": null
+      },
+      "dimension": "pos",
+      "narrative": "Only 1 POS report with 1 source document; revenue, average ticket, void and refund rates are unavailable, preventing a data\u2011driven operational health assessment for lease\u2011to\u2011own.",
+      "confidence": 0.85,
+      "analyst_job_id": null,
+      "dimension_version": "pos@agg-v1"
+    },
+    "error_message": null,
+    "analyst_job_id": null,
+    "created_at": "2026-04-16T14:26:48.582096+00:00",
+    "updated_at": "2026-04-16T14:28:40.686448+00:00"
+  },
+  {
+    "id": "40202806-f3b4-4a6b-b59a-a25e2573c284",
+    "loan_id": "490e4f40-5446-48c4-b8a5-f4c36d655c03",
+    "dimension": "financial_docs",
+    "status": "done",
+    "score": 75.0,
+    "confidence": 0.85,
+    "dimension_version": "financial@agg-v1",
+    "narrative": "Merchant shows stable revenue (SAR\u202f57,642/month), net profit SAR\u202f11,466/month, 10% net margin, current ratio 1.43, debt\u2011to\u2011equity 1.25, DCSR 1.99, 0 overdrafts, 1 bounced check \u2013 comfortably covering the SAR\u202f5,750/month lease payment on SAR\u202f69,000 total due.",
+    "result": {
+      "flags": [
+        "bounced_payments(1)"
+      ],
+      "score": 75.0,
+      "features": {
+        "trend": "stable",
+        "ratios": {
+          "net_margin": 0.1,
+          "gross_margin": 0.481,
+          "current_ratio": 1.43,
+          "debt_to_equity": 1.25
+        },
+        "volatility": 0.15,
+        "affordability": {
+          "dscr": 1.99,
+          "total_due": 69000.0,
+          "profit_rate": 0.15,
+          "dscr_category": "comfortable",
+          "amount_requested": 60000.0,
+          "repayment_months": 12,
+          "proposed_monthly_payment": 5750.0
+        },
+        "bank_aggregate": {
+          "trend": "stable",
+          "present": true,
+          "reports": 1,
+          "volatility": 0.15,
+          "bounced_count": 1,
+          "monthly_count": 6,
+          "overdraft_events": 0,
+          "monthly_net_avg_sar": 11466.01,
+          "monthly_revenue_avg_sar": 57642.04,
+          "monthly_expenses_avg_sar": 46176.03
+        },
+        "reconciliation": {
+          "possible": true,
+          "delta_pct": 0.061,
+          "consistent": true,
+          "statement_revenue_sar": 652062.52,
+          "bank_annualised_revenue_sar": 691704.48
+        },
+        "financial_statement": {
+          "ratios": {
+            "net_margin": 0.1,
+            "gross_margin": 0.481,
+            "current_ratio": 1.43,
+            "debt_to_equity": 1.25
+          },
+          "present": true,
+          "balance_sheet": {
+            "equity_sar": 184600.58,
+            "source_pages": [
+              1
+            ],
+            "total_assets_sar": 415351.29,
+            "current_assets_sar": 184632.09,
+            "total_liabilities_sar": 230750.72,
+            "current_liabilities_sar": 129451.72
+          },
+          "income_statement": {
+            "cogs_sar": 338177.27,
+            "opex_sar": 248553.21,
+            "revenue_sar": 652062.52,
+            "source_pages": [
+              2
+            ],
+            "net_profit_sar": 65332.04
+          }
+        },
+        "monthly_net_avg_sar": 11466.01,
+        "source_document_count": 2,
+        "monthly_revenue_avg_sar": 57642.04,
+        "monthly_expenses_avg_sar": 46176.03
+      },
+      "dimension": "financial_docs",
+      "narrative": "Merchant shows stable revenue (SAR\u202f57,642/month), net profit SAR\u202f11,466/month, 10% net margin, current ratio 1.43, debt\u2011to\u2011equity 1.25, DCSR 1.99, 0 overdrafts, 1 bounced check \u2013 comfortably covering the SAR\u202f5,750/month lease payment on SAR\u202f69,000 total due.",
+      "confidence": 0.85,
+      "analyst_job_id": null,
+      "dimension_version": "financial@agg-v1"
+    },
+    "error_message": null,
+    "analyst_job_id": null,
+    "created_at": "2026-04-16T14:26:48.582096+00:00",
+    "updated_at": "2026-04-16T14:28:38.530769+00:00"
+  },
+  {
+    "id": "7885e351-5e59-4747-b9e3-e8ab84edd13f",
+    "loan_id": "490e4f40-5446-48c4-b8a5-f4c36d655c03",
+    "dimension": "simah",
+    "status": "done",
+    "score": 50.0,
+    "confidence": 0.95,
+    "dimension_version": "simah@stub-v1",
+    "narrative": "SIMAH score 639, 0 default(s), payment history fair.",
+    "result": {
+      "flags": [
+        "high_recent_inquiries"
+      ],
+      "score": 50.0,
+      "features": {
+        "credit_score": 639,
+        "defaults_count": 0,
+        "payment_history": "fair",
+        "recent_inquiries_90d": 4,
+        "simah_recommendation": "caution",
+        "active_facilities_count": 1,
+        "active_facilities_total_sar": 56189
+      },
+      "dimension": "simah",
+      "narrative": "SIMAH score 639, 0 default(s), payment history fair.",
+      "confidence": 0.95,
+      "analyst_job_id": null,
+      "dimension_version": "simah@stub-v1"
+    },
+    "error_message": null,
+    "analyst_job_id": null,
+    "created_at": "2026-04-16T14:26:48.582096+00:00",
+    "updated_at": "2026-04-16T14:28:07.74472+00:00"
+  },
+  {
+    "id": "d7a89da9-bdfa-4e4f-9954-86c54bc0a224",
+    "loan_id": "490e4f40-5446-48c4-b8a5-f4c36d655c03",
+    "dimension": "sentiment",
+    "status": "error",
+    "score": null,
+    "confidence": null,
+    "dimension_version": null,
+    "narrative": null,
+    "result": null,
+    "error_message": "GoogleReviewsError: APIFY_TOKEN is not configured",
+    "analyst_job_id": null,
+    "created_at": "2026-04-16T14:26:48.582096+00:00",
+    "updated_at": "2026-04-16T14:28:06.265099+00:00"
+  },
+  {
+    "id": "e9112ebe-ba18-44d5-a187-741e6c09b22f",
+    "loan_id": "490e4f40-5446-48c4-b8a5-f4c36d655c03",
+    "dimension": "industry",
+    "status": "done",
+    "score": 63.0,
+    "confidence": 0.6,
+    "dimension_version": "industry@llm-v1",
+    "narrative": "In Dammam's quick-service restaurant sector, medium competition coexists with 9% annual growth, though rising input costs pressure margins.",
+    "result": {
+      "flags": [
+        "rising_input_costs"
+      ],
+      "score": 63.0,
+      "features": {
+        "macro": {
+          "regulatory_risk": "low",
+          "input_cost_trend": "rising",
+          "segment_growth_yoy": 0.09
+        },
+        "segment": "qsr",
+        "location": {
+          "city": "Dammam",
+          "district": "Al Malqa"
+        },
+        "segment_label": "Quick-service restaurant",
+        "local_competition": {
+          "density": "medium",
+          "similar_within_1km": 13,
+          "avg_competitor_rating": 4.7
+        },
+        "segment_benchmarks": {
+          "void_rate": [
+            0.003,
+            0.015
+          ],
+          "weekend_lift": [
+            0.15,
+            0.45
+          ],
+          "discount_rate": [
+            0.02,
+            0.1
+          ],
+          "avg_net_margin": 0.12,
+          "avg_ticket_sar": [
+            25,
+            75
+          ],
+          "failure_rate_3y": 0.3,
+          "peak_hour_share": [
+            0.4,
+            0.6
+          ],
+          "refund_rate_max": 0.005,
+          "top10_sku_share": [
+            0.55,
+            0.8
+          ],
+          "items_per_ticket": [
+            1.5,
+            2.5
+          ],
+          "avg_monthly_revenue_sar": 160000
+        }
+      },
+      "dimension": "industry",
+      "narrative": "In Dammam's quick-service restaurant sector, medium competition coexists with 9% annual growth, though rising input costs pressure margins.",
+      "confidence": 0.6,
+      "analyst_job_id": null,
+      "dimension_version": "industry@llm-v1"
+    },
+    "error_message": null,
+    "analyst_job_id": null,
+    "created_at": "2026-04-16T14:26:48.582096+00:00",
+    "updated_at": "2026-04-16T14:28:33.464955+00:00"
+  }
+]

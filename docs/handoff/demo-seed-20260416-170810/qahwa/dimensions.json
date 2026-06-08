@@ -1,0 +1,277 @@
+[
+  {
+    "id": "929d1a7f-9345-4712-a790-4a1fda9f2fae",
+    "loan_id": "13535ea2-47a2-46ba-90d7-b78377e73cf5",
+    "dimension": "pos",
+    "status": "done",
+    "score": 70.0,
+    "confidence": 0.85,
+    "dimension_version": "pos@agg-v1",
+    "narrative": "Daily revenue averages SAR\u202f3,533 with monthly estimate SAR\u202f105,991; average ticket SAR\u202f61.41, void rate 0.94%, refund rate 0.48%, and card payments dominate at 87% of transactions, indicating consistent POS performance suitable for lease financing.",
+    "result": {
+      "flags": [],
+      "score": 70.0,
+      "features": {
+        "trend_90d": null,
+        "void_rate": 0.0094,
+        "aggregates": {
+          "trend": null,
+          "present": true,
+          "void_rate": 0.0094,
+          "peak_hours": [
+            "11:00-13:00",
+            "18:00-20:00"
+          ],
+          "refund_rate": 0.0048,
+          "seasonality": "flat",
+          "report_count": 1,
+          "cash_card_mix": {
+            "card": 0.87,
+            "cash": 0.13
+          },
+          "avg_ticket_sar": 61.41,
+          "daily_revenue_avg_sar": 3533.02,
+          "monthly_revenue_est_sar": 105990.6
+        },
+        "peak_hours": [
+          "11:00-13:00",
+          "18:00-20:00"
+        ],
+        "refund_rate": 0.0048,
+        "seasonality": "flat",
+        "cash_card_mix": {
+          "card": 0.87,
+          "cash": 0.13
+        },
+        "avg_ticket_sar": 61.41,
+        "daily_revenue_avg_sar": 3533.02,
+        "source_document_count": 1,
+        "monthly_revenue_est_sar": 105990.6
+      },
+      "dimension": "pos",
+      "narrative": "Daily revenue averages SAR\u202f3,533 with monthly estimate SAR\u202f105,991; average ticket SAR\u202f61.41, void rate 0.94%, refund rate 0.48%, and card payments dominate at 87% of transactions, indicating consistent POS performance suitable for lease financing.",
+      "confidence": 0.85,
+      "analyst_job_id": null,
+      "dimension_version": "pos@agg-v1"
+    },
+    "error_message": null,
+    "analyst_job_id": null,
+    "created_at": "2026-04-16T14:19:22.594368+00:00",
+    "updated_at": "2026-04-16T14:20:17.098094+00:00"
+  },
+  {
+    "id": "0b48930e-7406-423c-8bf5-16c2068918f8",
+    "loan_id": "13535ea2-47a2-46ba-90d7-b78377e73cf5",
+    "dimension": "financial_docs",
+    "status": "done",
+    "score": 80.0,
+    "confidence": 0.85,
+    "dimension_version": "financial@agg-v1",
+    "narrative": "Merchant generated SAR 1.13\u202fM revenue, SAR 310,833 net profit (27.5% net margin) with stable monthly net cash flow of SAR 31,653; current ratio 1.9, debt\u2011to\u2011equity 0.5, and DSCR 6.61 comfortably cover SAR 4,791/month on the SAR\u202f50,000 lease\u2011to\u2011own request.",
+    "result": {
+      "flags": [],
+      "score": 80.0,
+      "features": {
+        "trend": "stable",
+        "ratios": {
+          "net_margin": 0.2751,
+          "gross_margin": 0.5715,
+          "current_ratio": 1.9,
+          "debt_to_equity": 0.5
+        },
+        "volatility": 0.085,
+        "affordability": {
+          "dscr": 6.61,
+          "total_due": 57500.0,
+          "profit_rate": 0.15,
+          "dscr_category": "comfortable",
+          "amount_requested": 50000.0,
+          "repayment_months": 12,
+          "proposed_monthly_payment": 4791.67
+        },
+        "bank_aggregate": {
+          "trend": "stable",
+          "present": true,
+          "reports": 1,
+          "volatility": 0.085,
+          "bounced_count": 0,
+          "monthly_count": 6,
+          "overdraft_events": 0,
+          "monthly_net_avg_sar": 31653.27,
+          "monthly_revenue_avg_sar": 91256.58,
+          "monthly_expenses_avg_sar": 59603.32
+        },
+        "reconciliation": {
+          "possible": true,
+          "delta_pct": -0.031,
+          "consistent": true,
+          "statement_revenue_sar": 1130041.78,
+          "bank_annualised_revenue_sar": 1095078.96
+        },
+        "financial_statement": {
+          "ratios": {
+            "net_margin": 0.2751,
+            "gross_margin": 0.5715,
+            "current_ratio": 1.9,
+            "debt_to_equity": 0.5
+          },
+          "present": true,
+          "balance_sheet": {
+            "equity_sar": 424519.82,
+            "source_pages": [
+              1
+            ],
+            "total_assets_sar": 636779.73,
+            "current_assets_sar": 260637.87,
+            "total_liabilities_sar": 212259.91,
+            "current_liabilities_sar": 137329.46
+          },
+          "income_statement": {
+            "cogs_sar": 484165.66,
+            "opex_sar": 335042.95,
+            "revenue_sar": 1130041.78,
+            "source_pages": [
+              2
+            ],
+            "net_profit_sar": 310833.18
+          }
+        },
+        "monthly_net_avg_sar": 31653.27,
+        "source_document_count": 2,
+        "monthly_revenue_avg_sar": 91256.58,
+        "monthly_expenses_avg_sar": 59603.32
+      },
+      "dimension": "financial_docs",
+      "narrative": "Merchant generated SAR 1.13\u202fM revenue, SAR 310,833 net profit (27.5% net margin) with stable monthly net cash flow of SAR 31,653; current ratio 1.9, debt\u2011to\u2011equity 0.5, and DSCR 6.61 comfortably cover SAR 4,791/month on the SAR\u202f50,000 lease\u2011to\u2011own request.",
+      "confidence": 0.85,
+      "analyst_job_id": null,
+      "dimension_version": "financial@agg-v1"
+    },
+    "error_message": null,
+    "analyst_job_id": null,
+    "created_at": "2026-04-16T14:19:22.594368+00:00",
+    "updated_at": "2026-04-16T14:21:13.959459+00:00"
+  },
+  {
+    "id": "250ac247-2e02-4228-8834-e6d4bb880d77",
+    "loan_id": "13535ea2-47a2-46ba-90d7-b78377e73cf5",
+    "dimension": "simah",
+    "status": "done",
+    "score": 85.0,
+    "confidence": 0.95,
+    "dimension_version": "simah@stub-v1",
+    "narrative": "SIMAH score 787, 0 default(s), payment history excellent.",
+    "result": {
+      "flags": [],
+      "score": 85.0,
+      "features": {
+        "credit_score": 787,
+        "defaults_count": 0,
+        "payment_history": "excellent",
+        "recent_inquiries_90d": 2,
+        "simah_recommendation": "approve",
+        "active_facilities_count": 1,
+        "active_facilities_total_sar": 106737
+      },
+      "dimension": "simah",
+      "narrative": "SIMAH score 787, 0 default(s), payment history excellent.",
+      "confidence": 0.95,
+      "analyst_job_id": null,
+      "dimension_version": "simah@stub-v1"
+    },
+    "error_message": null,
+    "analyst_job_id": null,
+    "created_at": "2026-04-16T14:19:22.594368+00:00",
+    "updated_at": "2026-04-16T14:20:05.869856+00:00"
+  },
+  {
+    "id": "68faa019-8e93-4c9b-9752-4f422c4a2fcf",
+    "loan_id": "13535ea2-47a2-46ba-90d7-b78377e73cf5",
+    "dimension": "sentiment",
+    "status": "error",
+    "score": null,
+    "confidence": null,
+    "dimension_version": null,
+    "narrative": null,
+    "result": null,
+    "error_message": "GoogleReviewsError: APIFY_TOKEN is not configured",
+    "analyst_job_id": null,
+    "created_at": "2026-04-16T14:19:22.594368+00:00",
+    "updated_at": "2026-04-16T14:20:04.585722+00:00"
+  },
+  {
+    "id": "675b976b-2d7c-4d2f-a449-1c9ceab410b0",
+    "loan_id": "13535ea2-47a2-46ba-90d7-b78377e73cf5",
+    "dimension": "industry",
+    "status": "done",
+    "score": 68.0,
+    "confidence": 0.6,
+    "dimension_version": "industry@llm-v1",
+    "narrative": "Riyadh's specialty coffee caf\u00e9 sector is booming with 13% annual growth while falling input costs strengthen margins amid medium competition.",
+    "result": {
+      "flags": [],
+      "score": 68.0,
+      "features": {
+        "macro": {
+          "regulatory_risk": "low",
+          "input_cost_trend": "falling",
+          "segment_growth_yoy": 0.13
+        },
+        "segment": "specialty_coffee",
+        "location": {
+          "city": "Riyadh",
+          "district": "Downtown"
+        },
+        "segment_label": "Specialty coffee / counter-service caf\u00e9",
+        "local_competition": {
+          "density": "medium",
+          "similar_within_1km": 11,
+          "avg_competitor_rating": 4.2
+        },
+        "segment_benchmarks": {
+          "void_rate": [
+            0.003,
+            0.015
+          ],
+          "weekend_lift": [
+            0.1,
+            0.4
+          ],
+          "discount_rate": [
+            0.02,
+            0.08
+          ],
+          "avg_net_margin": 0.14,
+          "avg_ticket_sar": [
+            18,
+            45
+          ],
+          "failure_rate_3y": 0.35,
+          "peak_hour_share": [
+            0.35,
+            0.55
+          ],
+          "refund_rate_max": 0.005,
+          "top10_sku_share": [
+            0.5,
+            0.75
+          ],
+          "items_per_ticket": [
+            1.3,
+            2.2
+          ],
+          "avg_monthly_revenue_sar": 85000
+        }
+      },
+      "dimension": "industry",
+      "narrative": "Riyadh's specialty coffee caf\u00e9 sector is booming with 13% annual growth while falling input costs strengthen margins amid medium competition.",
+      "confidence": 0.6,
+      "analyst_job_id": null,
+      "dimension_version": "industry@llm-v1"
+    },
+    "error_message": null,
+    "analyst_job_id": null,
+    "created_at": "2026-04-16T14:19:22.594368+00:00",
+    "updated_at": "2026-04-16T14:20:31.700239+00:00"
+  }
+]

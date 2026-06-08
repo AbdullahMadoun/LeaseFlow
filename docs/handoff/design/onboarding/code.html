@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LeaseFlow | Merchant Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f4f4f2",
+                        "on-surface-variant": "#4e4632",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#f3c000",
+                        "tertiary": "#525f74",
+                        "primary": "#755b00",
+                        "on-secondary-container": "#fffbff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#755b00",
+                        "on-primary-container": "#6d5500",
+                        "surface-container-high": "#e8e8e6",
+                        "surface-variant": "#e2e3e1",
+                        "on-tertiary-fixed": "#0e1c2e",
+                        "on-primary-fixed-variant": "#584400",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f9f9f7",
+                        "surface": "#f9f9f7",
+                        "secondary-fixed": "#e3dfff",
+                        "outline": "#80765f",
+                        "tertiary-container": "#c2cfe8",
+                        "surface-dim": "#dadad8",
+                        "inverse-primary": "#f3c000",
+                        "background": "#f9f9f7",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#695bfd",
+                        "on-tertiary-container": "#4b586d",
+                        "tertiary-fixed": "#d6e3fd",
+                        "secondary-fixed-dim": "#c5c0ff",
+                        "on-primary-fixed": "#241a00",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1a1c1b",
+                        "inverse-surface": "#2f3130",
+                        "on-error": "#ffffff",
+                        "secondary": "#503ee3",
+                        "on-secondary-fixed-variant": "#391dce",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#d2c5ab",
+                        "inverse-on-surface": "#f1f1ef",
+                        "on-tertiary-fixed-variant": "#3b475c",
+                        "surface-container": "#eeeeec",
+                        "on-surface": "#1a1c1b",
+                        "on-secondary-fixed": "#130067",
+                        "surface-container-highest": "#e2e3e1",
+                        "primary-container": "#fdc800",
+                        "primary-fixed": "#ffe08f",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#bac7e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scanline-overlay {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.01));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col">
+<!-- Header Suppression Rule Applied: No Global Nav for Transactional Flow -->
+<header class="w-full h-16 px-8 flex items-center border-b-[3px] border-black bg-surface-bright">
+<div class="text-2xl font-black tracking-tighter uppercase text-black">LeaseFlow</div>
+<div class="ml-auto font-label text-sm uppercase tracking-widest text-on-surface-variant flex items-center">
+<span class="mr-2">Status:</span>
+<span class="bg-primary-container px-2 py-1 border-[3px] border-black text-black">Initial_Onboarding</span>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center p-6 md:p-12">
+<div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+<!-- Left Column: Content -->
+<div class="md:col-span-7 flex flex-col gap-8">
+<div>
+<p class="font-label text-sm text-on-surface-variant mb-4 flex items-center">
+<span class="bg-black text-white px-2 py-0.5 mr-3">Step 1 of 1</span> 
+                        About your business
+                    </p>
+<h1 class="font-headline font-black text-5xl md:text-6xl tracking-tight leading-[0.9] text-black">
+                        Welcome. Let's set up your business.
+                    </h1>
+</div>
+<div class="mt-8">
+<div class="flex items-center gap-4 mb-8">
+<h2 class="font-label text-sm font-bold uppercase tracking-tighter whitespace-nowrap">Business Details</h2>
+<div class="h-[3px] w-full bg-black"></div>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10">
+<div class="relative group">
+<label class="absolute -top-3 left-4 bg-background px-2 font-label text-xs font-bold uppercase z-10">Business name</label>
+<input class="w-full border-[3px] border-black bg-transparent p-4 font-label focus:outline-none focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all" placeholder="ARCHITECTURAL LEDGER LTD" type="text"/>
+</div>
+<div class="relative group">
+<label class="absolute -top-3 left-4 bg-background px-2 font-label text-xs font-bold uppercase z-10">Commercial reg #</label>
+<input class="w-full border-[3px] border-black bg-transparent p-4 font-label focus:outline-none focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all" placeholder="CR-992-004-X" type="text"/>
+</div>
+<div class="relative group md:col-span-2">
+<label class="absolute -top-3 left-4 bg-background px-2 font-label text-xs font-bold uppercase z-10">Google Maps link</label>
+<div class="flex">
+<span class="flex items-center justify-center px-4 bg-surface-container border-y-[3px] border-l-[3px] border-black">
+<span class="material-symbols-outlined text-black">location_on</span>
+</span>
+<input class="w-full border-[3px] border-black bg-transparent p-4 font-label focus:outline-none focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all" placeholder="https://maps.google.com/..." type="url"/>
+</div>
+</div>
+<div class="relative group">
+<label class="absolute -top-3 left-4 bg-background px-2 font-label text-xs font-bold uppercase z-10">Phone</label>
+<input class="w-full border-[3px] border-black bg-transparent p-4 font-label focus:outline-none focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+<div class="md:col-span-2 mt-4">
+<button class="group relative inline-flex items-center justify-center bg-primary-container text-black font-headline font-black text-xl px-10 py-5 border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer" type="submit">
+                                Continue 
+                                <span class="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Right Column: Asymmetric Info Panel -->
+<div class="md:col-span-5 flex flex-col gap-6">
+<!-- Info Box: Why We Ask -->
+<div class="bg-surface-container-low border-[3px] border-black p-8 relative overflow-hidden">
+<div class="scanline-overlay absolute inset-0"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-4 mb-6">
+<h3 class="font-label text-sm font-bold uppercase tracking-tighter whitespace-nowrap">Why we ask</h3>
+<div class="h-[3px] w-full bg-black/10"></div>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary flex-shrink-0">verified</span>
+<p class="text-sm leading-relaxed">
+<strong class="font-label block uppercase text-xs mb-1">CR Check</strong>
+                                    We verify your Commercial Registry number against global financial databases to ensure regulatory compliance and risk assessment.
+                                </p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary flex-shrink-0">map</span>
+<p class="text-sm leading-relaxed">
+<strong class="font-label block uppercase text-xs mb-1">Google Maps Analysis</strong>
+                                    Automated visual verification of your physical storefront or office location helps us confirm the legitimacy of your operation.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Technical Card -->
+<div class="border-[3px] border-black h-64 relative">
+<img alt="modern office building architecture" class="w-full h-full object-cover grayscale" data-alt="monochrome architectural photo of a high-rise glass building with sharp angles and dramatic shadows in a brutalist style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQMNF6LQV_QzOGMMxbJ0dpWxmd3UME7WP-m832SX7TIB5pmpt9nq4J-Dpv5BbGbb68xr43wOFMs9ZUFXIWXawBJ-HYZCM2ecLdFV4d9uvn4EG6xLWjyWhKvjdO28HR5cGtU6DkCeZCTGKAgJgDisU8-6aVW61j62y_-xSRDHXKr1PKCjCl099P2WSDqsMwS5vRF7RFEAmgzTIQNZumjFYouZ4mBshcQ3tTT6M9zMHMUwa3hpw03t_KjtReNPg-4QQzPMthcwIhoPII"/>
+<div class="absolute inset-0 bg-primary-container/20 mix-blend-multiply"></div>
+<div class="absolute bottom-4 left-4 right-4 bg-white border-[3px] border-black p-3 font-label text-[10px] flex justify-between uppercase">
+<span>Physical_Node_Verification</span>
+<span class="font-bold">Active</span>
+</div>
+</div>
+<!-- Footer-style meta data -->
+<div class="font-label text-[10px] text-on-surface-variant/60 flex justify-between px-2">
+<span>LEDGER_ID: LF-882991-X</span>
+<span>TS: 2023.10.27_14:02:11_UTC</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Footer Suppression Rule Applied -->
+<footer class="w-full p-6 mt-auto flex flex-col md:flex-row justify-between items-center border-t-[3px] border-black font-label text-[10px] uppercase tracking-widest text-on-surface-variant">
+<div class="flex gap-8 mb-4 md:mb-0">
+<a class="hover:text-black transition-colors" href="#">Privacy Protocol</a>
+<a class="hover:text-black transition-colors" href="#">Security Standards</a>
+<a class="hover:text-black transition-colors" href="#">Compliance</a>
+</div>
+<div>
+            © 2024 LEASEFLOW INFRASTRUCTURE AG. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+</body></html>

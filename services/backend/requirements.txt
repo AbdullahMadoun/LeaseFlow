@@ -1,0 +1,11 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+supabase==2.11.0
+openai==1.59.4
+httpx==0.28.1
+pymupdf==1.25.1
+reportlab==4.2.5
+pandas==2.2.3
+resend==2.5.1
+python-multipart==0.0.20

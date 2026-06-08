@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LeaseFlow | Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-low": "#f4f4f2",
+                "on-surface-variant": "#4e4632",
+                "on-primary": "#ffffff",
+                "primary-fixed-dim": "#f3c000",
+                "tertiary": "#525f74",
+                "primary": "#755b00",
+                "on-secondary-container": "#fffbff",
+                "surface-container-lowest": "#ffffff",
+                "surface-tint": "#755b00",
+                "on-primary-container": "#6d5500",
+                "surface-container-high": "#e8e8e6",
+                "surface-variant": "#e2e3e1",
+                "on-tertiary-fixed": "#0e1c2e",
+                "on-primary-fixed-variant": "#584400",
+                "error-container": "#ffdad6",
+                "surface-bright": "#f9f9f7",
+                "surface": "#f9f9f7",
+                "secondary-fixed": "#e3dfff",
+                "outline": "#80765f",
+                "tertiary-container": "#c2cfe8",
+                "surface-dim": "#dadad8",
+                "inverse-primary": "#f3c000",
+                "background": "#f9f9f7",
+                "error": "#ba1a1a",
+                "secondary-container": "#695bfd",
+                "on-tertiary-container": "#4b586d",
+                "tertiary-fixed": "#d6e3fd",
+                "secondary-fixed-dim": "#c5c0ff",
+                "on-primary-fixed": "#241a00",
+                "on-secondary": "#ffffff",
+                "on-background": "#1a1c1b",
+                "inverse-surface": "#2f3130",
+                "on-error": "#ffffff",
+                "secondary": "#503ee3",
+                "on-secondary-fixed-variant": "#391dce",
+                "on-error-container": "#93000a",
+                "outline-variant": "#d2c5ab",
+                "inverse-on-surface": "#f1f1ef",
+                "on-tertiary-fixed-variant": "#3b475c",
+                "surface-container": "#eeeeec",
+                "on-surface": "#1a1c1b",
+                "on-secondary-fixed": "#130067",
+                "surface-container-highest": "#e2e3e1",
+                "primary-container": "#fdc800",
+                "primary-fixed": "#ffe08f",
+                "on-tertiary": "#ffffff",
+                "tertiary-fixed-dim": "#bac7e0"
+            },
+            "borderRadius": {
+                "none": "0px"
+            },
+            "fontFamily": {
+                "headline": ["Inter", "sans-serif"],
+                "body": ["Inter", "sans-serif"],
+                "mono": ["JetBrains Mono", "monospace"],
+                "label": ["Space Grotesk", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .scanline-overlay {
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 0, 0.02));
+        background-size: 100% 4px, 3px 100%;
+        pointer-events: none;
+      }
+      input:focus {
+        outline: none;
+        box-shadow: 4px 4px 0px 0px #000000;
+        transform: translate(-2px, -2px);
+      }
+      .brutalist-card {
+        box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+      }
+      .brutalist-button:active {
+        transform: translate(4px, 4px);
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+      }
+    </style>
+</head>
+<body class="bg-[#FBFBF9] font-body text-on-surface min-h-screen flex items-center justify-center p-6 selection:bg-primary-container selection:text-black">
+<!-- Login Container -->
+<main class="w-full max-w-md">
+<!-- Terminal Frame Header -->
+<div class="w-full bg-secondary border-x-[3px] border-t-[3px] border-black flex items-center justify-between px-4 py-2">
+<div class="flex gap-2">
+<div class="w-2.5 h-2.5 bg-black"></div>
+<div class="w-2.5 h-2.5 bg-black"></div>
+<div class="w-2.5 h-2.5 bg-black"></div>
+</div>
+<span class="font-mono text-xs text-white tracking-widest uppercase">~/login.sh</span>
+<div class="w-10"></div> <!-- Spacer for symmetry -->
+</div>
+<!-- Main Form Card -->
+<div class="bg-surface border-[3px] border-black brutalist-card relative overflow-hidden">
+<!-- Subtle Texture for "Ledger" feel -->
+<div class="absolute inset-0 scanline-overlay opacity-30"></div>
+<div class="p-8 relative z-10">
+<!-- Section Label -->
+<div class="flex items-center gap-4 mb-10">
+<h1 class="font-mono text-sm font-bold text-black whitespace-nowrap uppercase">WELCOME BACK</h1>
+<div class="h-[3px] w-full bg-black"></div>
+</div>
+<form action="#" class="space-y-8" method="POST">
+<!-- Email Field -->
+<div class="relative">
+<label class="absolute -top-3 left-4 bg-surface px-2 font-mono text-[10px] font-bold text-black z-10 uppercase">
+                            User Identity / Email
+                        </label>
+<input class="w-full border-[3px] border-black bg-white p-4 font-mono text-sm uppercase placeholder:text-gray-300 transition-all duration-75 rounded-none" id="email" name="email" placeholder="OPERATOR@LEASEFLOW.ARC" required="" type="email"/>
+</div>
+<!-- Password Field -->
+<div class="relative">
+<label class="absolute -top-3 left-4 bg-surface px-2 font-mono text-[10px] font-bold text-black z-10 uppercase">
+                            Access Key / Password
+                        </label>
+<input class="w-full border-[3px] border-black bg-white p-4 font-mono text-sm rounded-none transition-all duration-75 placeholder:text-gray-300" id="password" name="password" placeholder="••••••••••••" required="" type="password"/>
+</div>
+<!-- CTA Button -->
+<button class="w-full bg-primary-container text-black border-[3px] border-black py-5 px-6 font-mono font-black text-lg brutalist-card brutalist-button flex items-center justify-center gap-3 transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]" type="submit">
+<span>LOG IN</span>
+<span class="material-symbols-outlined font-black" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Additional Links -->
+<div class="mt-10 pt-8 border-t-[3px] border-black border-dashed flex flex-col sm:flex-row items-center justify-between gap-4">
+<a class="font-mono text-xs font-bold text-black hover:bg-black hover:text-white px-2 py-1 transition-colors" href="#">
+                        FORGOT ACCESS KEY?
+                    </a>
+<a class="font-mono text-xs font-bold text-secondary flex items-center gap-2 group" href="#">
+<span>No account? Sign up</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="east">east</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Aesthetic Footer Tags -->
+<div class="mt-6 flex justify-between items-start opacity-60">
+<div class="font-mono text-[10px] space-y-1">
+<p>SYS_STATUS: READY</p>
+<p>ENCRYPTION: AES-256-BRUTAL</p>
+</div>
+<div class="text-right">
+<p class="font-mono text-[10px] font-bold">V 4.02.1</p>
+<div class="flex gap-1 justify-end mt-1">
+<div class="w-3 h-1 bg-black"></div>
+<div class="w-6 h-1 bg-primary-container"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Background Decorative Elements -->
+<div class="fixed top-12 left-12 -z-10 opacity-10 hidden lg:block">
+<h2 class="text-[120px] font-black leading-none tracking-tighter uppercase text-black">LEASE<br/>FLOW</h2>
+</div>
+<div class="fixed bottom-12 right-12 -z-10 opacity-10 hidden lg:block text-right">
+<p class="font-mono text-sm max-w-xs uppercase">Precision Brutalism // Architectural Ledger v4.0. Reserved strictly for authorized financial operators only.</p>
+</div>
+</body></html>

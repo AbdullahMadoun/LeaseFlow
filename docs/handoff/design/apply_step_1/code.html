@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LeaseFlow - New Loan Wizard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f7;
+        }
+        .mono-text {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .label-text {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .brutalist-shadow {
+            box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+        }
+        .brutalist-shadow-hover:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+        }
+        .brutalist-shadow-active:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+        }
+        /* Custom scrollbar for brutalist feel */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f4f4f2;
+            border-left: 3px solid #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fdc800;
+            border: 3px solid #000;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#f4f4f2",
+                      "on-surface-variant": "#4e4632",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#f3c000",
+                      "tertiary": "#525f74",
+                      "primary": "#755b00",
+                      "on-secondary-container": "#fffbff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-tint": "#755b00",
+                      "on-primary-container": "#6d5500",
+                      "surface-container-high": "#e8e8e6",
+                      "surface-variant": "#e2e3e1",
+                      "on-tertiary-fixed": "#0e1c2e",
+                      "on-primary-fixed-variant": "#584400",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#f9f9f7",
+                      "surface": "#f9f9f7",
+                      "secondary-fixed": "#e3dfff",
+                      "outline": "#80765f",
+                      "tertiary-container": "#c2cfe8",
+                      "surface-dim": "#dadad8",
+                      "inverse-primary": "#f3c000",
+                      "background": "#f9f9f7",
+                      "error": "#ba1a1a",
+                      "secondary-container": "#695bfd",
+                      "on-tertiary-container": "#4b586d",
+                      "tertiary-fixed": "#d6e3fd",
+                      "secondary-fixed-dim": "#c5c0ff",
+                      "on-primary-fixed": "#241a00",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#1a1c1b",
+                      "inverse-surface": "#2f3130",
+                      "on-error": "#ffffff",
+                      "secondary": "#503ee3",
+                      "on-secondary-fixed-variant": "#391dce",
+                      "on-error-container": "#93000a",
+                      "outline-variant": "#d2c5ab",
+                      "inverse-on-surface": "#f1f1ef",
+                      "on-tertiary-fixed-variant": "#3b475c",
+                      "surface-container": "#eeeeec",
+                      "on-surface": "#1a1c1b",
+                      "on-secondary-fixed": "#130067",
+                      "surface-container-highest": "#e2e3e1",
+                      "primary-container": "#fdc800",
+                      "primary-fixed": "#ffe08f",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#bac7e0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0px",
+                      "lg": "0px",
+                      "xl": "0px",
+                      "full": "9999px"
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background">
+<!-- TopNavBar Component -->
+<header class="sticky top-0 z-50 bg-[#FBFBF9] border-b-[3px] border-black flex justify-between items-center w-full px-6 h-16 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-black uppercase">LeaseFlow</span>
+<nav class="hidden md:flex gap-6 items-center h-full">
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all duration-100 px-2 py-1" href="#">Dashboard</a>
+<a class="text-black border-b-[3px] border-[#FDC800] pb-1 font-bold" href="#">Leases</a>
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all duration-100 px-2 py-1" href="#">Underwriting</a>
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all duration-100 px-2 py-1" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-2">
+<span class="material-symbols-outlined text-black cursor-pointer hover:bg-[#FDC800] p-1 border-[3px] border-transparent hover:border-black transition-all" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-black cursor-pointer hover:bg-[#FDC800] p-1 border-[3px] border-transparent hover:border-black transition-all" data-icon="settings">settings</span>
+</div>
+<button class="bg-[#FDC800] text-black border-[3px] border-black px-4 py-1 font-bold brutalist-shadow brutalist-shadow-active transition-all">New Application</button>
+</div>
+</header>
+<main class="min-h-screen pt-12 pb-24 px-4 md:px-0 flex justify-center items-start">
+<div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Left Side: Wizard Identity & Navigation -->
+<div class="md:col-span-4 space-y-6">
+<div class="bg-surface-container-low border-[3px] border-black p-6 brutalist-shadow">
+<p class="mono-text text-sm font-bold text-on-surface-variant mb-2">STEP 1 OF 3 · What do you need?</p>
+<h1 class="text-4xl font-black leading-tight mb-4 italic">Configure Asset Ledger</h1>
+<div class="h-2 w-full bg-black">
+<div class="h-full bg-primary-container w-1/3"></div>
+</div>
+</div>
+<div class="relative overflow-hidden bg-secondary text-white border-[3px] border-black p-6 brutalist-shadow">
+<div class="absolute top-[-10px] right-[-10px] opacity-10">
+<span class="material-symbols-outlined text-8xl" data-icon="account_balance">account_balance</span>
+</div>
+<p class="mono-text text-xs uppercase tracking-widest mb-4">Merchant Status</p>
+<p class="font-bold text-lg mb-1">Architectural Ledger</p>
+<p class="mono-text text-sm opacity-80">Merchant ID: 882-99</p>
+<div class="mt-6 pt-6 border-t-[3px] border-black/20 flex justify-between items-end">
+<div>
+<p class="mono-text text-xs uppercase">Available Credit</p>
+<p class="mono-text text-xl font-bold">SAR 250,000</p>
+</div>
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</div>
+</div>
+</div>
+<!-- Right Side: The Wizard Form -->
+<div class="md:col-span-8">
+<div class="bg-white border-[3px] border-black p-8 brutalist-shadow">
+<div class="space-y-10">
+<!-- Field: Amount -->
+<div class="relative">
+<label class="absolute -top-3 left-4 bg-white px-2 mono-text text-xs font-bold uppercase z-10">Request Amount</label>
+<div class="flex items-center border-[3px] border-black h-24 px-6 bg-surface-container-lowest focus-within:bg-primary-container/10 transition-colors">
+<span class="mono-text text-2xl font-bold mr-4 text-on-surface-variant">SAR</span>
+<input class="w-full bg-transparent border-none focus:ring-0 mono-text text-6xl font-black outline-none" placeholder="00,000" type="text" value="50,000"/>
+</div>
+</div>
+<!-- Field: Description -->
+<div class="relative">
+<label class="absolute -top-3 left-4 bg-white px-2 mono-text text-xs font-bold uppercase z-10">Asset Description</label>
+<div class="border-[3px] border-black p-4 bg-surface-container-lowest focus-within:bg-primary-container/10 transition-colors">
+<input class="w-full bg-transparent border-none focus:ring-0 text-xl font-bold outline-none" placeholder="What are you financing?" type="text" value="La Marzocco GB5 espresso machine"/>
+</div>
+</div>
+<!-- Field: Term Selector -->
+<div class="relative">
+<label class="absolute -top-3 left-4 bg-white px-2 mono-text text-xs font-bold uppercase z-10">Pay back term</label>
+<div class="grid grid-cols-3 gap-0 border-[3px] border-black overflow-hidden">
+<button class="py-4 mono-text font-bold text-center border-r-[3px] border-black hover:bg-surface-container-high transition-colors">6 MONTHS</button>
+<button class="py-4 mono-text font-bold text-center border-r-[3px] border-black bg-primary-container text-black">12 MONTHS</button>
+<button class="py-4 mono-text font-bold text-center hover:bg-surface-container-high transition-colors">18 MONTHS</button>
+</div>
+</div>
+<!-- Section: Calculation Ledger -->
+<div class="mt-12">
+<div class="flex items-center mb-4">
+<h2 class="mono-text text-sm font-bold uppercase whitespace-nowrap mr-4">WHAT YOU'D PAY</h2>
+<div class="h-[3px] w-full bg-black"></div>
+</div>
+<div class="bg-surface-container-low border-[3px] border-black p-6 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-4">
+<div class="bg-secondary p-3 border-[3px] border-black">
+<span class="material-symbols-outlined text-white" data-icon="payments">payments</span>
+</div>
+<div>
+<p class="text-2xl font-black">About SAR 4,791 / month</p>
+<p class="mono-text text-xs font-bold text-on-surface-variant uppercase">Fixed rate for 12 months</p>
+</div>
+</div>
+<div class="w-full md:w-auto">
+<button class="w-full md:w-auto bg-primary-container text-black border-[3px] border-black px-8 py-4 font-black flex items-center justify-center gap-2 brutalist-shadow brutalist-shadow-active brutalist-shadow-hover transition-all">
+                                        Continue
+                                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footnote / Micro-data -->
+<div class="mt-8 flex justify-between items-center">
+<div class="flex gap-2">
+<div class="w-4 h-4 bg-black border-[1px] border-black"></div>
+<div class="w-4 h-4 bg-primary-container border-[1px] border-black"></div>
+<div class="w-4 h-4 bg-secondary border-[1px] border-black"></div>
+</div>
+<p class="mono-text text-[10px] text-on-surface-variant uppercase tracking-tighter">System Output: Lease_Config_v4.02_Stable</p>
+</div>
+</div>
+<!-- Asset Preview Asymmetric Card -->
+<div class="mt-8 relative ml-auto w-full md:w-3/4">
+<div class="absolute -top-4 -left-4 z-10 bg-black text-white px-3 py-1 mono-text text-xs font-bold">ASSET_PREVIEW</div>
+<div class="bg-surface-container-high border-[3px] border-black p-4 flex gap-6 items-center brutalist-shadow">
+<img alt="Professional espresso machine" class="w-32 h-32 object-cover border-[3px] border-black" data-alt="Close-up of a high-end chrome espresso machine with steam wands and dials in a moody cafe setting with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjoi3UCiPmmKUEL34i0CKodzkUa2Qtx4ochU0BEOjYyiAzyl1ArTTCNLwexq70fLAmhMVPjNfXJgFgfXivfdumX7AVN0XLvuuDUpFSafRw0vDqjnFRzuNm3Gle9cxq7kEhbwbuvqv4BDk6dOR2UJhIyRwv1M9lp3sKcNMU3YHJ5cJzyqGOh_RSuIID5J4wXkim2Vtht9zAH0SeB7YiMAwWx9iYtYpo_euE6pPPiSGbBDCblGfcVJjfwUbkchwxH6scf47l81udvGx0"/>
+<div>
+<p class="text-xl font-bold mb-1">GB5 Espresso Machine</p>
+<p class="mono-text text-sm mb-3">Serial: LM-8829-GB5</p>
+<div class="flex gap-2">
+<span class="bg-black text-white px-2 py-1 mono-text text-[10px]">NEW_ASSET</span>
+<span class="bg-surface-container-highest border-[1px] border-black px-2 py-1 mono-text text-[10px]">VERIFIED_SUPPLIER</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- SideNavBar (Hidden on Mobile per Shell Visibility rules) -->
+<aside class="hidden xl:flex fixed left-0 top-16 bottom-0 w-64 bg-[#FBFBF9] border-r-[3px] border-black flex-col p-4 z-40">
+<div class="flex flex-col gap-1 mb-8">
+<p class="mono-text text-[10px] font-bold text-on-surface-variant uppercase">Global Menu</p>
+<div class="h-1 bg-black w-12"></div>
+</div>
+<div class="flex-grow">
+<a class="text-black flex items-center p-3 mb-2 border-[3px] border-transparent hover:border-black transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+<span class="mono-text font-bold text-xs uppercase">Overview</span>
+</a>
+<a class="text-black flex items-center p-3 mb-2 border-[3px] border-transparent hover:border-black transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="terminal">terminal</span>
+<span class="mono-text font-bold text-xs uppercase">Live Feed</span>
+</a>
+<a class="bg-[#FDC800] text-black border-[3px] border-black mb-2 flex items-center p-3" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="account_balance">account_balance</span>
+<span class="mono-text font-bold text-xs uppercase">Portfolio</span>
+</a>
+<a class="text-black flex items-center p-3 mb-2 border-[3px] border-transparent hover:border-black transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="description">description</span>
+<span class="mono-text font-bold text-xs uppercase">Documents</span>
+</a>
+<a class="text-black flex items-center p-3 mb-2 border-[3px] border-transparent hover:border-black transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+<span class="mono-text font-bold text-xs uppercase">Settings</span>
+</a>
+</div>
+<div class="pt-6 border-t-[3px] border-black">
+<a class="text-black flex items-center p-3 mb-2 border-[3px] border-transparent hover:border-black transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="help">help</span>
+<span class="mono-text font-bold text-xs uppercase">Support</span>
+</a>
+<a class="text-black flex items-center p-3 mb-2 border-[3px] border-transparent hover:border-black transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="logout">logout</span>
+<span class="mono-text font-bold text-xs uppercase">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-[#FBFBF9] border-t-[3px] border-black flex justify-around items-center h-20 px-4 z-50">
+<a class="flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="mono-text text-[10px] font-bold">HOME</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary-container" href="#">
+<div class="bg-black p-2 mb-1">
+<span class="material-symbols-outlined text-primary-container" data-icon="account_balance">account_balance</span>
+</div>
+</a>
+<a class="flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="mono-text text-[10px] font-bold">DATA</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  /* Surfaces */
+  --color-surface: #F9F9F7;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-low: #F4F4F2;
+  --color-surface-container: #EDEDEB;
+  --color-surface-container-high: #E8E8E6;
+  --color-surface-variant: #E2E3E1;
+
+  /* Text */
+  --color-on-surface: #1A1C1B;
+  --color-on-surface-variant: #4E4632;
+  --color-on-primary: #FFFFFF;
+
+  /* Brand */
+  --color-primary: #000000;
+  --color-primary-fixed-dim: #F3C000;
+  --color-primary-container: #FDC800;
+  --color-secondary: #525F74;
+  --color-tertiary: #2F3C50;
+
+  /* Semantic */
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+  --color-error-container: #FFDAD6;
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Zero radii everywhere (0px signature) */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+}
+
+/* Reset Vite default cruft */
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; padding: 0; min-height: 100vh; }
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Brutalist offset shadows */
+@utility offset-shadow-sm { box-shadow: 3px 3px 0 #000000; }
+@utility offset-shadow { box-shadow: 4px 4px 0 #000000; }
+@utility offset-shadow-md { box-shadow: 6px 6px 0 #000000; }
+@utility offset-shadow-lg { box-shadow: 8px 8px 0 #000000; }
+
+/* Lift-on-hover */
+@utility hover-lift {
+  transition: transform 120ms, box-shadow 120ms;
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000000;
+  }
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+}
+
+/* Scanline effect used by terminal card on landing */
+@utility scanline {
+  background:
+    linear-gradient(to bottom, rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 2px, 3px 100%;
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .hover-lift { transition: none; }
+  .hover-lift:hover { transform: none; box-shadow: 4px 4px 0 #000000; }
+  .animate-pulse { animation: none !important; }
+}

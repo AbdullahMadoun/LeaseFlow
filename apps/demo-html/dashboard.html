@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamFlow | Dashboard</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="site">
+    <nav class="topnav">
+      <a href="./index.html">Main</a>
+      <a href="./onboarding.html">Onboarding</a>
+      <a href="./offer.html">Risk & Offer</a>
+      <a href="./payout.html">Vendor Payout</a>
+      <a href="./repayment.html">Repayment</a>
+      <a href="./investors.html">Investors</a>
+      <a class="active" href="./dashboard.html">Dashboard</a>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow">Live Monitor</p>
+      <h1>StreamFlow Dashboard</h1>
+      <p>Single view of financing status, repayment progress, and timeline of events.</p>
+    </header>
+
+    <section class="card">
+      <h2>KPIs</h2>
+      <div class="kpis">
+        <article class="kpi"><span class="v" id="kApproved">0</span><small>Approved SAR</small></article>
+        <article class="kpi"><span class="v" id="kOutstanding">0</span><small>Outstanding SAR</small></article>
+        <article class="kpi"><span class="v" id="kDaily">0</span><small>Daily Stream SAR</small></article>
+        <article class="kpi"><span class="v" id="kMonthly">0</span><small>Monthly Plan SAR</small></article>
+        <article class="kpi"><span class="v" id="kPool">0</span><small>Investor Pool SAR</small></article>
+      </div>
+      <p id="progressText">Repayment Progress: 0%</p>
+      <div class="bar-wrap"><div class="bar" id="bar"></div></div>
+    </section>
+
+    <section class="card">
+      <h2>Timeline</h2>
+      <ul class="list" id="timeline"></ul>
+    </section>
+  </main>
+
+  <script src="./shared.js"></script>
+  <script src="./dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-04-16T14:21:23.664856+00:00",
+  "llm_response": {
+    "decision": "approve",
+    "reasoning": "The deterministic proposal scores 76.3 overall with a comfortable DSCR of 6.61, well above risk thresholds, and SIMAH credit (787) shows zero defaults with excellent payment history. Financial docs confirm strong health with 27.5% net margin and current ratio 1.9, supporting the SAR 50,000 lease-to-own on a high-value La Marzocco GB5. The sentiment dimension errored, reducing confidence slightly, but all other dimensions are positive and the conservative market appetite is already factored into the proposal bounds.",
+    "confidence": 0.85,
+    "risk_flags": [
+      "sentiment_dimension_errored",
+      "conservative_market_appetite"
+    ],
+    "risk_level": "low",
+    "dimension_scores": {
+      "pos": 70.0,
+      "credit": 85.0,
+      "overall": 76.3,
+      "industry": 68.0,
+      "financial": 80.0,
+      "sentiment": null
+    },
+    "recommended_amount": 50000.0
+  },
+  "final_decision": {
+    "status": "approved",
+    "approved_amount": 50000.0,
+    "override_applied": "agreement"
+  },
+  "schema_version": "v1",
+  "dimension_scores": {
+    "pos": 70.0,
+    "simah": 85.0,
+    "industry": 68.0,
+    "financial_docs": 80.0
+  },
+  "risk_snapshot_id": "095243a2-b53b-414b-ab81-21a36833073a",
+  "hard_floors_check": {
+    "passed": true,
+    "violations": []
+  },
+  "synthesis_version": "expert@v1",
+  "registered_dimensions": [
+    "financial_docs",
+    "industry",
+    "pos",
+    "sentiment",
+    "simah"
+  ],
+  "deterministic_proposal": {
+    "per_dim": {
+      "pos": 70.0,
+      "simah": 85.0,
+      "industry": 68.0,
+      "financial_docs": 80.0
+    },
+    "decision": "approve",
+    "risk_level": "low",
+    "rules_fired": [
+      "overall_score>=70",
+      "dscr_comfortable"
+    ],
+    "amount_bounds": {
+      "max": 50000.0,
+      "min": 40000.0
+    },
+    "overall_score": 76.3
+  }
+}

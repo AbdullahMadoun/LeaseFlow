@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-04-16T14:26:24.672389+00:00",
+  "llm_response": null,
+  "final_decision": {
+    "reason": "Hard floor violation: dscr_below_1.0(0.08), simah_defaults>0(1)",
+    "status": "denied",
+    "approved_amount": null,
+    "override_applied": "hard_floor"
+  },
+  "schema_version": "v1",
+  "dimension_scores": {
+    "pos": 65.0,
+    "simah": 25.0,
+    "industry": 53.0,
+    "financial_docs": 10.0
+  },
+  "risk_snapshot_id": "095243a2-b53b-414b-ab81-21a36833073a",
+  "hard_floors_check": {
+    "passed": false,
+    "violations": [
+      "dscr_below_1.0(0.08)",
+      "simah_defaults>0(1)"
+    ]
+  },
+  "synthesis_version": "expert@v1",
+  "registered_dimensions": [
+    "financial_docs",
+    "industry",
+    "pos",
+    "sentiment",
+    "simah"
+  ],
+  "deterministic_proposal": {
+    "per_dim": {
+      "pos": 65.0,
+      "simah": 25.0,
+      "industry": 53.0,
+      "financial_docs": 10.0
+    },
+    "decision": "deny",
+    "risk_level": "high",
+    "rules_fired": [
+      "overall_score<=40",
+      "dscr_tight",
+      "simah_defaults_present"
+    ],
+    "amount_bounds": {
+      "max": 48000.0,
+      "min": 32000.0
+    },
+    "overall_score": 35.8
+  }
+}

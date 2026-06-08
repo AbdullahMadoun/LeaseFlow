@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LeaseFlow | Merchant Financing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-low": "#f4f4f2",
+                "on-surface-variant": "#4e4632",
+                "on-primary": "#ffffff",
+                "primary-fixed-dim": "#f3c000",
+                "tertiary": "#525f74",
+                "primary": "#755b00",
+                "on-secondary-container": "#fffbff",
+                "surface-container-lowest": "#ffffff",
+                "surface-tint": "#755b00",
+                "on-primary-container": "#6d5500",
+                "surface-container-high": "#e8e8e6",
+                "surface-variant": "#e2e3e1",
+                "on-tertiary-fixed": "#0e1c2e",
+                "on-primary-fixed-variant": "#584400",
+                "error-container": "#ffdad6",
+                "surface-bright": "#f9f9f7",
+                "surface": "#f9f9f7",
+                "secondary-fixed": "#e3dfff",
+                "outline": "#80765f",
+                "tertiary-container": "#c2cfe8",
+                "surface-dim": "#dadad8",
+                "inverse-primary": "#f3c000",
+                "background": "#f9f9f7",
+                "error": "#ba1a1a",
+                "secondary-container": "#695bfd",
+                "on-tertiary-container": "#4b586d",
+                "tertiary-fixed": "#d6e3fd",
+                "secondary-fixed-dim": "#c5c0ff",
+                "on-primary-fixed": "#241a00",
+                "on-secondary": "#ffffff",
+                "on-background": "#1a1c1b",
+                "inverse-surface": "#2f3130",
+                "on-error": "#ffffff",
+                "secondary": "#503ee3",
+                "on-secondary-fixed-variant": "#391dce",
+                "on-error-container": "#93000a",
+                "outline-variant": "#d2c5ab",
+                "inverse-on-surface": "#f1f1ef",
+                "on-tertiary-fixed-variant": "#3b475c",
+                "surface-container": "#eeeeec",
+                "on-surface": "#1a1c1b",
+                "on-secondary-fixed": "#130067",
+                "surface-container-highest": "#e2e3e1",
+                "primary-container": "#fdc800",
+                "primary-fixed": "#ffe08f",
+                "on-tertiary": "#ffffff",
+                "tertiary-fixed-dim": "#bac7e0"
+            },
+            "borderRadius": {
+                "none": "0px",
+                "DEFAULT": "0px",
+                "lg": "0px",
+                "xl": "0px",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Inter", "sans-serif"],
+                "body": ["Inter", "sans-serif"],
+                "mono": ["JetBrains Mono", "monospace"],
+                "label": ["Space Grotesk", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f7;
+            color: #1a1c1b;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .brutalist-shadow {
+            box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+        }
+        .brutalist-shadow-hover:hover {
+            box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+            transform: translate(-2px, -2px);
+        }
+        .brutalist-active:active {
+            box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+            transform: translate(4px, 4px);
+        }
+        .scanline {
+            background: linear-gradient(to bottom, rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 2px, 3px 100%;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="bg-[#FBFBF9] border-b-[3px] border-black flex justify-between items-center w-full px-6 h-16 fixed top-0 z-50">
+<div class="text-2xl font-black tracking-tighter text-black uppercase">LeaseFlow</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all duration-100 px-2 py-1" href="#">Dashboard</a>
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all duration-100 px-2 py-1" href="#">Leases</a>
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all duration-100 px-2 py-1" href="#">Underwriting</a>
+<a class="text-gray-600 font-medium hover:bg-[#FDC800] hover:text-black transition-all duration-100 px-2 py-1" href="#">Reports</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-black p-2 hover:bg-[#FDC800] transition-all">notifications</button>
+<button class="material-symbols-outlined text-black p-2 hover:bg-[#FDC800] transition-all">settings</button>
+<button class="bg-primary-container text-black font-black border-[3px] border-black px-4 h-10 brutalist-shadow hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                New Application
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<main class="pt-32 pb-20 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7">
+<div class="mono text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="w-8 h-[3px] bg-black"></span>
+                Institutional Grade Capital
+            </div>
+<h1 class="text-6xl md:text-8xl font-black leading-none tracking-tighter text-black mb-8">
+                Financing that doesn't make you <span class="relative inline-block">wait.<span class="absolute bottom-2 left-0 w-full h-[6px] bg-[#FDC800] -z-10"></span></span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-xl mb-10 leading-relaxed font-medium">
+                The Architectural Ledger for merchant growth. Secure up to SAR 250,000 in under 90 seconds using our automated underwriting infrastructure.
+            </p>
+<button class="bg-primary-container text-black font-black border-[3px] border-black px-8 h-12 flex items-center gap-4 brutalist-shadow brutalist-shadow-hover brutalist-active transition-all group">
+                Apply now <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- Terminal Window Component -->
+<div class="lg:col-span-5 relative">
+<div class="bg-black border-[3px] border-black brutalist-shadow w-full aspect-square md:aspect-video lg:aspect-square flex flex-col overflow-hidden">
+<!-- Terminal Header -->
+<div class="bg-secondary border-b-[3px] border-black p-3 flex items-center justify-between">
+<div class="flex gap-2">
+<div class="w-3 h-3 bg-white border border-black"></div>
+<div class="w-3 h-3 bg-white border border-black opacity-50"></div>
+<div class="w-3 h-3 bg-white border border-black opacity-20"></div>
+</div>
+<div class="mono text-[10px] text-white font-bold tracking-widest">LIVE_DECISION_ENGINE.EXE</div>
+</div>
+<!-- Terminal Content -->
+<div class="p-6 mono text-green-400 text-sm flex-grow relative overflow-hidden scanline">
+<div class="mb-4 text-white opacity-50"># Initiating deep-scan underwriting protocol...</div>
+<div class="mb-4 text-white opacity-50"># Analyzing transaction history (14,292 records)...</div>
+<div class="space-y-2">
+<div class="flex">
+<span class="text-blue-400 mr-2">{</span>
+</div>
+<div class="flex pl-4">
+<span class="text-[#FDC800]">"status"</span>: <span class="text-green-400">"approved"</span>,
+                        </div>
+<div class="flex pl-4">
+<span class="text-[#FDC800]">"amount"</span>: <span class="text-white">"SAR 48,000"</span>,
+                        </div>
+<div class="flex pl-4">
+<span class="text-[#FDC800]">"decided_in"</span>: <span class="text-white">"87 seconds"</span>,
+                        </div>
+<div class="flex pl-4">
+<span class="text-[#FDC800]">"risk_score"</span>: <span class="text-white">0.92</span>,
+                        </div>
+<div class="flex pl-4">
+<span class="text-[#FDC800]">"terms"</span>: <span class="text-blue-400">[</span>
+</div>
+<div class="flex pl-8 text-white">"12_MONTH_FIXED",</div>
+<div class="flex pl-8 text-white">"AUTO_DEBIT_ENABLED"</div>
+<div class="flex pl-4">
+<span class="text-blue-400">]</span>
+</div>
+<div class="flex">
+<span class="text-blue-400">}</span>
+</div>
+</div>
+<div class="mt-6 inline-block bg-green-500 text-black px-2 py-1 font-black animate-pulse">
+                        &gt; READY_FOR_DISBURSEMENT
+                    </div>
+</div>
+</div>
+<!-- Accenting Geometric Shape -->
+<div class="absolute -bottom-6 -right-6 w-24 h-24 border-[3px] border-black bg-[#FDC800] -z-20"></div>
+</div>
+</main>
+<!-- How It Works Section -->
+<section class="bg-surface-container-low border-y-[3px] border-black py-24 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<div class="mono text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="w-8 h-[3px] bg-black"></span>
+                        The Protocol
+                    </div>
+<h2 class="text-5xl font-black tracking-tighter uppercase">How it works</h2>
+</div>
+<p class="mono text-sm max-w-xs border-l-[3px] border-black pl-4">
+                    OUR SYSTEM ELIMINATES THE SUBJECTIVITY OF TRADITIONAL BANKING THROUGH RAW DATA ANALYSIS.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-[3px] border-black">
+<!-- Step 01 -->
+<div class="p-10 bg-white border-b-[3px] md:border-b-0 md:border-r-[3px] border-black hover:bg-[#FDC800] transition-colors group">
+<div class="mono text-5xl font-black mb-8 group-hover:translate-x-2 transition-transform">01</div>
+<h3 class="text-2xl font-black uppercase mb-4">Upload docs</h3>
+<p class="text-on-surface-variant font-medium leading-relaxed">
+                        Connect your ERP or upload transaction statements. We ingest the raw data immediately.
+                    </p>
+<div class="mt-8 flex gap-2">
+<span class="material-symbols-outlined font-black">description</span>
+<span class="material-symbols-outlined font-black opacity-20">cloud_upload</span>
+</div>
+</div>
+<!-- Step 02 -->
+<div class="p-10 bg-white border-b-[3px] md:border-b-0 md:border-r-[3px] border-black hover:bg-[#FDC800] transition-colors group">
+<div class="mono text-5xl font-black mb-8 group-hover:translate-x-2 transition-transform">02</div>
+<h3 class="text-2xl font-black uppercase mb-4">We read them</h3>
+<p class="text-on-surface-variant font-medium leading-relaxed">
+                        Our proprietary ledger engine parses your performance indicators in real-time.
+                    </p>
+<div class="mt-8 flex gap-2">
+<span class="material-symbols-outlined font-black">terminal</span>
+<span class="material-symbols-outlined font-black opacity-20">memory</span>
+</div>
+</div>
+<!-- Step 03 -->
+<div class="p-10 bg-white hover:bg-[#FDC800] transition-colors group">
+<div class="mono text-5xl font-black mb-8 group-hover:translate-x-2 transition-transform">03</div>
+<h3 class="text-2xl font-black uppercase mb-4">You get $</h3>
+<p class="text-on-surface-variant font-medium leading-relaxed">
+                        Funds are dispatched to your business account via instant architectural wire.
+                    </p>
+<div class="mt-8 flex gap-2">
+<span class="material-symbols-outlined font-black">payments</span>
+<span class="material-symbols-outlined font-black opacity-20">account_balance</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Feature: The Ledger -->
+<section class="py-24 px-6 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+<div>
+<img class="w-full h-auto border-[3px] border-black brutalist-shadow mb-8" data-alt="close-up of industrial machinery and mechanical gears with high contrast black and yellow studio lighting for a brutalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWuYjYn-dLm8_QrI_M5RHivbyrDZV1nZIouODl4y7irJ6km7JzOvqI-cx5CR3V-l_Xh13o6NrK-Gg7CLCaXf5AoJKlySdLiOiI_QqBn74cYHstWK9QPEnBe56fHkD34o_LtPVaP_6gQK7TfCnH2mObM2sMQeY4EAahzQbT_o_MId67eVKxzlZMNy5Im6pbUTmDNXzXQjapt23Z1i7XYuEH_yzuh1wp4CtbA5hG_z4eqM4GldpvQBvHvaQVFeoqF5rja7vus9_gsJCE"/>
+<div class="bg-black text-white p-6 mono text-sm flex justify-between items-center">
+<span>SYSTEM_ASSET_082</span>
+<span class="text-[#FDC800]">VERIFIED_SECURE</span>
+</div>
+</div>
+<div>
+<h2 class="text-4xl font-black tracking-tighter uppercase mb-8">Transparent by Design</h2>
+<div class="space-y-8">
+<div class="border-b-[3px] border-black pb-8">
+<h4 class="mono font-bold text-lg mb-2">FIXED_REPAYMENT</h4>
+<p class="text-on-surface-variant">No variable interest rates or hidden floating fees. What you see is what you pay back, calculated to the halala.</p>
+</div>
+<div class="border-b-[3px] border-black pb-8">
+<h4 class="mono font-bold text-lg mb-2">UNYIELDING_SECURITY</h4>
+<p class="text-on-surface-variant">Every byte of data is encrypted with enterprise-grade AES-256 infrastructure, hosted locally within the Kingdom.</p>
+</div>
+<div class="pb-8">
+<h4 class="mono font-bold text-lg mb-2">MERCHANT_CENTRIC</h4>
+<p class="text-on-surface-variant">Built by founders for founders. We understand that cash flow is the oxygen of your business machine.</p>
+</div>
+</div>
+<button class="w-full bg-secondary text-white font-black border-[3px] border-black h-12 brutalist-shadow brutalist-shadow-hover brutalist-active transition-all mt-4 uppercase">
+                    View Merchant Terms
+                </button>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="mb-24 px-6 max-w-7xl mx-auto">
+<div class="bg-[#FDC800] border-[3px] border-black p-12 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden">
+<!-- Decorative Elements -->
+<div class="absolute top-0 left-0 w-32 h-32 border-r-[3px] border-b-[3px] border-black opacity-10"></div>
+<div class="absolute bottom-0 right-0 w-64 h-64 border-l-[3px] border-t-[3px] border-black opacity-10"></div>
+<div class="relative z-10 text-center md:text-left">
+<h2 class="text-5xl font-black tracking-tighter uppercase mb-4 leading-none">Ready to scale?</h2>
+<p class="mono font-bold text-black opacity-70">EXECUTE THE APPLICATION PROTOCOL TODAY.</p>
+</div>
+<div class="relative z-10">
+<button class="bg-black text-[#FDC800] font-black border-[3px] border-black px-12 h-16 text-xl brutalist-shadow hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all uppercase">
+                    Apply now -&gt;
+                </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-black text-white py-16 px-6">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<div class="text-3xl font-black tracking-tighter uppercase text-[#FDC800] mb-6">LeaseFlow</div>
+<p class="mono text-sm opacity-50 max-w-xs mb-8">
+                    THE ARCHITECTURAL LEDGER FOR MERCHANT FINANCING. BUILT FOR SPEED. BUILT FOR SCALE. BUILT FOR GROWTH.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 border-[2px] border-white flex items-center justify-center hover:bg-[#FDC800] hover:text-black transition-colors" href="#"><span class="material-symbols-outlined">terminal</span></a>
+<a class="w-10 h-10 border-[2px] border-white flex items-center justify-center hover:bg-[#FDC800] hover:text-black transition-colors" href="#"><span class="material-symbols-outlined">data_object</span></a>
+<a class="w-10 h-10 border-[2px] border-white flex items-center justify-center hover:bg-[#FDC800] hover:text-black transition-colors" href="#"><span class="material-symbols-outlined">shield</span></a>
+</div>
+</div>
+<div>
+<h5 class="mono font-black uppercase mb-6 text-[#FDC800]">System</h5>
+<ul class="space-y-4 mono text-sm opacity-70">
+<li><a class="hover:opacity-100" href="#">DASHBOARD</a></li>
+<li><a class="hover:opacity-100" href="#">API_DOCS</a></li>
+<li><a class="hover:opacity-100" href="#">UPTIME_STATUS</a></li>
+<li><a class="hover:opacity-100" href="#">SECURITY_LOG</a></li>
+</ul>
+</div>
+<div>
+<h5 class="mono font-black uppercase mb-6 text-[#FDC800]">Support</h5>
+<ul class="space-y-4 mono text-sm opacity-70">
+<li><a class="hover:opacity-100" href="#">HELP_DESK</a></li>
+<li><a class="hover:opacity-100" href="#">CONTACT_CORE</a></li>
+<li><a class="hover:opacity-100" href="#">LEGAL_RESOURCES</a></li>
+<li><a class="hover:opacity-100" href="#">PRIVACY_PROTOCOL</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-white border-opacity-10 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="mono text-[10px] opacity-30">© 2024 LEASEFLOW_INFRASTRUCTURE. ALL RIGHTS RESERVED.</div>
+<div class="mono text-[10px] opacity-30">CONNECTED_TO: RIYADH_REGION_NODE_01</div>
+</div>
+</footer>
+</body></html>

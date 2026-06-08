@@ -1,0 +1,50 @@
+{
+  "seed": 20260415,
+  "date_range": {
+    "start": "2025-01-01",
+    "end": "2026-03-31"
+  },
+  "merchant_count": 1,
+  "row_counts": {
+    "merchants": 1,
+    "merchant_latent_profiles": 1,
+    "sales_daily": 455,
+    "payments_daily": 455,
+    "bank_daily": 455,
+    "obligations": 60
+  },
+  "totals": {
+    "obligations_due": 2673105.76,
+    "obligations_paid": 2192132.87,
+    "gross_sales": 2577766.68,
+    "net_sales": 2491154.79,
+    "payments_collected": 2522567.38,
+    "bank_inflows": 2514665.27,
+    "bank_outflows": 2477569.4
+  },
+  "validation": {
+    "bank_identity_max_abs_error": 0.0,
+    "payment_identity_max_abs_error": 0.0,
+    "sales_identity_max_abs_error": 0.0
+  },
+  "population_mix": {
+    "cities": {
+      "Riyadh": 1
+    },
+    "archetypes": {
+      "neighborhood_cafe": 1
+    },
+    "scenarios": {
+      "margin_squeezed_merchant": 1
+    }
+  },
+  "dataset_scope": "single_business",
+  "intended_analysis_unit": "single_business_time_series",
+  "business_profile": {
+    "merchant_id": "M0001",
+    "legal_name": "Strema Cafe",
+    "city": "Riyadh",
+    "archetype": "neighborhood_cafe",
+    "scenario": "margin_squeezed_merchant"
+  }
+}

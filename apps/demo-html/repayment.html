@@ -1,0 +1,60 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamFlow | Repayment</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="site">
+    <nav class="topnav">
+      <a href="./index.html">Main</a>
+      <a href="./onboarding.html">Onboarding</a>
+      <a href="./offer.html">Risk & Offer</a>
+      <a href="./payout.html">Vendor Payout</a>
+      <a class="active" href="./repayment.html">Repayment</a>
+      <a href="./investors.html">Investors</a>
+      <a href="./dashboard.html">Dashboard</a>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow">Step 6</p>
+      <h1>Repayment Streaming Setup</h1>
+      <p>Includes sales-based, fixed monthly, and hybrid mode.</p>
+    </header>
+
+    <section class="card">
+      <h2>Choose Plan</h2>
+      <div class="grid three">
+        <label>Repayment Mode
+          <select id="mode">
+            <option value="sales">Sales-Based Daily Stream</option>
+            <option value="fixed">Fixed Monthly Plan</option>
+            <option value="hybrid">Hybrid</option>
+          </select>
+        </label>
+        <label>Tenor (Months)
+          <input id="tenor" type="number" value="3" min="1" />
+        </label>
+        <label>Daily Sales Capture (%)
+          <input id="capture" type="number" value="8" min="1" max="30" />
+        </label>
+      </div>
+      <button id="setup">Setup Stream</button>
+      <div id="setupResult" class="result hidden"></div>
+      <div class="row">
+        <button class="ghost" id="ff">Fast-Forward 30 Days</button>
+      </div>
+      <div id="ffResult" class="result hidden"></div>
+    </section>
+
+    <div class="row">
+      <a href="./investors.html"><button>Continue To Investors</button></a>
+    </div>
+  </main>
+
+  <script src="./shared.js"></script>
+  <script src="./repayment.js"></script>
+</body>
+</html>

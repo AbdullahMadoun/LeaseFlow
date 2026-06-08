@@ -1,0 +1,28 @@
+# Secrets
+.env
+.env.leaseflow
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+leaseflow/.venv/
+
+# Node / frontend
+node_modules/
+dist/
+.next/
+
+# Runtime state
+*.log
+/var/pos-analyst/
