@@ -2,6 +2,8 @@
 
 > **Invoice-to-lease financing for the Kingdom's cafés.**
 > *Built for Streamathon 2026 · Riyadh · SUB4.0 @ KFUPM*
+>
+> 📑 **[View the Pitch Deck Slides](docs/imdad-deck.pdf)**
 
 ## 📖 The Problem
 Every restaurant, café, and bakery in Saudi Arabia is an "Ahmed." Out of 132,383 F&B businesses, **19 out of 20 are unbanked**. They have no collateral, no credit history, and no time to deal with traditional bank bureaucracy. 
