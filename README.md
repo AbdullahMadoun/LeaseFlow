@@ -15,6 +15,57 @@ Instead of lending risky capital, we utilize an invoice-to-lease model: **We buy
 ## 🤖 The Multi-Agentic System: Four Data Streams, One Decision
 IMDAD is not a standard CRUD application; it is a highly asynchronous **multi-agent system (MAS)** managing massive flows of unstructured data to output deterministic, 90-second underwriting decisions. 
 
+```mermaid
+graph TD
+    %% Ingestion Layer
+    subgraph Edge Layer "1. The Ingestion Sentinels"
+        D[📄 Drag & Drop Files] --> DocA[Document Agent]
+        S[🏦 Simah Login] --> SimA[Credit Agent]
+        M[🗺️ Maps Reviews] --> MapA[Sentiment Agent]
+    end
+
+    %% Reasoning Layer
+    subgraph Reasoning Layer "2. The Governors"
+        DocA --> CG[Cashflow Governor]
+        SimA --> CG
+        MapA --> MG[Market Governor]
+        
+        CG -.-> |Micro-Risk: Cash Buffer & Ratios| EL
+        MG -.-> |Macro-Risk: KSA F&B Envelope| EL
+    end
+
+    %% Decision Engine
+    subgraph Decision Engine "3. Expert Underwriter"
+        EL{Expert LLM}
+        EL -->|Threshold Fail| Deny((DENY))
+        EL -->|Rules Met| Approve((APPROVE))
+    end
+
+    %% Execution Layer
+    subgraph Execution Layer "4. Stream.sa Ledger"
+        Approve -->|Silent Handoff| API[Stream Orchestrator]
+        API --> POST1[POST /consumers]
+        API --> POST2[POST /payment-methods]
+        API --> POST3[POST /subscriptions]
+        
+        POST3 --> Ledger[(Ledger: Auto-Billing & ZATCA)]
+    end
+
+    %% Colors matching the brand
+    classDef primary fill:#FFD600,stroke:#000,stroke-width:2px,color:#000,font-weight:bold
+    classDef secondary fill:#000,stroke:#FFD600,stroke-width:2px,color:#FFF
+    classDef decision fill:#000,stroke:#FFD600,stroke-width:4px,color:#FFF,font-weight:bold
+    classDef alert fill:#FF3B30,stroke:#000,stroke-width:2px,color:#FFF,font-weight:bold
+    classDef success fill:#34C759,stroke:#000,stroke-width:2px,color:#FFF,font-weight:bold
+    
+    class DocA,SimA,MapA secondary
+    class CG,MG secondary
+    class EL decision
+    class API,Ledger primary
+    class Deny alert
+    class Approve success
+```
+
 Here is how the data flows through our agent swarm:
 
 1. **The Ingestion Sentinels (Edge Layer):**
