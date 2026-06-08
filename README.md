@@ -20,14 +20,14 @@ IMDAD is not a standard CRUD application; it is a highly asynchronous **multi-ag
 ```mermaid
 graph TD
     %% Ingestion Layer
-    subgraph Edge Layer "1. The Ingestion Sentinels"
+    subgraph EdgeLayer ["1. The Ingestion Sentinels"]
         D[📄 Drag & Drop Files] --> DocA[Document Agent]
         S[🏦 Simah Login] --> SimA[Credit Agent]
         M[🗺️ Maps Reviews] --> MapA[Sentiment Agent]
     end
 
     %% Reasoning Layer
-    subgraph Reasoning Layer "2. The Governors"
+    subgraph ReasoningLayer ["2. The Governors"]
         DocA --> CG[Cashflow Governor]
         SimA --> CG
         MapA --> MG[Market Governor]
@@ -37,14 +37,14 @@ graph TD
     end
 
     %% Decision Engine
-    subgraph Decision Engine "3. Expert Underwriter"
+    subgraph DecisionEngine ["3. Expert Underwriter"]
         EL{Expert LLM}
         EL -->|Threshold Fail| Deny((DENY))
         EL -->|Rules Met| Approve((APPROVE))
     end
 
     %% Execution Layer
-    subgraph Execution Layer "4. Stream.sa Ledger"
+    subgraph ExecutionLayer ["4. Stream.sa Ledger"]
         Approve -->|Silent Handoff| API[Stream Orchestrator]
         API --> POST1[POST /consumers]
         API --> POST2[POST /payment-methods]
